@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        Component Prova
+        Component prova
     </div>
 </template>
 <script>
