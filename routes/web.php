@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('proves.index');
 });
+
+Route::get('/quisom', function () {
+    return view('quiSom.quisom');
+});
