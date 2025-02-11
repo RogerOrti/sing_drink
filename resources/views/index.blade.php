@@ -8,6 +8,8 @@
 </head>
 <body>
     <div class="bg-primary">Hola</div>
-    @yield('contingut')
+    <div class="container">
+        @yield('contingut')
+    </div>
 </body>
 </html>
