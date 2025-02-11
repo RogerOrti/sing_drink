@@ -7,6 +7,26 @@ use Illuminate\Http\Request;
 
 class UsuariController extends Controller
 {
+
+    public function showLogin(){
+        return view("");
+    }
+
+    public function login(Request $request){
+
+
+    }
+
+    public function showRegister(){
+
+        return view("auth.register");
+    }
+
+    public function register(Request $request){
+
+
+    }
+
     /**
      * Display a listing of the resource.
      */
