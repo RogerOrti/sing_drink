@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class propietari extends Model
 {
     use HasFactory;
+
+    protected $table = 'propietari';
+
+    protected $primaryKey = 'id_user';
+
+    public $timestamps = false;
+
 }
