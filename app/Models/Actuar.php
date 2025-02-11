@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Actuar extends Model
 {
     use HasFactory;
+
+    protected $table = 'actuar';
+
+    protected $primaryKey = '?';
+
+    public $timestamps = false;
+
 }
