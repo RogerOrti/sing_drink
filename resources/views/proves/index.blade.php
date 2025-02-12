@@ -1,8 +1,9 @@
-@extends('index')
+@extends('layouts')
 
-@section('contingut')
-<div id="prova">
+@section('PantallaDeInicio')
+<div class="full-index-1">
 
 </div>
 @endsection
+
 
