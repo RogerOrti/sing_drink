@@ -20,4 +20,18 @@ class Local extends Model
         return $this->belongsTo(TipouLocal::class, 'id_tipo_local');
     }
 
+    public function propietari()
+    {
+        return $this->hasMany(Propietari::class, 'id_local');
+    }
+
+    public function actuar()
+    {
+        return $this->hasMany(Actuar::class, 'id_local');
+    }
+
+
+
+
+
 }

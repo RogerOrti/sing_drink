@@ -32,7 +32,7 @@ class UsuariController extends Controller
      */
     public function index()
     {
-        //
+        $usuaris = usari::all();
     }
 
     /**

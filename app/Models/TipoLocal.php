@@ -17,7 +17,7 @@ class TipoLocal extends Model
 
     public function local()
     {
-        return $this->hasMany(Local::class, 'id_local');
+        return $this->hasMany(Local::class, 'id_tipo_local');
     }
 
 }

@@ -17,6 +17,13 @@ class Multimedia extends Model
 
     public function tipoMultimedia()
     {
-        return $this->belongsTo(Tipoultimedia::class, 'id_tipo_multimedia');
+        return $this->belongsTo(TipoMultimedia::class, 'id_tipo_multimedia');
     }
+
+    public function musics()
+    {
+        return $this->hasMany(Music::class, 'id_multimedia');
+    }
+
+
 }

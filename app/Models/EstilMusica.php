@@ -15,8 +15,8 @@ class EstilMusica extends Model
 
     public $timestamps = false;
 
-    public function music()
+    public function musics()
     {
-        return $this->hasMany(Music::class, 'id_music');
+        return $this->hasMany(Music::class, 'id_estil');
     }
 }
