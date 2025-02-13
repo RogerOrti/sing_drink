@@ -17,7 +17,7 @@ class Calendari extends Model
 
     public function usuari()
     {
-        return $this->hasMany(Usuari::class, 'id_usuari');
+        return $this->hasMany(Usuari::class, 'id_calendari');
     }
 
 }

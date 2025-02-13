@@ -11,8 +11,21 @@ class Actuar extends Model
 
     protected $table = 'actuar';
 
-    protected $primaryKey = '?';
+    protected $primaryKey = '';
 
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(Usuari::class, 'id_user');
+
+    }
+
+    public function local()
+    {
+        return $this->belongsTo(Local::class, 'id_local');
+    }
+
+
 
 }

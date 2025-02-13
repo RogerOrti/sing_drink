@@ -17,6 +17,6 @@ class TipoMultimedia extends Model
 
     public function multimedia()
     {
-        return $this->hasMany(Multimedia::class, 'id_multimedia');
+        return $this->hasMany(Multimedia::class, 'id_tipo_multimedia');
     }
 }

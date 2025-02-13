@@ -11,8 +11,21 @@ class Contractar extends Model
 
     protected $table = 'contractar';
 
-    protected $primaryKey = '?';
+    protected $primaryKey = "id_contracte";
 
     public $timestamps = false;
+
+    public function musics()
+    {
+        return $this->belongsTo(Music::class, 'id_music');
+    }
+
+    public function propietaris()
+    {
+        return $this->belongsTo(Propietaris::class, 'id_propietari');
+    }
+
+
+
 
 }

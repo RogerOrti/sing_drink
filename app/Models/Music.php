@@ -20,4 +20,24 @@ class Music extends Model
         return $this->belongsTo(EstilMusica::class, 'id_estil');
     }
 
+    public function contracte()
+    {
+        return $this->hasMany(Contractar::class, 'id_music');
+    }
+
+    public function multimedia()
+    {
+        return $this->belongsTo(Multimedia::class, 'id_multimedia');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(Usuari::class, 'id_user');
+    }
+
+
+
+
+
+
 }
