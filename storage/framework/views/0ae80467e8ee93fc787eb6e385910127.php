@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Navbar with Full Screen Div</title>
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js']); ?>
 </head>
+
 <body>
     <div class="full-screen-bg-primary">
-        <nav class="navbar bg-secondary navbar-expand-lg sticky-top">
+        <?php echo $__env->yieldContent('fonsPantalla'); ?>
+
+        <nav class="navbar  navbar-expand-lg sticky-top full-width">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="<?php echo e(asset('image/Logo.png')); ?>" alt="Logo de la marca" width="100" height="100">
+                    <img src="<?php echo e(asset('image/Logo.png')); ?>" alt="Logo de la marca" width="90" height="100">
                 </a>
 
                 <div class="d-flex justify-content-end d-lg-none">
-                    <button class="navbar-toggler btn btn-outline-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler btn btn-outline-light" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
@@ -42,17 +48,18 @@
                             <a class="nav-link" href="#">INICIAR SESION</a>
                         </li>
                         <li class="nav-item d-lg-none">
-                            <a  class="nav-link" href="#">REGISTRARSE</a>
+                            <a class="nav-link" href="#">REGISTRAR-SE</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="d-none d-lg-flex">
-                    <a href="#" class="btn btn-light me-2">Iniciar sesión</a>
-                    <a href="#" class="btn btn-outline-light">Registrarse</a>
+                    <a href="#" class="btn btn-secondary me-2">Iniciar sesión</a>
+                    <a href="#" class="btn btn-primary me-2">Registrar-se</a>
                 </div>
             </div>
         </nav>
+
         <?php echo $__env->yieldContent('PantallaDeInicio'); ?>
     </div>
     <div class="full-width-contendio"></div>
@@ -75,5 +82,6 @@
         </div>
     </footer>
 </body>
+
 </html>
 <?php /**PATH C:\xampp\htdocs\sing_drink\resources\views/layouts.blade.php ENDPATH**/ ?>
