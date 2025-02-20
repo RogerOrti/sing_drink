@@ -9,5 +9,6 @@
 <body>
     <div class="bg-primary">Hola</div>
     @yield('contingut')
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>
