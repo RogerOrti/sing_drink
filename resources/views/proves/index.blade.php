@@ -7,6 +7,8 @@
 
 @section('PantallaDeInicio')
     <div class="full-index-1">
+        <div class="container">
 
+        </div>
     </div>
 @endsection

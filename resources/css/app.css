@@ -27,7 +27,41 @@ color: white;
 flex-direction: column;
 }
 
-.pantalla{
+
+.navbar {
+    transition: background-color 0.6s ease, opacity 0.6s ease;
+}
+
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.163);
+}
+
+
+.navbar .nav-link {
+    color: white !important;
+}
+
+
+.navbar .nav-link:hover {
+    color: #f8f9fa !important;
+}
+
+
+.navbar .nav-item.active .nav-link {
+    color: white !important;
+}
+.full-index-1 .container{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    background-color: black;
+    z-index: 1;
+}
+
+
+.pantalla {
     background-image: url(../../public/image/200.gif);
     background-size: cover;
 }
+
