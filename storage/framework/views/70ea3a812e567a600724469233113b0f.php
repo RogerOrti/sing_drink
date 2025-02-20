@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Navbar with Full Screen Div</title>
-    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js'])
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js']); ?>
 </head>
 
 <body>
     <div class="full-screen-bg-primary">
-        @yield('fonsPantalla')
+        <?php echo $__env->yieldContent('fonsPantalla'); ?>
 
         <nav class="navbar  navbar-expand-lg fixed-top full-width">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="{{ asset('image/Logo.png') }}" alt="Logo de la marca" width="90" height="100">
+                    <img src="<?php echo e(asset('image/Logo.png')); ?>" alt="Logo de la marca" width="90" height="100">
                 </a>
 
                 <div class="d-flex justify-content-end d-lg-none">
@@ -60,7 +60,7 @@
             </div>
         </nav>
 
-        @yield('PantallaDeInicio')
+        <?php echo $__env->yieldContent('PantallaDeInicio'); ?>
     </div>
     <div class="full-width-contendio"></div>
     <div class="full-width-contendio"></div>
@@ -76,11 +76,12 @@
             </div>
         </div>
         <div class="footerPart2">
-            <img src="{{ asset('image/Instgram.png') }}" alt="Logo Instagram" width="75" height="75">
-            <img src="{{ asset('image/X.png') }}" alt="Logo X" width="75" height="75">
-            <img src="{{ asset('image/Facebook.png') }}" alt="Logo Facebook" width="75" height="75">
+            <img src="<?php echo e(asset('image/Instgram.png')); ?>" alt="Logo Instagram" width="75" height="75">
+            <img src="<?php echo e(asset('image/X.png')); ?>" alt="Logo X" width="75" height="75">
+            <img src="<?php echo e(asset('image/Facebook.png')); ?>" alt="Logo Facebook" width="75" height="75">
         </div>
     </footer>
 </body>
 
 </html>
+<?php /**PATH C:\Users\jader\OneDrive\Desktop\xampp\xampp\htdocs\sing_drink\resources\views/layouts.blade.php ENDPATH**/ ?>

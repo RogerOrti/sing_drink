@@ -36,6 +36,9 @@ $dark: #0B1828;
 
 .full-index-1{
     @extend .full-width-index;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .full-width-contendio {
