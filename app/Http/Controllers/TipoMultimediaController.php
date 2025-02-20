@@ -2,37 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuari;
+use App\Models\TipoMultimedia;
 use Illuminate\Http\Request;
 
-class UsuariController extends Controller
+class TipoMultimediaController extends Controller
 {
-
-    public function showLogin(){
-        return view("");
-    }
-
-    public function login(Request $request){
-
-
-    }
-
-    public function showRegister(){
-
-        return view("auth.register");
-    }
-
-    public function register(Request $request){
-
-
-    }
-
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $usuaris = usari::all();
+        //
     }
 
     /**
@@ -54,7 +34,7 @@ class UsuariController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Usuari $usuari)
+    public function show(TipoMultimedia $tipoMultimedia)
     {
         //
     }
@@ -62,7 +42,7 @@ class UsuariController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Usuari $usuari)
+    public function edit(TipoMultimedia $tipoMultimedia)
     {
         //
     }
@@ -70,7 +50,7 @@ class UsuariController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Usuari $usuari)
+    public function update(Request $request, TipoMultimedia $tipoMultimedia)
     {
         //
     }
@@ -78,7 +58,7 @@ class UsuariController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Usuari $usuari)
+    public function destroy(TipoMultimedia $tipoMultimedia)
     {
         //
     }

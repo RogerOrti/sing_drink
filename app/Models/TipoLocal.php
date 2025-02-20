@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class TipoLocal extends Model
 {
     use HasFactory;
+
+    protected $table = 'tipo_local';
+
+    protected $primaryKey = 'id_tipo_local';
+
+    public $timestamps = false;
+
+    public function local()
+    {
+        return $this->hasMany(Local::class, 'id_tipo_local');
+    }
+
 }

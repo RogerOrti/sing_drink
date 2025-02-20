@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class RolUser extends Model
+class EstilMusica extends Model
 {
     use HasFactory;
 
-    protected $table = 'rolUser';
+    protected $table = 'estil_musica';
 
-    protected $primaryKey = 'id_rol';
+    protected $primaryKey = 'id_estil';
 
     public $timestamps = false;
 
-    public function user()
+    public function musics()
     {
-        return $this->hasMany(User::class, 'id_rol');
+        return $this->hasMany(Music::class, 'id_estil');
     }
 }
