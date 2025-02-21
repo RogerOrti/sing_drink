@@ -3,20 +3,41 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuari;
+use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsuariController extends Controller
 {
 
     public function showLogin(){
-        return view("");
+        return view("auth.login");
     }
 
     public function login(Request $request){
 
+        $nomUsuari = $request->input('username');
+        $contrasenya = $request->input('password');
 
+        $usuari = Usuari::where('username',$nomUsuari)->first();
+
+        if($usuari != null && Hash::check($contrasenya, $usuari->contrasenya)){
+            Auth::login($usuari);
+            $response = redirect('/');
+        }
+        else{
+            $request->session()->flash('error','Usuari o contrasenya incorrectes');
+            $response = redirect('/');
+        }
+
+        return $response;
     }
 
+    public function logout(){
+
+        Auth::logout();
+        return redirect('/');
+    }
     public function showRegister(){
 
         return view("auth.register");
@@ -24,7 +45,17 @@ class UsuariController extends Controller
 
     public function register(Request $request){
 
+        $usuari = new Usuari();
 
+        $usuari = $request->input("username");
+        $usuari = $request->input("username");
+        $usuari = $request->input("username");
+        $usuari = $request->input("username");
+
+        $usuari->save();
+
+        Auth::login($usuari);
+        return redirect("/");
     }
 
     /**
