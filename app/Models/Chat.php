@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Chat extends Model
 {
     use HasFactory;
+
+    protected $table = 'chat';
+
+    protected $primaryKey = '?';
+
+    public $timestamps = false;
+
 }

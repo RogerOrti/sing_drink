@@ -5,19 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class TipoLocal extends Model
+class EstilMusica extends Model
 {
     use HasFactory;
 
-    protected $table = 'tipo_local';
+    protected $table = 'estil_musica';
 
-    protected $primaryKey = 'id_tipo_local';
+    protected $primaryKey = 'id_estil';
 
     public $timestamps = false;
 
-    public function local()
+    public function music()
     {
-        return $this->hasMany(Local::class, 'id_local');
+        return $this->hasMany(Music::class, 'id_music');
     }
-
 }
