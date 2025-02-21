@@ -62,8 +62,8 @@
 
         <?php echo $__env->yieldContent('PantallaDeInicio'); ?>
     </div>
-    <div class="full-width-contendio"></div>
-    <div class="full-width-contendio"></div>
+    <?php echo $__env->yieldContent('Contenido_Adicional'); ?>
+
 
     <footer class="full-width-footer">
         <div class="footerPart1">
