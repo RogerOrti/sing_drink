@@ -5,17 +5,12 @@ $dark: #0B1828;
 
 @import 'bootstrap/scss/bootstrap';
 
-
-
-.full-width {
-    width: 100%;
-}
-
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 .full-screen-bg-primary {
     color: $light;
     display: flex;
@@ -23,22 +18,24 @@ $dark: #0B1828;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    @extend .full-width;
+    width: 100%;
     text-align: center;
 }
+
 .full-width-index {
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    @extend .full-width;
+    width: 100%;
 }
 
-.full-index-1{
-    @extend .full-width-index;
-    justify-content: center;
+.full-index-1 {
+    height: 100%;
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 .full-width-contendio {
@@ -46,18 +43,12 @@ $dark: #0B1828;
     background-color: $light;
     min-height: 100px;
     border: solid 1px $dark;
-    @extend .full-width;
+    width: 100%;
 }
 
 .full-width-footer {
     display: flex;
     background-color: $dark;
     height: 25%;
-    @extend .full-width;
+    width: 100%;
 }
-
-
-
-
-
-
