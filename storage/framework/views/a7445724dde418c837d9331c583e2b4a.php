@@ -1,0 +1,2 @@
+
+<?php echo $__env->make('layouts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\jader\OneDrive\Desktop\xampp\xampp\htdocs\sing_drink\resources\views/proves/index2.blade.php ENDPATH**/ ?>
