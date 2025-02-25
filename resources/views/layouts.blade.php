@@ -64,7 +64,6 @@
     </div>
     @yield('Contenido_Adicional')
 
-
     <footer class="full-width-footer">
         <div class="footerPart1">
             <div class="footerpart1-1">
