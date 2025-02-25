@@ -9,7 +9,7 @@
     </div>
 @endsection
 
-@section('contingut')
+@section('Contenido_Adicional')
     <prova></prova>
     <div class="bg-primary ">
         <br>
