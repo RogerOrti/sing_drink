@@ -32,7 +32,7 @@ class Usuari extends Model
 
     public function musics()
     {
-        return $this->hasMany(Musics::class, 'id_user');
+        return $this->hasMany(Music::class, 'id_user');
     }
 
     public function actuar()
@@ -40,6 +40,15 @@ class Usuari extends Model
         return $this->hasMany(Actuar::class, 'id_user');
     }
 
+    public function xatsPropietari()
+    {
+        return $this->hasMany(Chat::class, 'id_propietari');
+    }
+
+    public function xatsMusic()
+    {
+        return $this->hasMany(Chat::class, 'id_music');
+    }
 
 
 
