@@ -62,9 +62,7 @@
 
         @yield('PantallaDeInicio')
     </div>
-    <div class="full-width-contendio">
-        @yield('contingut')
-    </div>
+    @yield('Contenido_Adicional')
 
     <footer class="full-width-footer">
         <div class="footerPart1">

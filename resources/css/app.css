@@ -73,6 +73,12 @@
     background-image: url(../../public/image/200.gif);
     background-size: cover;
 }
+.IndexBoton{
+    display: flex;
+    margin-top: 40px;
+    width: 25%;
+    height: 10%;
+}
 
 @media (max-width: 768px) {
     .container h2 {
