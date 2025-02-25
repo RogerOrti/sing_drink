@@ -12,7 +12,7 @@
     <div class="full-screen-bg-primary">
         <?php echo $__env->yieldContent('fonsPantalla'); ?>
 
-        <nav class="navbar  navbar-expand-lg sticky-top full-width">
+        <nav class="navbar  navbar-expand-lg fixed-top full-width">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="<?php echo e(asset('image/Logo.png')); ?>" alt="Logo de la marca" width="90" height="100">
@@ -62,8 +62,9 @@
 
         <?php echo $__env->yieldContent('PantallaDeInicio'); ?>
     </div>
-    <div class="full-width-contendio"></div>
-    <div class="full-width-contendio"></div>
+    <div class="full-width-contendio">
+        <?php echo $__env->yieldContent('contingut'); ?>
+    </div>
 
     <footer class="full-width-footer">
         <div class="footerPart1">
