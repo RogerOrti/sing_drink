@@ -13,7 +13,7 @@
     <prova></prova>
     <div class="bg-primary ">
         <br>
-        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTES</p>
+        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTaS</p>
         <section class="jukebox">
 
             <div class="jukebox-wrapper">
