@@ -10,7 +10,7 @@
 <?php $__env->startSection('Contenido_Adicional'); ?>
     <div class="bg-primary ">
         <br>
-        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTaS</p>
+        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTS</p>
         <section class="jukebox">
 
             <div class="jukebox-wrapper">
