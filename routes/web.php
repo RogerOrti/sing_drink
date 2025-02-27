@@ -31,10 +31,30 @@ Route::get('/quisom', function () {
 Route::post('', [UsuariController::class,''])->name('logout');
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/', function ($id) {
-        $user = Auth::user();
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/', function ($id) {
+//         $user = Auth::user();
 
-        return view('', compact('user'));
-    });
- });
+//         return view('', compact('user'));
+//     });
+//  });
+
+Route::get('/musics', function () {
+    return view('musics.musics');
+});
+
+Route::get('/music', function () {
+    return view('music.music');
+});
+
+Route::get('/locals', function () {
+    return view('locals.locals');
+});
+
+Route::get('/local', function () {
+    return view('local.local');
+});
+
+
+
+
