@@ -1,7 +1,7 @@
 @extends('layouts')
 
 @section('fonsPantalla')
-    <div id="quisom">
+    <div id="quisom" style="background-image: url('{{ url('img/fondo.jpg') }}');">
         <h1 class="display-1 fw-bold text-center larger-title">QUI SOM</h1>
         <p class="display-5  text-center ">-</p>
         <p class="display-6 text-center"><strong>Sing&Drink</strong></p>
@@ -10,10 +10,9 @@
 @endsection
 
 @section('Contenido_Adicional')
-    <prova></prova>
     <div class="bg-primary ">
         <br>
-        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTaS</p>
+        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTS</p>
         <section class="jukebox">
 
             <div class="jukebox-wrapper">

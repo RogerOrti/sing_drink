@@ -1,5 +1,5 @@
 <?php $__env->startSection('fonsPantalla'); ?>
-    <div id="quisom">
+    <div id="quisom" style="background-image: url('<?php echo e(url('img/fondo.jpg')); ?>');">
         <h1 class="display-1 fw-bold text-center larger-title">QUI SOM</h1>
         <p class="display-5  text-center ">-</p>
         <p class="display-6 text-center"><strong>Sing&Drink</strong></p>
@@ -7,11 +7,10 @@
     </div>
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('contingut'); ?>
-    <prova></prova>
+<?php $__env->startSection('Contenido_Adicional'); ?>
     <div class="bg-primary ">
         <br>
-        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTES</p>
+        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTS</p>
         <section class="jukebox">
 
             <div class="jukebox-wrapper">
