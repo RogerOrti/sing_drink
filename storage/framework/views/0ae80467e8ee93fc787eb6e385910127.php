@@ -64,6 +64,7 @@
     </div>
     <?php echo $__env->yieldContent('Contenido_Adicional'); ?>
 
+
     <footer class="full-width-footer">
         <div class="footerPart1">
             <div class="footerpart1-1">
