@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('proves.index');
 });
@@ -35,10 +36,6 @@ Route::post('', [UsuariController::class,''])->name('logout');
 //     Route::get('/', function ($id) {
 //         $user = Auth::user();
 
-//         return view('', compact('user'));
-//     });
-//  });
-
 Route::get('/musics', function () {
     return view('musics.musics');
 });
@@ -54,7 +51,4 @@ Route::get('/locals', function () {
 Route::get('/local', function () {
     return view('local.local');
 });
-
-
-
 

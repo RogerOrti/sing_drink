@@ -1,26 +1,24 @@
-@extends('layouts')
-
-@section('fonsPantalla')
+<?php $__env->startSection('fonsPantalla'); ?>
     <div id="quisom">
         <h1 class="display-1 fw-bold text-center larger-title">QUI SOM</h1>
         <p class="display-5  text-center ">-</p>
         <p class="display-6 text-center"><strong>Sing&Drink</strong></p>
 
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('Contenido_Adicional')
+<?php $__env->startSection('Contenido_Adicional'); ?>
     <div class="bg-primary ">
         <br>
-        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTS</p>
+        <p class="display-1 fw-bold text-center larger-title text-bg-primary " id="integrantes">INTEGRANTaS</p>
         <section class="jukebox">
 
             <div class="jukebox-wrapper">
-                <div class="carta"><img src="{{ url('img/prog1.jpg') }}" alt="Album 1"></div>
-                <div class="carta"><img src="{{ url('img/prog2.jpg') }}" alt="Album 2"></div>
-                <div class="carta"><img src="{{ url('img/prog3.jpg') }}" alt="Album 3"></div>
-                <div class="carta"><img src="{{ url('img/prog4.jpg') }}" alt="Album 4"></div>
-                <div class="carta"><img src="{{ url('img/prog5.jpg') }}" alt="Album 5"></div>
+                <div class="carta"><img src="<?php echo e(url('img/prog1.jpg')); ?>" alt="Album 1"></div>
+                <div class="carta"><img src="<?php echo e(url('img/prog2.jpg')); ?>" alt="Album 2"></div>
+                <div class="carta"><img src="<?php echo e(url('img/prog3.jpg')); ?>" alt="Album 3"></div>
+                <div class="carta"><img src="<?php echo e(url('img/prog4.jpg')); ?>" alt="Album 4"></div>
+                <div class="carta"><img src="<?php echo e(url('img/prog5.jpg')); ?>" alt="Album 5"></div>
             </div>
         </section>
 
@@ -54,7 +52,7 @@
                         per la música en oportunitats reals, creant un ecosistema on tots es beneficien i creixen junts.</p>
                 </div>
                 <div class="col-md-5 order-md-1">
-                    <img src="{{ url('img/mision.png') }}" alt="Mision"
+                    <img src="<?php echo e(url('img/mision.png')); ?>" alt="Mision"
                         class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400"
                         height="400">
                 </div>
@@ -75,7 +73,7 @@
                         manera com es gestionen les actuacions en viu</p>
                 </div>
                 <div class="col-md-5">
-                    <img src="{{ url('img/visio.png') }}" alt="Misión, Visión y Valores"
+                    <img src="<?php echo e(url('img/visio.png')); ?>" alt="Misión, Visión y Valores"
                         class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400"
                         height="400">
                 </div>
@@ -96,7 +94,7 @@
                         nostre apliació web </p>
                 </div>
                 <div class="col-md-5 order-md-1">
-                    <img src="{{ url('img/valors.png') }}" alt="Misión, Visión y Valores"
+                    <img src="<?php echo e(url('img/valors.png')); ?>" alt="Misión, Visión y Valores"
                         class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="400"
                         height="400">
                 </div>
@@ -105,7 +103,7 @@
         </div>
     </div>
 
-    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="<?php echo e(mix('js/app.js')); ?>"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             gsap.registerPlugin(ScrollTrigger);
@@ -160,4 +158,6 @@
             });
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\sing_drink\resources\views/quiSom/quisom.blade.php ENDPATH**/ ?>
