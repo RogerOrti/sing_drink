@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('proves.index');
 });
@@ -31,10 +32,10 @@ Route::get('/quisom', function () {
 Route::post('', [UsuariController::class,''])->name('logout');
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/', function ($id) {
-        $user = Auth::user();
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/', function ($id) {
+//         $user = Auth::user();
 
-        return view('', compact('user'));
-    });
- });
+//         return view('', compact('user'));
+//     });
+//  });
