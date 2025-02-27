@@ -73,7 +73,7 @@
     background-image: url(../../public/image/200.gif);
     background-size: cover;
 }
-.IndexBoton{
+.IndexBoton {
     display: flex;
     margin-top: 40px;
     width: 25%;
@@ -170,7 +170,6 @@
 }
 
 #quisom {
-    background-image: url("/public/img/fondo.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;
