@@ -25,6 +25,8 @@ Route::post('/register', [UsuariController::class, 'register'])->name('usuari.re
 
 Route::get('/login', [UsuariController::class,'showLogin'])->name('login');
 Route::post('/login', [UsuariController::class, 'login']);
+Route::get('/locales', [UsuariController::class, 'SobreNosotros'])->name('sobre-nosotros');
+Route::get('/Home', [UsuariController::class, 'Home'])->name('Home');
 
 Route::get('/quisom', function () {
     return view('quiSom.quisom');

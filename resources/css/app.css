@@ -1,3 +1,26 @@
+.footerEventos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+}
+
+.footerEventosPart1, .footerEventosPart2 {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    border: solid black 1px;
+}
+
+.cubo {
+    width: calc(100% / 5);
+    height: 50px;
+    background-color: aqua;
+}
+
+
 .footerPart1 {
     height: 100%;
     width: 60%;

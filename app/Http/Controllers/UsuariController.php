@@ -14,6 +14,13 @@ class UsuariController extends Controller
         return view("auth.login");
     }
 
+    public function SobreNosotros(){
+        return view("quiSom.quisom");
+    }
+    public function Home(){
+        return view("proves.index");
+    }
+
     public function login(Request $request){
 
         $nomUsuari = $request->input('username');

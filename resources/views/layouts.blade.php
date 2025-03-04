@@ -14,7 +14,7 @@
 
         <nav class="navbar  navbar-expand-lg fixed-top full-width">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{ route('Home') }}">
                     <img src="{{ asset('image/Logo.png') }}" alt="Logo de la marca" width="90" height="100">
                 </a>
 
@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('Home') }}">INICIO</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">LOCALES</a>
@@ -41,28 +41,40 @@
                             <a class="nav-link" href="#">CALENDARIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">SOBRE NOSOTROS</a>
+                            <a class="nav-link" href="{{ route('sobre-nosotros') }}">SOBRE NOSOTROS</a>
                         </li>
 
                         <li class="nav-item d-lg-none">
-                            <a class="nav-link" href="#">INICIAR SESION</a>
+                            <a class="nav-link" href="{{ route('login') }}">INICIAR SESION</a>
                         </li>
                         <li class="nav-item d-lg-none">
-                            <a class="nav-link" href="#">REGISTRAR-SE</a>
+                            <a class="nav-link" href="{{ route('register') }}">REGISTRAR-SE</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="d-none d-lg-flex">
-                    <a href="#" class="btn btn-secondary me-2">Iniciar sesión</a>
-                    <a href="#" class="btn btn-primary me-2">Registrar-se</a>
+                    <a href="{{ route('login') }}" class="btn btn-secondary me-2">Iniciar sesión</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary me-2">Registrar-se</a>
                 </div>
             </div>
         </nav>
-
         @yield('PantallaDeInicio')
     </div>
     @yield('Contenido_Adicional')
+    <div class="footerEventos">
+        <div class="footerEventosPart1">
+            <div class="cubo"></div>
+            <div class="cubo"></div>
+            <div class="cubo"></div>
+            <div class="cubo"></div>
+            <div class="cubo"></div>
+            <div class="cubo"></div>
+            <div class="cubo"></div>
+            <div class="cubo"></div>
+        </div>
+        <div class="footerEventosPart2"></div>
+    </div>
 
     <footer class="full-width-footer">
         <div class="footerPart1">
