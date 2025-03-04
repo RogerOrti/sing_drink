@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Navbar with Full Screen Div</title>
-    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css' ])
 </head>
 
 <body>

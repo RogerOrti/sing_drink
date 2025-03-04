@@ -1,0 +1,28 @@
+.locals {
+
+    justify-content: center;
+    background-color: #071424;
+
+}
+
+.titolLocals {
+
+    text-align: center;
+    color: white;
+    padding: 5rem;
+}
+
+.cardsLocals {
+
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 2rem;
+
+}
+
+.card {
+
+margin: 1rem;
+
+}
