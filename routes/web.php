@@ -52,3 +52,6 @@ Route::get('/local', function () {
     return view('local.local');
 });
 
+Route::get('/mapa', function () {
+    return view('mapes.mapboxFooter');
+});
