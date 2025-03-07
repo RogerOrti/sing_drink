@@ -8,11 +8,15 @@
             @csrf
             <div class="form-check form-switch mb-3">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Acceptar termes i condicions</label>
+                <label class="form-check-label" for="flexSwitchCheckDefault">Music/propietari local</label>
             </div>
             <div class="mb-3">
                 <label for="nom" class="form-label">Nom</label>
                 <input type="text" class="form-control" id="nom" name="nom" required>
+            </div>
+            <div class="mb-3">
+                <label for="nom" class="form-label">Cognom</label>
+                <input type="text" class="form-control" id="nom" name="cognom" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>

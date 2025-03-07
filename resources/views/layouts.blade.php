@@ -55,7 +55,6 @@
 
                 <div class="d-none d-lg-flex">
                     <a href="{{ route('login') }}" class="btn btn-secondary me-2">Iniciar sesión</a>
-                    <a href="{{ route('register') }}" class="btn btn-primary me-2">Registrar-se</a>
                 </div>
             </div>
         </nav>

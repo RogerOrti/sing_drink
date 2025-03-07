@@ -50,19 +50,24 @@ class UsuariController extends Controller
         return view("auth.register");
     }
 
-    public function register(Request $request){
+    public function register(Request $request)
+    {
 
+        // Creació de l'usuari
         $usuari = new Usuari();
+        $usuari->nom = $request->input("nom");
+        $usuari->cognom = $request->input("cognom");
+        $usuari->mail = $request->input("email");
+        $usuari->contrasenya = Hash::make($request->input("contrasenya"));
 
-        $usuari = $request->input("username");
-        $usuari = $request->input("username");
-        $usuari = $request->input("username");
-        $usuari = $request->input("username");
-
-        $usuari->save();
-
-        Auth::login($usuari);
-        return redirect("/");
+        if ($usuari->save()) {
+            Auth::login($usuari);
+            session()->flash('success', 'Usuari registrat correctament!');
+            return redirect('/');
+        } else {
+            session()->flash('error', "No s'ha pogut registrar l'usuari.");
+            return back();
+        }
     }
 
     /**
@@ -70,7 +75,9 @@ class UsuariController extends Controller
      */
     public function index()
     {
-        $usuaris = usari::all();
+        $usuaris = usuari::all();
+
+        return $usuaris;
     }
 
     /**
