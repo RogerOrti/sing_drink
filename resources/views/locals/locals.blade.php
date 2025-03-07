@@ -9,7 +9,7 @@
 @section('PantallaDeInicio')
 <div id="quisom">
     <h1 class="display-1 fw-bold text-center larger-title">LOCALS</h1>
-    <p>Sing and Drink et convida a viure una experiència única als nostres locals.
+    <p>Sing and Drink et convida a viure una experiència única als nostres locals
         Gaudeix de música en viu, una gran selecció de begudes i moments inoblidables amb els teus amics.</p>
 </div>
 @endsection
