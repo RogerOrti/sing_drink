@@ -2,16 +2,17 @@ import "./bootstrap";
 
 import * as bootstrap from "bootstrap";
 
-// import { createApp } from "vue";
+import { createApp } from "vue";
 // import Prova from "./components/Prova.vue";
 
-import { createApp } from "vue";
-import mapboxFooter from "./components/mapbox/mapboxFooter.vue";
+// import { createApp } from "vue";
+// import mapboxFooter from "./components/mapbox/mapboxFooter.vue";
 
-createApp(mapboxFooter).mount('#mapa');
+// createApp(mapboxFooter).mount('#mapa');
 
+import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
 
-// const app = createApp({});
+createApp(FooterEventos).mount('#Cubo');
 
 // app.component("prova", Prova);
 // app.mount("#app");

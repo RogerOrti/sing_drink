@@ -19,5 +19,4 @@
     </div>
 @endsection
 @section('Contenido_Adicional')
-
 @endsection
