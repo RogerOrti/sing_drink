@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Navbar with Full Screen Div</title>
-    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css' ])
+    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css' ])
 </head>
 
 <body>
@@ -62,19 +62,7 @@
         @yield('PantallaDeInicio')
     </div>
     @yield('Contenido_Adicional')
-    <div class="footerEventos">
-        <div class="footerEventosPart1">
-            <div class="cubo"></div>
-            <div class="cubo"></div>
-            <div class="cubo"></div>
-            <div class="cubo"></div>
-            <div class="cubo"></div>
-            <div class="cubo"></div>
-            <div class="cubo"></div>
-            <div class="cubo"></div>
-        </div>
-        <div class="footerEventosPart2"></div>
-    </div>
+    <div id="Cubo"></div>
 
     <footer class="full-width-footer">
         <div class="footerPart1">
