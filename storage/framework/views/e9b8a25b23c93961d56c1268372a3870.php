@@ -12,7 +12,31 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('Contenido_Adicional'); ?>
-
+<div class="locals">
+    <div>
+        <h1 class="titolLocals">ELS NOSTRES MÚSICS</h1>
+    </div>
+<div class="coleccioMusics">
+    <div class="cardsLocals">
+        <div class="cardMusics">
+            <img src="<?php echo e(asset('image/erfan/Anthony_Kiedis.png')); ?>" class="cardMusics" alt="...">
+            <div>
+              <a href="#" class=" btn btnMusics btn-primary">Saber más</a>
+              <img class="play" src="<?php echo e(asset('image/erfan/logoPlay.png')); ?>" class="card-img-top" alt="...">
+            </div>
+        </div>
+    </div>
+    <div class="cardsLocals">
+        <div class="cardMusics">
+            <img src="<?php echo e(asset('image/erfan/Anthony_Kiedis.png')); ?>" class="cardMusics" alt="...">
+            <div>
+              <a href="#" class="btn btnMusics btn-primary">Saber más</a>
+              <img class="play" src="<?php echo e(asset('image/erfan/logoPlay.png')); ?>" class="card-img-top" alt="...">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 <?php $__env->stopSection(); ?>
 
 
