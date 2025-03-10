@@ -14,5 +14,13 @@
 @endsection
 
 @section('Contenido_Adicional')
+<div>
+    <div class="fotoPrincipal">
+
+    </div>
+    <div class="fotosMusic">
+
+    </div>
+</div>
 
 @endsection
