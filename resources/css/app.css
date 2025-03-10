@@ -70,14 +70,6 @@
 .container h2 {
     font-size: 80px;
 }
-.InicioDescripcion {
-    width: 50%;
-    height: 40%;
-    display: flex;
-    border: solid black 1px;
-    align-items: center;
-    margin-top: 30px;
-}
 
 .pantalla {
     background-image: url(../../public/image/200.gif);

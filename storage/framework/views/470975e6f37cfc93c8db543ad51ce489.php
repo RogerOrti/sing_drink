@@ -10,6 +10,9 @@
                 <label for="" class="form-label">Contrasenya</label>
                 <input type="text" class="form-control" id="" name="contrasenya">
             </div>
+            <div class="mb-3">
+                <a href="<?php echo e(route('register')); ?>" >No tens compte? Registra't ara!</a>
+            </div>
             <button type="submit" class="btn btn-primary">Iniciar sessió</button>
         </form>
     </div>
