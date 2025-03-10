@@ -54,9 +54,19 @@
                     </ul>
                 </div>
 
+                @if (!Auth::check())
                 <div class="d-none d-lg-flex">
                     <a href="{{ route('login') }}" class="btn btn-secondary me-2">Iniciar sesión</a>
                 </div>
+                <div class="d-none d-lg-flex">
+                    <a href="{{ route('register') }}" class="btn btn-secondary me-2">Registre</a>
+                </div>
+                @else
+                <div class="d-none d-lg-flex">
+                    <a href="{{ route('logout') }}" class="btn btn-secondary me-2">Logout</a>
+                </div>
+                @endif
+
             </div>
         </nav>
         @yield('PantallaDeInicio')
