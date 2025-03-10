@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <div class="full-screen-bg-primary">
         @yield('fonsPantalla')
 
@@ -71,6 +72,7 @@
         @yield('PantallaDeInicio')
     </div>
     @yield('Contenido_Adicional')
+    <div id="app"></div>
     <div id="Cubo"></div>
 
     <footer class="full-width-footer">
