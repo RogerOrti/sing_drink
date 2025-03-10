@@ -1,3 +1,17 @@
+.fosc {
+    filter: brightness(50%);
+}
+
+.fons {
+
+    background-color: #071424;
+
+}
+
+
+
+        /* LOCALS */
+
 .locals {
 
     justify-content: center;
@@ -18,6 +32,9 @@
     justify-content: center;
     padding: 2rem;
 }
+
+        /* MUSICS */
+
 .cardMusics {
     position: relative;
     overflow: hidden;
@@ -57,4 +74,21 @@
         display:block;
     }
 }
+
+        /*MUSIC */
+
+.fotoPrincipal {
+
+    width: 90rem;
+
+}
+
+.fotosSecundaries {
+
+    width: 30rem;
+
+}
+
+
+
 
