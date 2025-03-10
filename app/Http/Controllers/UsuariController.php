@@ -23,13 +23,14 @@ class UsuariController extends Controller
 
     public function login(Request $request){
 
-        $nomUsuari = $request->input('username');
-        $contrasenya = $request->input('password');
+        $nomUsuari = $request->input('nom');
+        $contrasenya = $request->input('contrasenya');
 
-        $usuari = Usuari::where('username',$nomUsuari)->first();
+        $usuari = Usuari::where('nom',$nomUsuari)->first();
 
         if($usuari != null && Hash::check($contrasenya, $usuari->contrasenya)){
             Auth::login($usuari);
+            $request->session()->flash('usuari', $usuari);
             $response = redirect('/');
         }
         else{
@@ -40,9 +41,12 @@ class UsuariController extends Controller
         return $response;
     }
 
-    public function logout(){
-
+    public function logout(Request $request){
         Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
         return redirect('/');
     }
     public function showRegister(){

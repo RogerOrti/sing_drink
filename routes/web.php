@@ -31,7 +31,7 @@ Route::get('/Home', [UsuariController::class, 'Home'])->name('Home');
 Route::get('/quisom', function () {
     return view('quiSom.quisom');
 });
-Route::post('', [UsuariController::class,''])->name('logout');
+Route::get('/logout', [UsuariController::class,'logout'])->name('logout');
 
 
 // Route::middleware(['auth'])->group(function () {
