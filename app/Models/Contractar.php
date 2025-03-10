@@ -22,10 +22,6 @@ class Contractar extends Model
 
     public function propietaris()
     {
-        return $this->belongsTo(Propietaris::class, 'id_propietari');
+        return $this->belongsTo(propietari::class, 'id_propietari');
     }
-
-
-
-
 }

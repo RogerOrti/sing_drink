@@ -10,28 +10,33 @@
           />
         </div>
       </div>
-      <div class="footerEventosPart2"></div>
+      <div class="footerEventosPart2">
+        <!-- Aquí agregamos el mapa -->
+        <Mapbox />
+      </div>
     </div>
   </template>
 
   <script>
   import Cubo from './Cubo.vue';
+  import Mapbox from './Mapbox.vue'; // Asegúrate de que el nombre sea Mapbox.vue y la ruta sea correcta
 
   export default {
-    components: { Cubo },
+    components: {
+      Cubo,
+      Mapbox,
+    },
     data() {
       return {
-
         cubos: [
           { image: 'img/prog1.jpg', text: 'Texto 1' },
-          { image: 'img/prog1.jpg', text: 'Texto 2' },
+          { image: 'img/prog2.jpg', text: 'PAblo' },
           { image: 'img/prog1.jpg', text: 'Texto 3' },
           { image: 'img/prog1.jpg', text: 'Texto 4' },
           { image: 'img/prog1.jpg', text: 'Texto 5' },
           { image: 'img/prog1.jpg', text: 'Texto 6' },
           { image: 'img/prog1.jpg', text: 'Texto 7' },
           { image: 'img/prog1.jpg', text: 'Texto 10' },
-
         ],
       };
     },
@@ -46,7 +51,6 @@
             grupos.push(cubosRestantes.splice(0, 2));
           }
         }
-
         return grupos;
       },
     },
@@ -59,13 +63,14 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: auto;
     flex-direction: row;
   }
 
-  .footerEventosPart1, .footerEventosPart2 {
+  .footerEventosPart1,
+  .footerEventosPart2 {
     display: flex;
     flex-direction: column;
+    height: auto;
   }
 
   .grupo {
@@ -76,16 +81,14 @@
 
   @media (max-width: 768px) {
     .footerEventos {
-    flex-direction: column;
-  }
-  .footerEventosPart1, .footerEventosPart2 {
-    width: 100%;
-  }
-  .footerEventosPart2{
-    min-height: 200px;
-  }
-
-
+      flex-direction: column;
+    }
+    .footerEventosPart1,
+    .footerEventosPart2 {
+      width: 100%;
+    }
+    .footerEventosPart2 {
+      min-height: 200px;
+    }
   }
   </style>
-}
