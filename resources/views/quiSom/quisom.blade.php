@@ -8,6 +8,7 @@
 
     </div>
 @endsection
+@vite(['resources/js/app.js'])
 
 @section('Contenido_Adicional')
     <div class="bg-primary ">

@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Navbar with Full Screen Div</title>
-    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css' ]); ?>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css']); ?>
 </head>
 
 <body>
+
     <div class="full-screen-bg-primary">
         <?php echo $__env->yieldContent('fonsPantalla'); ?>
 
         <nav class="navbar  navbar-expand-lg fixed-top full-width">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="<?php echo e(route('Home')); ?>">
                     <img src="<?php echo e(asset('image/Logo.png')); ?>" alt="Logo de la marca" width="90" height="100">
                 </a>
 
@@ -29,7 +30,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+                            <a class="nav-link active" aria-current="page" href="<?php echo e(route('Home')); ?>">INICIO</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">LOCALES</a>
@@ -41,28 +42,28 @@
                             <a class="nav-link" href="#">CALENDARIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">SOBRE NOSOTROS</a>
+                            <a class="nav-link" href="<?php echo e(route('sobre-nosotros')); ?>">SOBRE NOSOTROS</a>
                         </li>
 
                         <li class="nav-item d-lg-none">
-                            <a class="nav-link" href="#">INICIAR SESION</a>
+                            <a class="nav-link" href="<?php echo e(route('login')); ?>">INICIAR SESION</a>
                         </li>
                         <li class="nav-item d-lg-none">
-                            <a class="nav-link" href="#">REGISTRAR-SE</a>
+                            <a class="nav-link" href="<?php echo e(route('register')); ?>">REGISTRAR-SE</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="d-none d-lg-flex">
-                    <a href="#" class="btn btn-secondary me-2">Iniciar sesión</a>
-                    <a href="#" class="btn btn-primary me-2">Registrar-se</a>
+                    <a href="<?php echo e(route('login')); ?>" class="btn btn-secondary me-2">Iniciar sesión</a>
                 </div>
             </div>
         </nav>
-
         <?php echo $__env->yieldContent('PantallaDeInicio'); ?>
     </div>
     <?php echo $__env->yieldContent('Contenido_Adicional'); ?>
+    <div id="app"></div>
+    <div id="Cubo"></div>
 
     <footer class="full-width-footer">
         <div class="footerPart1">
