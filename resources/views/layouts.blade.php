@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Navbar with Full Screen Div</title>
-    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css' ])
+    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css'])
 </head>
 
 <body>
@@ -53,9 +53,19 @@
                     </ul>
                 </div>
 
+                @if (!Auth::check())
                 <div class="d-none d-lg-flex">
                     <a href="{{ route('login') }}" class="btn btn-secondary me-2">Iniciar sesión</a>
                 </div>
+                <div class="d-none d-lg-flex">
+                    <a href="{{ route('register') }}" class="btn btn-secondary me-2">Registre</a>
+                </div>
+                @else
+                <div class="d-none d-lg-flex">
+                    <a href="{{ route('logout') }}" class="btn btn-secondary me-2">Logout</a>
+                </div>
+                @endif
+
             </div>
         </nav>
         @yield('PantallaDeInicio')
