@@ -61,7 +61,7 @@
       const selectedUser = ref(null);
       const users = ref([
         { id: 1, name: "Jordi Celemin", messages: ["No se programar ayudame."] },
-        { id: 2, name: "Pablo Lin", messages: ["Xhe Xhe"] },
+        { id: 2, name: "Pablo Lin", messages: ["你去死吧，别跟我说话"] },
         { id: 3, name: "Roger", messages: ["Tienes 4kg de droga?"] },
         { id: 4, name: "Erfan", messages: ["Shadow the collonus el mejor juego de la historia !!!"] }
       ]);

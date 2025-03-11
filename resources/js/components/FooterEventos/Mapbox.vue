@@ -37,12 +37,14 @@
         });
 
         map.addControl(geolocate);
-        geolocate.trigger(); // Triggers the location update on load
       });
 
       onBeforeUnmount(() => {
         if (map) map.remove();
       });
+        window.addEventListener("resize", () => {
+        map.resize(); // Este método hace que el mapa se ajuste cuando el tamaño de la ventana cambie
+    });
 
       return {};
     },
@@ -50,25 +52,32 @@
   </script>
 
   <style>
-  .map-wrapper {
-    width: 100%;
-    height: 600px;
-    position: relative;
-    overflow: hidden;
-  }
+.map-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
 
-  .map-container {
-    width: 100%;
-    height: 100%;
-  }
+.map-container {
+  width: 100%;
+  height: 2000px;
+}
 
   .mapboxgl-ctrl-bottom-right,
-  .mapboxgl-ctrl-top-right,
-  .mapboxgl-ctrl-top-left,
-  .mapboxgl-ctrl-bottom-left {
-    position: absolute;
-    z-index: 1;
-  }
+.mapboxgl-ctrl-top-right,
+.mapboxgl-ctrl-top-left,
+.mapboxgl-ctrl-bottom-left {
+  display: none !important;
+}
+.mapboxgl-ctrl-bottom-right,
+.mapboxgl-ctrl-top-right,
+.mapboxgl-ctrl-top-left,
+.mapboxgl-ctrl-bottom-left {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 
   .mapboxgl-ctrl {
     background: rgba(255, 255, 255, 0.7);
