@@ -17,7 +17,7 @@ class Local extends Model
 
     public function tipoLocal()
     {
-        return $this->belongsTo(TipouLocal::class, 'id_tipo_local');
+        return $this->belongsTo(TipoLocal::class, 'id_tipo_local');
     }
 
     public function propietari()

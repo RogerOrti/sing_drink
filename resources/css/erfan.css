@@ -8,6 +8,11 @@
 
 }
 
+.textBlanc {
+
+    color: aliceblue;
+}
+
 
 
         /* LOCALS */
@@ -79,7 +84,7 @@
 
 .fotoPrincipal {
 
-    width: 90rem;
+    width: 60rem;
 
 }
 
