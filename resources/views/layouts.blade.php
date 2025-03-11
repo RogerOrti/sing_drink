@@ -60,7 +60,7 @@
                     <a href="{{ route('login') }}" class="btn btn-secondary me-2">Iniciar sesión</a>
                 </div>
                 <div class="d-none d-lg-flex">
-                    <a href="{{ route('register') }}" class="btn btn-secondary me-2">Registre</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary me-2">Registrar-se</a>
                 </div>
                 @else
                 <div class="d-none d-lg-flex">

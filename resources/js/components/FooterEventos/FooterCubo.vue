@@ -11,7 +11,6 @@
         </div>
       </div>
       <div class="footerEventosPart2">
-        <!-- Aquí agregamos el mapa -->
         <Mapbox />
       </div>
     </div>

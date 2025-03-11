@@ -29,7 +29,7 @@
   <style scoped>
   .cubo {
     width: calc(100% / 2 - 10px);
-    height: 200px;
+    height: 167.5px;
     display: flex;
     align-items: center;
     justify-content: center;
