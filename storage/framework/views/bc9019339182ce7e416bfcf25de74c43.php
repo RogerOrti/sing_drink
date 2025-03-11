@@ -3,12 +3,15 @@
         <form action="<?php echo e(action([App\Http\Controllers\UsuariController::class, 'login'])); ?>" method="POST">
             <?php echo csrf_field(); ?>
             <div class="mb-3">
-                <label for="" class="form-label">Nom</label>
-                <input type="text" class="form-control" id="" name="nom">
+                <label for="nom" class="form-label">Nom</label>
+                <input type="text" class="form-control" id="nom" name="nom">
             </div>
             <div class="mb-3">
-                <label for="" class="form-label">Contrasenya</label>
-                <input type="text" class="form-control" id="" name="contrasenya">
+                <label for="contra" class="form-label">Contrasenya</label>
+                <input type="password" class="form-control" id="contra" name="contrasenya">
+            </div>
+            <div class="mb-3">
+                <a href="<?php echo e(route('register')); ?>" >No tens compte? Registra't ara!</a>
             </div>
             <button type="submit" class="btn btn-primary">Iniciar sessió</button>
         </form>
