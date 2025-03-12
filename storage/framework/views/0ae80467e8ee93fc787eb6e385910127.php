@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Navbar with Full Screen Div</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css', 'resources/css/style.css', 'resources/js/main.js' ]); ?>
+
 </head>
 
 <body>
@@ -59,7 +61,7 @@
                     <a href="<?php echo e(route('login')); ?>" class="btn btn-secondary me-2">Iniciar sesión</a>
                 </div>
                 <div class="d-none d-lg-flex">
-
+                    <a href="<?php echo e(route('register')); ?>" class="btn btn-primary me-2">Registrar-se</a>
                 </div>
                 <?php else: ?>
                 <div class="d-none d-lg-flex">
@@ -93,6 +95,9 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 </body>
 </html>
 <?php /**PATH C:\xampp\htdocs\sing_drink\resources\views/layouts.blade.php ENDPATH**/ ?>
