@@ -19,7 +19,7 @@
 </div>
 <div class="fons d-flex justify-content-center">
     <div class="fotosSecundaries d-flex flex-row justify-content-center" >
-        <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top m-5 col-4" alt="">
+        <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top m-5" alt="">
         <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top m-5" alt="">
         <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top m-5" alt="">
     </div>
