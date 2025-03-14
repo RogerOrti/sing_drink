@@ -30,7 +30,7 @@
         cubos: [
           { image: 'img/prog1.jpg', text: 'Texto 1' },
           { image: 'img/prog2.jpg', text: 'PAblo' },
-          { image: 'img/prog1.jpg', text: 'Texto 3' },
+          { image: 'img/prog3.jpg', text: 'Iavn' },
           { image: 'img/prog1.jpg', text: 'Texto 4' },
           { image: 'img/prog1.jpg', text: 'Texto 5' },
           { image: 'img/prog1.jpg', text: 'Texto 6' },

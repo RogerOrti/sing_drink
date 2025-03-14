@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuari;
-use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UsuariController extends Controller
@@ -18,7 +18,7 @@ class UsuariController extends Controller
         return view("quiSom.quisom");
     }
     public function Home(){
-        return view("proves.index");
+        return view("myhome.home");
     }
 
     public function login(Request $request){
@@ -80,7 +80,6 @@ class UsuariController extends Controller
     public function index()
     {
         $usuaris = usuari::all();
-
         return $usuaris;
     }
 
