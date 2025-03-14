@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Navbar with Full Screen Div</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css', 'resources/css/style.css', 'resources/js/main.js' ])
-
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css', 'resources/css/style.css' ])
 </head>
 
 <body>
@@ -74,7 +74,6 @@
         @yield('PantallaDeInicio')
     </div>
     @yield('Contenido_Adicional')
-    <div id="app"></div>
     <div id="Cubo"></div>
 
     <footer class="full-width-footer">

@@ -6,6 +6,7 @@
 
     </div>
 <?php $__env->stopSection(); ?>
+<?php echo app('Illuminate\Foundation\Vite')(['resources/js/app.js']); ?>
 
 <?php $__env->startSection('Contenido_Adicional'); ?>
     <div class="bg-primary ">
