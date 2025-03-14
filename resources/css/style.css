@@ -1,7 +1,7 @@
 body {
     margin: 0;
     overflow-x: hidden; /* Evita que el scroll horizontal cause problemas */
-    overflow-y: scroll; 
+    overflow-y: scroll;
     background-color: #111;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -46,7 +46,7 @@ body {
     opacity: 0; /* Para ocultar inicialmente */
     transform: translateY(50px); /* Empieza desplazado hacia abajo */
     transition: all 0.3s ease-out; /* Para la transición de movimiento suave */
-   
+
 }
 
 .info-artist h1 {
@@ -60,7 +60,7 @@ body {
 
 .jukebox {
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     overflow: hidden;

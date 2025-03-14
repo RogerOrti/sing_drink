@@ -7,8 +7,8 @@
 @section('PantallaDeInicio')
 <div id="quisom">
     <h1 class="display-1 fw-bold text-center larger-title">ANTHONY KIEDIS</h1>
-</div>
 
+</div>
 @endsection
 
 @section('Contenido_Adicional')
@@ -36,19 +36,28 @@
 <div class="fons">
     <section class="jukebox">
         <div class="jukebox-wrapper">
-            <div class="card"><img src="guns0.jpg" alt="Album 1"></div>
-            <div class="card"><img src="guns1.jpg" alt="Album 2"></div>
-            <div class="card"><img src="guns.jpg" alt="Album 3"></div>
-            <div class="card"><img src="guns2.jpg" alt="Album 4"></div>
-            <div class="card"><img src="guns.jpg" alt="Album 5"></div>
-            <div class="card"><img src="guns.jpg" alt="Album 6"></div>
-            <div class="card"><img src="guns.jpg" alt="Album 1"></div>
-            <div class="card"><img src="guns.jpg" alt="Album 2"></div>
-            <div class="card"><img src="guns.jpg" alt="Album 3"></div>
-            <div class="card"><img src="guns.jpg" alt="Album 4"></div>
-            <div class="card"><img src="guns.jpg" alt="Album 5"></div>
-        </div>
+            <div class="card"><img src="{{ asset('image/erfan/disc1.webp')}}" alt="Album 1"></div>
+            <div class="card"><img src="{{ asset('image/erfan/disc2.webp')}}" alt="Album 2"></div>
+            <div class="card"><img src="{{ asset('image/erfan/disc3.webp')}}" alt="Album 3"></div>
+            <div class="card"><img src="{{ asset('image/erfan/disc4.webp')}}" alt="Album 4"></div>
+            <div class="card"><img src="{{ asset('image/erfan/disc5.webp')}}" alt="Album 5"></div>
+            <div class="card"><img src="{{ asset('image/erfan/disc6.webp')}}" alt="Album 6"></div>
     </section>
+</div>
+<div class="fons videos d-flex justify-content-center">
+    <div class="videoPrincipal">
+        <iframe width="800" height="550" src="https://www.youtube.com/embed/OS8taasZl8k?si=lNHBmsB3UznsXSqy"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="videoSecundari">
+        <iframe width="300" height="168" src="https://www.youtube.com/embed/OS8taasZl8k?si=lNHBmsB3UznsXSqy"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="300" height="168" src="https://www.youtube.com/embed/OS8taasZl8k?si=lNHBmsB3UznsXSqy"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="300" height="168" src="https://www.youtube.com/embed/OS8taasZl8k?si=lNHBmsB3UznsXSqy"
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
 </div>
 
 @endsection
