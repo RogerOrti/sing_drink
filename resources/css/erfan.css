@@ -94,6 +94,29 @@
 
 }
 
+.videoPrincipal > iframe {
+
+    margin: 1rem;
+
+
+}
+
+.videoSecundari  > iframe {
+
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.2rem;
+    margin-left: 6rem;
+
+}
+
+.videos {
+
+padding: 5rem;
+
+}
+
 
 
 
