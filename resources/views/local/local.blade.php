@@ -14,6 +14,31 @@
 @endsection
 
 @section('Contenido_Adicional')
+<div>
+    <h1>MAPA ROGER</h1>
+</div>
+<div class="fons d-flex justify-content-center ">
+    <div class="m-5">
+        <h1 class="titolHoraris">OPINIONS</h1>
+        <p class="review"> Joselito - Muy buen ambientejkbkbsdg bjkwegbjwefgb jkbjwegbj gniobjj </p>
+        <p class="review"> Joselito - me gusta su fruta</p>
+        <p class="review"> Joselito - Vaya porqueria de sitio</p>
+
+    </div>
+    <hr>
+    <div class="m-5">
+        <h1 class="titolHoraris">HORARIS</h1>
+        <ul class="horaris">
+            <li>Dilluns: 10:00 - 23:00</li>
+            <li>Dimarts: 10:00 - 23:00</li>
+            <li>Dimecres: 10:00 - 23:00</li>
+            <li>Dijous: 10:00 - 23:00</li>
+            <li>Divendres: 10:00 - 23:00</li>
+            <li>Dissabte: 10:00 - 23:00</li>
+            <li>Tancat</li>
+        </ul>
+    </div>
+</div>
 
 @endsection
 

@@ -8,13 +8,6 @@
 
 }
 
-.textBlanc {
-
-    color: aliceblue;
-}
-
-
-
         /* LOCALS */
 
 .locals {
@@ -27,7 +20,6 @@
 .titolLocals {
 
     text-align: center;
-    color: white;
     padding: 5rem;
 }
 
@@ -116,6 +108,40 @@
 padding: 5rem;
 
 }
+
+
+/* LOCAL */
+
+.horaris {
+
+    list-style: none;
+
+}
+
+.horaris > li {
+
+    margin: 2rem;
+}
+
+.titolHoraris {
+
+    padding-left: 3.5rem;
+}
+
+.review {
+
+    border: solid 1px rgb(217, 255, 0);
+    padding: 2rem;
+    border-radius: 1.25rem;
+    margin: 2rem;
+}
+
+hr {
+    width: 2px; /* Ancho de la línea */
+    height: 32rem; /* Altura de la línea */
+    background-color: rgb(255, 255, 255); /* Color de la línea */
+    margin: 20px; /* Espaciado alrededor de la línea */
+  }
 
 
 
