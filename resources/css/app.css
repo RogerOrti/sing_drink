@@ -3,6 +3,10 @@
     src: url();
 }
 
+*{
+    color: #fff;
+}
+
 
 .footerEventosPart1, .footerEventosPart2 {
     width: 50%;
@@ -10,8 +14,6 @@
     flex-wrap: wrap;
     border: solid black 1px;
 }
-
-
 
 .footerPart1 {
     height: 100%;
