@@ -1,15 +1,19 @@
-@extends('index')
+@extends('layouts')
 
-@section('contingut')
+@section('PantallaDeInicio')
 <div class="card mt-3">
     <div class="card-body">
         <h4 class="card-title text-center">Registre d'Usuari</h4>
         <form action="{{ action([App\Http\Controllers\UsuariController::class, 'register']) }}" method="POST">
             @csrf
-            <div class="form-check form-switch mb-3">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                <label class="form-check-label" for="flexSwitchCheckDefault">Music/propietari local</label>
+            <div class="d-flex justify-content-center">
+                <div class="form-check form-switch mb-3">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                    {{-- <label class="form-check-label" for="flexSwitchCheckDefault">Music/propietari local</label> --}}
+                </div>
             </div>
+
+
             <div class="mb-3">
                 <label for="nom" class="form-label">Nom</label>
                 <input type="text" class="form-control" id="nom" name="nom" required>
