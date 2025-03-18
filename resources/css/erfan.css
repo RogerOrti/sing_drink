@@ -136,7 +136,7 @@ padding: 5rem;
     margin: 2rem;
 }
 
-hr {
+.hrLocal {
     width: 2px; /* Ancho de la línea */
     height: 32rem; /* Altura de la línea */
     background-color: rgb(255, 255, 255); /* Color de la línea */

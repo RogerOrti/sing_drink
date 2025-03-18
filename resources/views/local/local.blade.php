@@ -25,7 +25,7 @@
         <p class="review"> Joselito - Vaya porqueria de sitio</p>
 
     </div>
-    <hr>
+    <hr class="hrLocal">
     <div class="m-5">
         <h1 class="titolHoraris">HORARIS</h1>
         <ul class="horaris">
