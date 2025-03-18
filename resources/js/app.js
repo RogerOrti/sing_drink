@@ -3,7 +3,7 @@ import * as bootstrap from "bootstrap";
  import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
 import { createApp } from "vue";
 import PrimeVue from 'primevue/config';
-// import App from './App.vue';
+import App from './App.vue';
 
 import Prova from "./components/Prova.vue";
 
@@ -13,12 +13,12 @@ createApp(FooterEventos).mount('#Cubo');
 
 
 
-// const app = createApp(App);
-// app.use(PrimeVue);
-// app.mount('#app');
+const app = createApp(App);
+app.use(PrimeVue);
+app.mount('#app');
 
 
-// app.component("prova", Prova);
+app.component("prova", Prova);
 
 //mi js para el programa no lo toqueis
 window.addEventListener("scroll", function () {

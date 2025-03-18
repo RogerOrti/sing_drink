@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sticky Navbar with Full Screen Div</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css', 'resources/css/style.css' ])
+    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css', 'resources/css/style.css'])
 </head>
 
 <body>
@@ -57,16 +57,16 @@
                 </div>
 
                 @if (!Auth::check())
-                <div class="d-none d-lg-flex">
-                    <a href="{{ route('login') }}" class="btn btn-secondary me-2">Iniciar sesión</a>
-                </div>
-                <div class="d-none d-lg-flex">
-                    <a href="{{ route('register') }}" class="btn btn-primary me-2">Registrar-se</a>
-                </div>
+                    <div class="d-none d-lg-flex">
+                        <a href="{{ route('login') }}" class="btn btn-secondary me-2">Iniciar sesión</a>
+                    </div>
+                    <div class="d-none d-lg-flex">
+                        <a href="{{ route('register') }}" class="btn btn-primary me-2">Registrar-se</a>
+                    </div>
                 @else
-                <div class="d-none d-lg-flex">
-                    <a href="{{ route('logout') }}" class="btn btn-secondary me-2">Logout</a>
-                </div>
+                    <div class="d-none d-lg-flex">
+                        <a href="{{ route('logout') }}" class="btn btn-secondary me-2">Logout</a>
+                    </div>
                 @endif
 
             </div>
@@ -75,7 +75,7 @@
     </div>
     @yield('Contenido_Adicional')
     <div id="Cubo"></div>
-
+    <div id="app"></div>
     <footer class="full-width-footer">
         <div class="footerPart1">
             <div class="footerpart1-1">
@@ -98,4 +98,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 </body>
+
 </html>
