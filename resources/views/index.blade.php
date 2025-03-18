@@ -11,6 +11,7 @@
 <body>
     <div class="bg-primary">Hola</div>
 
+
     @yield('contingut')
 
 
