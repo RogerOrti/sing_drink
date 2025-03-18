@@ -24,3 +24,58 @@ height: auto;
     width: 100%;
     -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0002, #0004);
 }
+
+.CartelImagenes{
+    display: flex;
+    width: 100%;
+    height: auto;
+    min-height: 700px;
+    background-color: #222E50;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.CartelImagenesCardCard {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.CartelImagenesCard{
+    width: 300px;
+    height: 400px;
+    border: solid  black 1px;
+
+}
+
+.CartelImagenesCard:nth-child(even) {
+    margin-top: 100px;
+    transform: rotate(10deg);
+    background-size: cover;
+
+}
+
+.CartelImagenesCard:nth-child(odd) {
+    transform: rotate(-10deg);
+    background-size: cover;
+}
+.ImagenMusicDeCadaUno{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 400px;
+}
+
+.navbar {
+    background-color: transparent;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+    background-color: rgba(255, 20, 20, 0.8); /* Cambia el color de fondo cuando haga scroll */
+}
