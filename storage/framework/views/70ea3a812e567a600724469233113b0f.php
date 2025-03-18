@@ -15,7 +15,7 @@
     <div class="full-screen-bg-primary">
         <?php echo $__env->yieldContent('fonsPantalla'); ?>
 
-        <nav class="navbar  navbar-expand-lg fixed-top full-width">
+        <nav class="navbar navbar-expand-lg fixed-top full-width custom-navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php echo e(route('Home')); ?>">
                     <img src="<?php echo e(asset('image/Logo.png')); ?>" alt="Logo de la marca" width="90" height="100">
