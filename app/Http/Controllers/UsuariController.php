@@ -57,7 +57,6 @@ class UsuariController extends Controller
     public function register(Request $request)
     {
 
-        // Creació de l'usuari
         $usuari = new Usuari();
         $usuari->nom = $request->input("nom");
         $usuari->cognom = $request->input("cognom");

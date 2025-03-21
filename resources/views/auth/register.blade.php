@@ -1,8 +1,7 @@
 @extends('layouts')
 
 @section('PantallaDeInicio')
-<div class="card mt-3">
-    <div class="card-body">
+    <div class="container rounded-4 mt-3 bg-primary ">
         <h4 class="card-title text-center">Registre d'Usuari</h4>
         <form action="{{ action([App\Http\Controllers\UsuariController::class, 'register']) }}" method="POST">
             @csrf
@@ -12,15 +11,9 @@
                     {{-- <label class="form-check-label" for="flexSwitchCheckDefault">Music/propietari local</label> --}}
                 </div>
             </div>
-
-
             <div class="mb-3">
                 <label for="nom" class="form-label">Nom</label>
                 <input type="text" class="form-control" id="nom" name="nom" required>
-            </div>
-            <div class="mb-3">
-                <label for="nom" class="form-label">Cognom</label>
-                <input type="text" class="form-control" id="nom" name="cognom" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
@@ -34,9 +27,7 @@
                 <label for="confirmContrasenya" class="form-label">Confirmar Contrasenya</label>
                 <input type="password" class="form-control" id="confirmContrasenya" name="confirmContrasenya" required>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Registrar-se</button>
+            <button type="submit" class="btn btn-secondary">Registrar-se</button>
         </form>
     </div>
-</div>
-
 @endsection

@@ -35,16 +35,16 @@
                             <a class="nav-link active" aria-current="page" href="{{ route('Home') }}">INICIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">LOCALES</a>
+                            <a class="nav-link" href="locals">LOCALES</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">MUSICOS</a>
+                            <a class="nav-link" href="musics">MUSICOS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">CALENDARIO</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('sobre-nosotros') }}">SOBRE NOSOTROS</a>
+                            <a class="nav-link" href="quisom">SOBRE NOSOTROS</a>
                         </li>
 
                         <li class="nav-item d-lg-none">
@@ -76,8 +76,24 @@
     @yield('Contenido_Adicional')
     <div id="Cubo"></div>
     <div id="app"></div>
-    <footer class="full-width-footer">
-        <div class="footerPart1">
+
+    <div class="container">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 ">
+            <div class="col mb-3 ">
+                <a class="navbar-brand" href="{{ route('Home') }}">
+                    <img src="{{ asset('image/Logo.png') }}" alt="Logo de la marca" width="130" height="150">
+                </a>
+            </div>
+            <div class="col mb-3">
+                <ul class="nav flex-column ">
+                    <li class="nav-item mb-2 "><a href="home" class="nav-link p-0 text-secondary">Inicio</a></li>
+                    <li class="nav-item mb-2"><a href="cartelera" class="nav-link p-0 text-secondary">Locals</a></li>
+                    <li class="nav-item mb-2"><a href="musics" class="nav-link p-0 text-secondary">Musics</a></li>
+                    <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-secondary">Calendari</a></li>
+                    <li class="nav-item mb-2"><a href="quisom" class="nav-link p-0 text-secondary">Qui som</a>
+                    </li>
+                </ul>
+            </div>
             <div class="footerpart1-1">
                 <p>Uniendo músicos, bares y eventos desde 1934</p>
                 <p>Descubre la magia de la música en vivo y apoya los talentos locales</p>
@@ -85,13 +101,7 @@
             <div class="footerpart1-2">
                 <p>2025 Sing & Drink. Todos los derechos reservados</p>
             </div>
-        </div>
-        <div class="footerPart2">
-            <img src="{{ asset('image/Instgram.png') }}" alt="Logo Instagram" width="75" height="75">
-            <img src="{{ asset('image/X.png') }}" alt="Logo X" width="75" height="75">
-            <img src="{{ asset('image/Facebook.png') }}" alt="Logo Facebook" width="75" height="75">
-        </div>
-    </footer>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
