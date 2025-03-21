@@ -56,8 +56,8 @@
 
     </div>
     <div class="CartelImagenes">
-        <h1>Carteles Cabrpn</h1>
-        <div class="ImagenMusicDeCadaUno"></div>
+        <h1>Segundo Contenido</h1>
+
 
     </div>
 @endsection
