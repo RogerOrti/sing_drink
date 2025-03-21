@@ -11,7 +11,6 @@ import mapboxgl from "mapbox-gl";
 export default {
     setup() {
         let map;
-
         onMounted(() => {
             mapboxgl.accessToken =
                 "pk.eyJ1IjoibG9zdHlybDciLCJhIjoiY204M2N5eGhhMHF5MTJqcmE1Y3Y1bm5keiJ9.2B5FzYtEPqL6ZIYbPLjQxg";
@@ -30,12 +29,6 @@ export default {
             new mapboxgl.Marker().setLngLat([-3.70379, 40.41678]).addTo(map);
 
             // Agregar control de geolocalización (flecha)
-            const geolocate = new mapboxgl.GeolocateControl({
-                positionOptions: {
-                    enableHighAccuracy: true,
-                },
-                trackUserLocation: true, // Activa el seguimiento de la ubicación
-            });
 
             map.addControl(geolocate);
         });
