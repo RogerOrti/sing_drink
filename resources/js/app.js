@@ -20,12 +20,3 @@ app.mount('#app');
 
 app.component("prova", Prova);
 
-//mi js para el programa no lo toqueis
-window.addEventListener("scroll", function () {
-    let navbar = document.querySelector(".navbar");
-    if (window.scrollY > 10) { // Cambia 100 por la cantidad de píxeles que prefieras
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-});

@@ -18,7 +18,7 @@
 
   <script>
   import Cubo from './Cubo.vue';
-  import Mapbox from './Mapbox.vue'; // Asegúrate de que el nombre sea Mapbox.vue y la ruta sea correcta
+  import Mapbox from './Mapbox.vue';
 
   export default {
     components: {
