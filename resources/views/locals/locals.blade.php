@@ -19,38 +19,7 @@
         <div class="">
             <h1 class="titolLocals">ELS LOCALS DISPONIBLES</h1>
         </div>
-        <div class="cardsLocals">
-            <div class="card" style="width: 18rem;">
-                <img src="{{ asset('image/erfan/provaFoto.jpg') }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <a href="music" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <a href="music" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <a href="music" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <a href="music" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
+    <cartaLocal></cartaLocal>
 
-
-
-    </div>
+</div>
 @endsection
