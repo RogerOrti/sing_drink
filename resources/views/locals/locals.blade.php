@@ -19,7 +19,13 @@
         <div class="">
             <h1 class="titolLocals">ELS LOCALS DISPONIBLES</h1>
         </div>
-    <cartaLocal></cartaLocal>
 
-</div>
+
+
+    </div>
+    <div id="app1">
+        <carta-local></carta-local>
+    </div>
+
+    <script src="{{ mix('js/app.js') }}"></script> <!-- Asegúrate de tener este script para cargar Vue -->
 @endsection

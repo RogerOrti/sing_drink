@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\UsuariController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuariController;
+use App\Http\Controllers\Api\LocalsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,7 +49,10 @@ Route::get('/music', function () {
 
 Route::get('/locals', function () {
     return view('locals.locals');
-});
+})->name('locals.locals');
+
+
+
 
 Route::get('/local', function () {
     return view('local.local');
