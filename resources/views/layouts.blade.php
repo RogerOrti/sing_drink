@@ -7,7 +7,7 @@
     <title>Sticky Navbar with Full Screen Div</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/css/app.scss',  'resources/js/main.js', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css', 'resources/css/style.css'])
+    @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/main.js', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css', 'resources/css/style.css'])
 </head>
 
 <body>
@@ -75,7 +75,11 @@
     </div>
     @yield('Contenido_Adicional')
     <div id="Cubo"></div>
-    <div id="app"></div>
+    <div id="app">
+        <chat></chat>
+
+        <footer-eventos></footer-eventos>
+    </div>
 
     <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 ">
