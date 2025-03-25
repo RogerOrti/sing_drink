@@ -20,15 +20,12 @@ import CartaLocal from "./components/locals/cartaLocal.vue";
 
 // createApp(loginVue).mount('#login');
 
-// const app = createApp(App);
-const app = createApp({});
-const app2 = createApp({});
+const app = createApp(CartaLocal);
+// const app = createApp({});
 // app.use(PrimeVue);
 
-app2.component('carta-local', CartaLocal);
 
 app.mount('#app');
-app2.mount('#app1');
 
-// app.component("prova", Prova);
+app.component("carta-local", CartaLocal);
 
