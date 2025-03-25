@@ -25,7 +25,7 @@
         <carta-local></carta-local>
     </div>
 
-    <script src="<?php echo e(mix('js/app.js')); ?>"></script> <!-- Asegúrate de tener este script para cargar Vue -->
+    
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\sing_drink\resources\views/locals/locals.blade.php ENDPATH**/ ?>
