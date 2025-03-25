@@ -17,7 +17,11 @@ class LocalsController extends Controller
         $locals = local::all();
 
         return LocalResource::collection($locals);
+
+         // return response()->json(Local::with('multimedia')->get());
+
     }
+
 
     /**
      * Store a newly created resource in storage.
