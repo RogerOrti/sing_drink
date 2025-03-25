@@ -27,5 +27,5 @@
         <carta-local></carta-local>
     </div>
 
-    <script src="{{ mix('js/app.js') }}"></script> <!-- Asegúrate de tener este script para cargar Vue -->
+    {{-- <script src="{{ mix('js/app.js') }}"></script> <!-- Asegúrate de tener este script para cargar Vue --> --}}
 @endsection
