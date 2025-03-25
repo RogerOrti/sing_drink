@@ -23,7 +23,7 @@
 
 
     </div>
-    <div id="app1">
+    <div id="app">
         <carta-local></carta-local>
     </div>
 
