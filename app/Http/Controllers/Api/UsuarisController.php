@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Local;
+use App\Models\Multimedia;
 use App\Models\Music;
 use App\Models\propietari;
 use App\Models\Usuari;
@@ -44,26 +46,44 @@ class UsuarisController extends Controller
 
         $usuari->save();
         
-        if($usuari){
+        if($usuari->id_rol == 2){
+
+            $multimedia = new Multimedia();
+            $multimedia->ruta = $request->input();
+            $multimedia->data = 
+
+            $multimedia->save();
+
 
             $music = new Music();
 
+            $music->id_user = $usuari->id_user;
+            $music->id_estil = $request->input("estilMusica");
+            $music->id_multimedia = $multimedia->id_multimedia;
 
 
             $music->save();
 
         }
 
-        elseif ($usuari) {
+        elseif ($usuari->id_rol == 3) {
             
-            $propietari = new propietari();
+            $multimedia = new Multimedia();
 
+            $multimedia->save();
+
+            $propietari = new propietari();
+            $propietari->
 
             $propietari->save();
 
-            if($usuari){
+            $local = new Local();
 
-            }
+
+            $local->save();
+
+
+
         }
 
         
