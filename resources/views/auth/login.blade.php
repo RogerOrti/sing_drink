@@ -1,8 +1,8 @@
 @extends('layouts')
 
 @section('PantallaDeInicio')
-<div id="login">
-
+<div id="app">
+    <login></login>
 </div>
     {{-- <div class="container mt-3 bg-primary">
         <div class="col justify-content-center">
