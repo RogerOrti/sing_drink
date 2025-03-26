@@ -14,9 +14,10 @@ class MusicsController extends Controller
      */
     public function index()
     {
-        $musics = Music::all();
+        $musics = music::with('multimedia')->get();
 
         return MusicResource::collection($musics);
+
     }
 
     /**

@@ -36,6 +36,4 @@ class Multimedia extends Model
     {
         return $this->hasOne(Local::class, 'multimedia_id_multimedia');
     }
-
-
 }
