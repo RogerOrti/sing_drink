@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Local extends Model
 {
@@ -30,7 +32,15 @@ class Local extends Model
         return $this->hasMany(Actuar::class, 'id_local');
     }
 
-
+    /**
+     * Get the multimedia associated with the Local
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function multimedia(): BelongsTo
+    {
+        return $this->belongsTo(Multimedia::class, 'multimedia_id_multimedia');
+    }
 
 
 
