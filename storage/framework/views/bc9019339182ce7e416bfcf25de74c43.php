@@ -1,6 +1,6 @@
 <?php $__env->startSection('PantallaDeInicio'); ?>
-<div id="login">
-
+<div id="app">
+    <login></login>
 </div>
     
     <?php $__env->stopSection(); ?>
