@@ -26,7 +26,7 @@
 
     mounted() {
         const me = this;
-      axios.get("api/musics")
+      axios.get("musics")
         .then(response => {
           console.log("Datos recibidos:", response.data);
           me.musics = response.data.data;

@@ -10,6 +10,7 @@ import Prova from "./components/Prova.vue";
 import mapboxFooter from "./components/mapbox/mapboxFooter.vue";
 import CartaLocal from "./components/locals/cartaLocal.vue";
 import CartaMusic from "./components/musics/cartaMusic.vue";
+import PaginaLocal from "./components/paginaLocal/paginaLocal.vue";
 import UsuariosCRUD from "./components/usuariosCRUD.vue";
 
 // createApp(mapboxFooter).mount('#mapa');
@@ -32,5 +33,8 @@ app.component("mapbox-footer", mapboxFooter);
 app.component("footer-eventos", FooterEventos);
 app.component("carta-local", CartaLocal);
 app.component("carta-music", CartaMusic);
+app.component("pagina-local", PaginaLocal);
 app.component("usuarios-crud", UsuariosCRUD);
 app.mount('#app');
+
+
