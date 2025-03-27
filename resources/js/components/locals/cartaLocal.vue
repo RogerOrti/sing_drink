@@ -5,7 +5,7 @@
             <img class="fotoCardLocals" :src="local.multimedia.ruta"/>
             <h5 class="card-title">{{ local.nom_local }}</h5>
             <h5 class="card-title">{{ local.direccio }}</h5>
-            <a href="#" class="btn btn-primary">Saber més</a>
+            <!-- <a href="#" class="btn btn-primary">Saber més</a> -->
         </div>
       </div>
     </div>
@@ -23,7 +23,7 @@
 
     mounted() {
         const me = this;
-      axios.get("api/locals")
+      axios.get("locals")
         .then(response => {
           console.log("Datos recibidos:", response.data); // Verifica la respuesta en consola
           me.locals = response.data.data; // Asigna los datos a locals
@@ -33,6 +33,8 @@
         });
     }
   }
+
+
   </script>
 
   <style scoped>

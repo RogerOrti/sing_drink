@@ -32,8 +32,8 @@
 
 .fotoCardLocals {
 
-    width: 10px;
-    height: 10px;
+    width: 80% !important;
+    height: auto !important;
 }
 
         /* MUSICS */
