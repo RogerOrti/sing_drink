@@ -4,11 +4,15 @@
             <div class="container rounded-4 mt-3 bg-primary ">
                 <h4 class="card-title text-center">Registre d'Usuari</h4>
                 <form>
-                    <div class="d-flex justify-content-center">
-                        <div class="form-check form-switch mb-3">
-                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                        </div>
+
+                    <div class="mb-3">
+                        <label for="" class="form-label">Tipus usuari</label>
+                        <select class="form-control" name="" id="" v-model="usuari.tipus_usuari">
+                            <option value="2">Hola</option>
+                            <option value="3">Adeu</option>
+                        </select>
                     </div>
+
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
                         <input type="text" class="form-control" v-model="usuari.nom" required>
@@ -31,42 +35,49 @@
                     </div>
 
                     <!-- Formulari de dades músic -->
-                    <div class="mb-3">
+                     <div v-if="usuari.tipus_usuari == 2">
+                        <div class="mb-3">
                         <label for="">Estil musica</label>
-                        <select class="form-select">
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="">Multimedia</label>
-                        <input class="form-control" type="file" name="" id="">
-                    </div>
-
-                    <!-- Formulari de dades Porpietari -->
-                    <div class="mb-3">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Nom local</label>
-                            <input type="password" class="form-control" id="" name="" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Adreça del local</label>
-                            <input type="text" class="form-control" id="" name="" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tipus local</label>
-                            <select v-model="tipusLocal" class="form-control">
-                                <option value="">Selecciona un tipus</option>
-                                <option v-for="tipus in tipusLocals" :key="tipus.id_tipo_local" :value="tipus.id_tipo_local">
-                                    {{ tipus.tipo_local }}
-                                </option>
+                            <select class="form-select" v-model="estilMusica">
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
                             </select>
                         </div>
+
+                        <div>
+                            <label for="">Multimedia</label>
+                            <input class="form-control" type="file" name="multimedia" id="multimedia" @change="agafarMultimedia">
+                        </div>
+                     </div>
+
+ 
+                    <!-- Formulari de dades Porpietari -->
+
+                    <div v-else-if="usuari.tipus_usuari == 3">
+                        <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Nom local</label>
+                                <input type="password" class="form-control" id="nom_local" name="nom_local" v-model="usuari.nom_local" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Adreça del local</label>
+                                <input type="text" class="form-control" id="direccio" name="direccio" v-model="usuari.direccio" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tipus local</label>
+                                <select v-model="tipusLocal" class="form-control">
+                                    <option value="">Selecciona un tipus</option>
+                                    <option v-for="tipus in tipusLocals" :key="tipus.id_tipo_local" :value="tipus.id_tipo_local">
+                                        {{ tipus.tipo_local }}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-                    <button @click="afegirUsuari()" class="btn btn-secondary">Registrar-se</button>
+
+                    <button @click="afegirUsuari" class="btn btn-secondary">Registrar-se</button>
                 </form>
             </div>
         </div>
@@ -81,18 +92,19 @@ export default {
 
         return{
 
-            usuari: [],
             tipusLocals: [],
             estilMusica: [],
-            nom: '',
-            email: '',
-            contrasenya: '',
-            confirmarContrasenya: '',
-            estilMusica: '',
-            tipusLocal: '',
-            tipusMultimedia: '',
-            multimedia: '',
-            usuari: {},
+            // nom: '',
+            // email: '',
+            // contrasenya: '',
+            // confirmarContrasenya: '',
+            // estilMusica: '',
+            // tipusLocal: '',
+            // tipusMultimedia: '',
+            // multimedia: '',
+            usuari: {
+                multimedia: null
+            },
 
 
         };
@@ -113,6 +125,13 @@ export default {
             
             })
         },
+        agafarMultimedia(event){
+            const me = this;
+
+            me.usuari.multimedia = event.target
+
+        },
+
         validarDataform(){
 
         },
@@ -127,7 +146,7 @@ export default {
                 me.tipusLocal = response.data
             })
             .catch((error) => {
-            
+                console.error("Error en agafar les dades de local" + error)
             })     
         },
         agafarEstilMusic(){
@@ -139,7 +158,7 @@ export default {
                 me.estilMusica = response.data
             })
             .catch((error) => {
-                
+                console.error("Error en agafar les dades de estil" + error)
             })
         },
     },
