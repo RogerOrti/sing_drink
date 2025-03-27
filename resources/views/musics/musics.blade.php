@@ -17,37 +17,9 @@
         <div>
             <h1 class="titolLocals">ELS NOSTRES MÚSICS</h1>
         </div>
-        <div class="coleccioMusics">
-            <div class="cardsLocals">
-                <div class="cardMusics">
-                    <img src="{{ asset('image/erfan/Anthony_Kiedis.png') }}" class="cardMusics" alt="...">
-                    <div>
-                        <a href="music" class=" btn btnMusics btn-primary">Saber más</a>
-                        <img class="play" src="{{ asset('image/erfan/logoPlay.png') }}" class="card-img-top"
-                            alt="...">
-                    </div>
-                </div>
-            </div>
-            <div class="cardsLocals">
-                <div class="cardMusics">
-                    <img src="{{ asset('image/erfan/Anthony_Kiedis.png') }}" class="cardMusics" alt="...">
-                    <div>
-                        <a href="music" class="btn btnMusics btn-primary">Saber más</a>
-                        <img class="play" src="{{ asset('image/erfan/logoPlay.png') }}" class="card-img-top"
-                            alt="...">
-                    </div>
-                </div>
-            </div>
-            <div class="cardsLocals">
-                <div class="cardMusics">
-                    <img src="{{ asset('image/erfan/Anthony_Kiedis.png') }}" class="cardMusics" alt="...">
-                    <div>
-                        <a href="music" class="btn btnMusics btn-primary">Saber más</a>
-                        <img class="play" src="{{ asset('image/erfan/logoPlay.png') }}" class="card-img-top"
-                            alt="...">
-                    </div>
-                </div>
-            </div>
+        <div id="app">
+            <carta-music></carta-music>
         </div>
+
     </div>
 @endsection

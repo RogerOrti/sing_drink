@@ -18,8 +18,6 @@ class LocalsController extends Controller
 
         return LocalResource::collection($locals);
 
-         // return response()->json(Local::with('multimedia')->get());
-
     }
 
 

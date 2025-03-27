@@ -11,23 +11,23 @@
                     </div>
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" v-model="nom" required>
+                        <input type="text" class="form-control" v-model="usuari.nom" required>
                     </div>
                     <div class="mb-3">
                         <label for="nom" class="form-label">Cognom</label>
-                        <input type="text" class="form-control" v-model="nom" required>
+                        <input type="text" class="form-control" v-model="usuari.cognom" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" v-model="usuari.nom" required>
+                        <input type="email" class="form-control" v-model="usuari.email" required>
                     </div>
                     <div class="mb-3">
                         <label for="contrasenya" class="form-label">Contrasenya</label>
-                        <input type="password" class="form-control" id="contrasenya" name="contrasenya" required>
+                        <input type="password" class="form-control" id="contrasenya" name="contrasenya" v-model="usuari.contrasenya" required>
                     </div>
                     <div class="mb-3">
                         <label for="confirmContrasenya" class="form-label">Confirmar Contrasenya</label>
-                        <input type="password" class="form-control" id="confirmContrasenya" name="confirmContrasenya" required>
+                        <input type="password" class="form-control" id="confirmContrasenya" name="confirmContrasenya" v-model="usuari.confirmarContrasenya" required>
                     </div>
 
                     <!-- Formulari de dades músic -->
@@ -89,15 +89,22 @@ export default {
             contrasenya: '',
             confirmarContrasenya: '',
             estilMusica: '',
+            tipusLocal: '',
+            tipusMultimedia: '',
+            multimedia: '',
+            usuari: {},
 
 
         };
     },
     methods: {
         afegirUsuari(){
+
+            this.validarDataform();
+            
             const me = this;
             axios
-            .post("usuaris")
+            .post("usuaris", me.usuari )
             .then((response) => {
 
                 
@@ -106,6 +113,11 @@ export default {
             
             })
         },
+        validarDataform(){
+
+        },
+
+
         agafarTipuslocals(){
             const me = this;
             axios
@@ -127,7 +139,7 @@ export default {
                 me.estilMusica = response.data
             })
             .catch((error) => {
-            
+                
             })
         },
     },
