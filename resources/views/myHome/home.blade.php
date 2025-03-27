@@ -57,7 +57,19 @@
     </div>
     <div class="CartelImagenes">
         <h1>Segundo Contenido</h1>
-
+        <div class="RandomNombre">
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+            <article class="RandomNombreCard" style="background-image: url('{{ asset('img/prog1.jpg') }}');"></article>
+        </div>
 
     </div>
 @endsection
