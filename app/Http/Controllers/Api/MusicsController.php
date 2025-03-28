@@ -14,7 +14,8 @@ class MusicsController extends Controller
      */
     public function index()
     {
-        $musics = Music::all();
+        // Cargar la relación con 'user' y 'multimedia'
+        $musics = Music::with(['user', 'multimedia'])->get();
 
         return MusicResource::collection($musics);
     }

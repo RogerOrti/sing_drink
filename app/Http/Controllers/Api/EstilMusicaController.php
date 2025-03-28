@@ -3,36 +3,34 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\LocalResource;
-use App\Models\Local;
+use App\Http\Resources\EstilMusicaResource;
+use App\Models\EstilMusica;
 use Illuminate\Http\Request;
 
-class LocalsController extends Controller
+class EstilMusicaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $locals = local::with('multimedia')->get();
+        $estilMusica = EstilMusica::all();
 
-        return LocalResource::collection($locals);
-
+        return EstilMusicaResource::collection($estilMusica);
     }
-
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Local $local)
+    public function show(EstilMusica $estilMusica)
     {
         //
     }
@@ -40,7 +38,7 @@ class LocalsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Local $local)
+    public function update(Request $request, EstilMusica $estilMusica)
     {
         //
     }
@@ -48,7 +46,7 @@ class LocalsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Local $local)
+    public function destroy(EstilMusica $estilMusica)
     {
         //
     }

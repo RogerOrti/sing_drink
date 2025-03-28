@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\UsuariResource;
+use App\Models\Local;
+use App\Models\Multimedia;
+use App\Models\Music;
+use App\Models\propietari;
 use App\Models\Usuari;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\UsuariResource;
 
 class UsuarisController extends Controller
 {
@@ -24,7 +30,72 @@ class UsuarisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+
+    try {
+
+        DB::beginTransaction();
+
+        $usuari = new Usuari();
+
+        $usuari->nom = $request->input("nom");
+        $usuari->cognom = $request->input("cognom");
+        $usuari->mail = $request->input("email");
+        $usuari->contrasenya = Hash::make($request->input("contrasenya"));
+        $usuari->id_rol = $request->input("");
+
+        $usuari->save();
+        
+        if($usuari->id_rol == 2){
+
+            $multimedia = new Multimedia();
+            $multimedia->ruta = $request->input();
+            $multimedia->data = 
+
+            $multimedia->save();
+
+            $music = new Music();
+
+            $music->id_user = $usuari->id_user;
+            $music->id_estil = $request->input("estilMusica");
+            $music->id_multimedia = $multimedia->id_multimedia;
+
+            $music->save();
+
+        }
+
+        elseif ($usuari->id_rol == 3) {
+            
+            $multimedia = new Multimedia();
+            $multimedia->ruta = $request->input();
+            $multimedia->data = 
+
+            $multimedia->save();
+
+            $local = new Local();
+            $local->nom_local = $request->input("nom_local");
+            $local->direccio = $request->input("");
+            $local->id_tipo_local = $request->input("");
+            $local->multimedia_id_multimedia = $multimedia->id_multimedia;
+            $local->save();
+
+
+            $propietari = new propietari();
+            $propietari->id_user = $usuari->id_user;
+            $propietari->id_local = $local->id_local;
+
+            $propietari->save();
+
+        }
+
+        
+        DB::commit();
+
+    } catch (\Throwable $th) {
+        DB::rollBack();
+    }
+        
+
     }
 
     /**

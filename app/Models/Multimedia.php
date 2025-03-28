@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Multimedia extends Model
 {
@@ -25,5 +27,13 @@ class Multimedia extends Model
         return $this->hasMany(Music::class, 'id_multimedia');
     }
 
-
+    /**
+     * Get the local that owns the Multimedia
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function local(): HasOne
+    {
+        return $this->hasOne(Local::class, 'multimedia_id_multimedia');
+    }
 }

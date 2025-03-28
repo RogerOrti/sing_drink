@@ -5,8 +5,8 @@
           <Cubo
             v-for="(item, index2) in grupo"
             :key="index2"
-            :image="item.image"
-            :text="item.text"
+            :image="item.multimedia.ruta"
+            :text="item.user.nom"
           />
         </div>
       </div>
@@ -27,18 +27,22 @@
     },
     data() {
       return {
-        cubos: [
-          { image: 'img/prog1.jpg', text: 'Texto 1' },
-          { image: 'img/prog2.jpg', text: 'PAblo' },
-          { image: 'img/prog3.jpg', text: 'Iavn' },
-          { image: 'img/prog1.jpg', text: 'Texto 4' },
-          { image: 'img/prog1.jpg', text: 'Texto 5' },
-          { image: 'img/prog1.jpg', text: 'Texto 6' },
-          { image: 'img/prog1.jpg', text: 'Texto 7' },
-          { image: 'img/prog1.jpg', text: 'Texto 10' },
-        ],
+        cubos: [],
       };
     },
+
+    mounted() {
+        const me = this;
+      axios.get("musics")
+        .then(response => {
+          console.log("Datos recibidos:", response.data);
+          me.cubos = response.data;
+        })
+        .catch(error => {
+          console.error("Error al cargar los datos:", error);
+        });
+    },
+
     computed: {
       grupos() {
         const grupos = [];

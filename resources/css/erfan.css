@@ -30,6 +30,12 @@
     padding: 2rem;
 }
 
+.fotoCardLocals {
+
+    width: 80% !important;
+    height: auto !important;
+}
+
         /* MUSICS */
 
 .cardMusics {

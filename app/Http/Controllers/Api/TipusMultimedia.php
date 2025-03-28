@@ -3,36 +3,34 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\LocalResource;
-use App\Models\Local;
+use App\Http\Resources\TipusMultimediaResource;
+use App\Models\TipoMultimedia;
 use Illuminate\Http\Request;
 
-class LocalsController extends Controller
+class TipusMultimedia extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $locals = local::with('multimedia')->get();
+        $tipusMultimedia = TipoMultimedia::all();
 
-        return LocalResource::collection($locals);
-
+        return TipusMultimediaResource::collection($tipusMultimedia);
     }
-
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Local $local)
+    public function show(TipoMultimedia $tipoMultimedia)
     {
         //
     }
@@ -40,7 +38,7 @@ class LocalsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Local $local)
+    public function update(Request $request, TipoMultimedia $tipoMultimedia)
     {
         //
     }
@@ -48,7 +46,7 @@ class LocalsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Local $local)
+    public function destroy(TipoMultimedia $tipoMultimedia)
     {
         //
     }

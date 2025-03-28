@@ -1,8 +1,8 @@
 @extends('layouts')
 
 @section('PantallaDeInicio')
-<div id="register">
-
+<div id="app">
+    <register></register>
 </div>
     {{-- <div class="container rounded-4 mt-3 bg-primary ">
         <h4 class="card-title text-center">Registre d'Usuari</h4>
