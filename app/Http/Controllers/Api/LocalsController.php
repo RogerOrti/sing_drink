@@ -34,7 +34,9 @@ class LocalsController extends Controller
      */
     public function show(Local $local)
     {
-        //
+
+        return response()->json(['id_local' => $local->id_local]);
+
     }
 
     /**

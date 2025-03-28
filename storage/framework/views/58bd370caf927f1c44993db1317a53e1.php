@@ -17,9 +17,6 @@
         <div class="">
             <h1 class="titolLocals">ELS LOCALS DISPONIBLES</h1>
         </div>
-
-
-
     </div>
     <div id="app">
         <carta-local></carta-local>
