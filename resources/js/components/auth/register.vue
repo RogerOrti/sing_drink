@@ -4,14 +4,17 @@
             <div class="container rounded-4 mt-3 bg-primary ">
                 <h4 class="card-title text-center">Registre d'Usuari</h4>
                 <form>
-
                     <div class="mb-3">
-                        <label for="" class="form-label">Tipus usuari</label>
-                        <select class="form-control" name="" id="" v-model="usuari.tipus_usuari">
-                            <option value="2">Hola</option>
-                            <option value="3">Adeu</option>
-                        </select>
-                    </div>
+    <label for="" class="form-label">Tipus usuari</label>
+    <div class="switch-container" @click="toggleUserType">
+        <div class="switch">
+            <div class="circle" :class="{'switch-right': usuari.tipus_usuari === '3'}"></div>
+        </div>
+        <span class="label">
+            {{ usuari.tipus_usuari === '2' ? 'Músic' : 'Propietari' }}
+        </span>
+    </div>
+</div>
 
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
@@ -50,9 +53,9 @@
                             <label for="">Multimedia</label>
                             <input class="form-control" type="file" name="multimedia" id="multimedia" @change="agafarMultimedia">
                         </div>
-                     </div>
+                    </div>
 
- 
+
                     <!-- Formulari de dades Porpietari -->
 
                     <div v-else-if="usuari.tipus_usuari == 3">
@@ -103,6 +106,7 @@ export default {
             // tipusMultimedia: '',
             // multimedia: '',
             usuari: {
+                tipus_usuari: '2',
                 multimedia: null
             },
 
@@ -110,32 +114,53 @@ export default {
         };
     },
     methods: {
+        toggleUserType() {
+        this.usuari.tipus_usuari = this.usuari.tipus_usuari === '2' ? '3' : '2';
+    },
         afegirUsuari(){
 
             this.validarDataform();
-            
+
             const me = this;
             axios
             .post("usuaris", me.usuari )
             .then((response) => {
+                me.usuari = response.data;
+                console.log(response);
+                alert("Usuari creat correctament");
 
-                
             })
             .catch((error) => {
-            
+                error.response.data.errors.forEach((error) => {
+                    alert(error);
+                });
             })
         },
         agafarMultimedia(event){
             const me = this;
 
-            me.usuari.multimedia = event.target
+            me.usuari.multimedia = event.target.files[0];
 
         },
 
         validarDataform(){
+            // if (!this.image){
+            //     alert("No has seleccionat cap imatge");
+            //     return;
+            // }
 
+            // const formData = new FormData();
+            // formData.append('image', this.image);
+
+            // try{
+            //     const me = this;
+            // axios
+            // .post("usuaris", me.usuari )
+
+            // }catch(error){
+            //     console.error("Error al validar el formulari: " + error);
+            // }
         },
-
 
         agafarTipuslocals(){
             const me = this;
@@ -147,7 +172,7 @@ export default {
             })
             .catch((error) => {
                 console.error("Error en agafar les dades de local" + error)
-            })     
+            })
         },
         agafarEstilMusic(){
             const me = this;
@@ -169,5 +194,45 @@ export default {
 };
 </script>
 <style>
+.switch-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.switch {
+  width: 50px;
+  height: 25px;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  background: #ddd;
+
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  left: 2px;
+  transition: left 0.3s;
+}
+
+.switch-right {
+  left: 26px; /* Se mueve a la derecha cuando es 'Propietari' */
+}
+
+.label {
+  margin-left: 10px;
+  font-size: 16px;
+  color: white;
+}
+
 
 </style>
