@@ -69,7 +69,7 @@
                                 <label class="form-label">Tipus local</label>
                                 <select v-model="tipusLocal" class="form-control">
                                     <option value="">Selecciona un tipus</option>
-                                    <option v-for="tipus in tipusLocals" :key="tipus.id_tipo_local" :value="tipus.id_tipo_local">
+                                    <option v-for="tipus in tipusLocals" :key="tipus.id_tipo_local" :value="tipus.tipo_local">
                                         {{ tipus.tipo_local }}
                                     </option>
                                 </select>
