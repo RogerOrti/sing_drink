@@ -1,6 +1,6 @@
 import "./bootstrap";
 import * as bootstrap from "bootstrap";
- import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
+import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
 import { createApp } from "vue";
 import PrimeVue from 'primevue/config';
 import Chat from './Chat.vue';
