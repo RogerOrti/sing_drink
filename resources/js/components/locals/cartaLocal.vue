@@ -32,15 +32,15 @@ import axios from 'axios';
           console.error("Error al cargar los datos:", error);
         });
 
-        // axios.get("locals/local.id")
-        // .then(response => {
-        //   console.log("Datos recibidos:", response.data); // Verifica la respuesta en consola
-        //   me.locals = response.data; // Asigna los datos a locals
-        //   href = local  ;
-        // })
-        // .catch(error => {
-        //   console.error("Error al cargar los datos:", error);
-        // });
+        axios.get("locals/local.id")
+        .then(response => {
+          console.log("Datos recibidos:", response.data); // Verifica la respuesta en consola
+          me.locals = response.data; // Asigna los datos a locals
+          href = local  ;
+        })
+        .catch(error => {
+          console.error("Error al cargar los datos:", error);
+        });
     }
   }
   </script>
