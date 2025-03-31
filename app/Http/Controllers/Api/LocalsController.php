@@ -14,7 +14,7 @@ class LocalsController extends Controller
      */
     public function index()
     {
-        $locals = local::with('multimedia')->get();
+        $locals = local::with('multimedia')->paginate(9);
 
         return LocalResource::collection($locals);
 
