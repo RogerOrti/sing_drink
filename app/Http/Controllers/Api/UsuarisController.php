@@ -7,7 +7,9 @@ use App\Models\Multimedia;
 use App\Models\Music;
 use App\Models\propietari;
 use App\Models\Usuari;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -50,7 +52,7 @@ class UsuarisController extends Controller
 
             $multimedia = new Multimedia();
             $multimedia->ruta = $request->input();
-            $multimedia->data = 
+            $multimedia->data = Carbon::now();
 
             $multimedia->save();
 
@@ -68,17 +70,16 @@ class UsuarisController extends Controller
             
             $multimedia = new Multimedia();
             $multimedia->ruta = $request->input();
-            $multimedia->data = 
+            $multimedia->data = Carbon::now();
 
             $multimedia->save();
 
             $local = new Local();
             $local->nom_local = $request->input("nom_local");
-            $local->direccio = $request->input("");
-            $local->id_tipo_local = $request->input("");
+            $local->direccio = $request->input("direccio");
+            $local->id_tipo_local = $request->input("tipusLocal");
             $local->multimedia_id_multimedia = $multimedia->id_multimedia;
             $local->save();
-
 
             $propietari = new propietari();
             $propietari->id_user = $usuari->id_user;
@@ -91,8 +92,9 @@ class UsuarisController extends Controller
         
         DB::commit();
 
-    } catch (\Throwable $th) {
+    } catch (Exception $e) {
         DB::rollBack();
+
     }
         
 
