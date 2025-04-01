@@ -5,7 +5,7 @@
 @endsection
 
 @section('PantallaDeInicio')
-<div>
+<div id="app" data-id="{{ $id }}">
     <pagina-local></pagina-local>
     {{-- <div id="quisom">
         <h1 class="display-1 fw-bold text-center larger-title">BAR PEPE</h1>

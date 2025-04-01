@@ -51,11 +51,8 @@ Route::get('/locals', function () {
     return view('locals.locals');
 })->name('locals.locals');
 
-
-
-
 Route::get('/locals/{id}', function ($id) {
-    return view('local.local');
+    return view('local.local', ['id' => $id]);
 });
 
 Route::get('/mapa', function () {
