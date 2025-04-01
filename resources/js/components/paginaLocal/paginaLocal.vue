@@ -16,10 +16,10 @@
 
     mounted() {
         const me = this;
-      axios.get("locals")
+      axios.get("local")
         .then(response => {
           console.log("Datos recibidos:", response.data); // Verifica la respuesta en consola
-          me.locals = response.data.data; // Asigna los datos a locals
+          me.locals = response.data; // Asigna los datos a locals
         })
         .catch(error => {
           console.error("Error al cargar los datos:", error);

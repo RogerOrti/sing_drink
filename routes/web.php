@@ -54,7 +54,7 @@ Route::get('/locals', function () {
 
 
 
-Route::get('/local', function () {
+Route::get('/locals/{id}', function ($id) {
     return view('local.local');
 });
 

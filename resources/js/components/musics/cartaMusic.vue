@@ -29,7 +29,7 @@
       axios.get("musics")
         .then(response => {
           console.log("Datos recibidos:", response.data);
-          me.musics = response.data.data;
+          me.musics = response.data;
         })
         .catch(error => {
           console.error("Error al cargar los datos:", error);

@@ -1,6 +1,6 @@
 import "./bootstrap";
 import * as bootstrap from "bootstrap";
- import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
+import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
 import { createApp } from "vue";
 import PrimeVue from 'primevue/config';
 import Chat from './Chat.vue';
@@ -12,6 +12,7 @@ import CartaLocal from "./components/locals/cartaLocal.vue";
 import CartaMusic from "./components/musics/cartaMusic.vue";
 import PaginaLocal from "./components/paginaLocal/paginaLocal.vue";
 import UsuariosCRUD from "./components/usuariosCRUD.vue";
+import Paginate from 'vuejs-paginate-next';
 
 // createApp(mapboxFooter).mount('#mapa');
 // createApp(FooterEventos).mount('#Cubo');
