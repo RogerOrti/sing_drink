@@ -42,7 +42,7 @@ class UsuarisController extends Controller
         $usuari->cognom = $request->input("cognom");
         $usuari->mail = $request->input("email");
         $usuari->contrasenya = Hash::make($request->input("contrasenya"));
-        $usuari->id_rol = $request->input("");
+        $usuari->id_rol = $request->input("tipus_usuari");
 
         $usuari->save();
         

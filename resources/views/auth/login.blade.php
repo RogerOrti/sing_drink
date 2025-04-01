@@ -1,10 +1,10 @@
 @extends('layouts')
 
 @section('PantallaDeInicio')
-<div id="app">
+{{-- <div id="app">
     <login></login>
-</div>
-    {{-- <div class="container mt-3 bg-primary">
+</div> --}}
+    <div class="container mt-3 bg-primary">
         <div class="col justify-content-center">
             <form action="{{ action([App\Http\Controllers\UsuariController::class, 'login']) }}" method="POST">
                 @csrf
@@ -22,5 +22,5 @@
                 <button type="submit" class="btn btn-secondary">Iniciar sessió</button>
             </form>
         </div>
-    </div> --}}
+    </div>
     @endsection
