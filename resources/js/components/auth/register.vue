@@ -18,15 +18,15 @@
 
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" v-model="usuari.nom" required>
+                        <input type="text" class="form-control" v-model="usuari.nom" name="nom" required>
                     </div>
                     <div class="mb-3">
                         <label for="nom" class="form-label">Cognom</label>
-                        <input type="text" class="form-control" v-model="usuari.cognom" required>
+                        <input type="text" class="form-control" v-model="usuari.cognom" name="cognom" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" v-model="usuari.email" required>
+                        <input type="email" class="form-control" v-model="usuari.email" name="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="contrasenya" class="form-label">Contrasenya</label>
@@ -40,9 +40,9 @@
                     <!-- Formulari de dades músic -->
                      <div v-if="usuari.tipus_usuari == 2">
                         <div class="mb-3">
-                        <label for="">Estil musica</label>
-                            <select class="form-select" v-model="usuari.estilMusica" >
-                                <option v-for="estil in estilsMusica" :key="estil.id_estil" :value="estil.estil_musica">
+                            <label for="">Estil musica</label>
+                            <select class="form-select" v-model="usuari.estilMusica">
+                                <option v-for="estil in estilsMusica" :key="estil.id_estil" :value="estil.id_estil">
                                     {{ estil.estil_musica }}
                                 </option>
                             </select>
@@ -69,8 +69,8 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Tipus local</label>
-                                <select v-model="usuari.tipusLocal" class="form-control">
-                                    <option v-for="tipus in tipusLocals" :key="tipus.id_tipo_local" :value="tipus.tipo_local">
+                                <select v-model="usuari.tipusLocal" class="form-control" name="tipusLocal">
+                                    <option v-for="tipus in tipusLocals" :key="tipus.id_tipo_local" :value="tipus.id_tipo_local">
                                         {{ tipus.tipo_local }}
                                     </option>
                                 </select>
@@ -100,18 +100,11 @@ export default {
 
             tipusLocals: [],
             estilsMusica: [],
-            // nom: '',
-            // email: '',
-            // contrasenya: '',
-            // confirmarContrasenya: '',
-            // estilMusica: '',
-            // tipusLocal: '',
-            // tipusMultimedia: '',
-            // multimedia: '',
             usuari: {
                 tipus_usuari: '2',
                 multimedia: null
             },
+            errors:{},
 
 
         };
@@ -131,7 +124,7 @@ export default {
                 me.usuari = response.data;
                 console.log(response);
                 alert("Usuari creat correctament");
-
+ 
             })
             .catch((error) => {
                 error.response.data.errors.forEach((error) => {
@@ -146,24 +139,22 @@ export default {
 
         },
 
-        validarDataform(){
-            // if (!this.image){
-            //     alert("No has seleccionat cap imatge");
-            //     return;
-            // }
+        // validarDataform(){
+        //     const me = this;
 
-            // const formData = new FormData();
-            // formData.append('image', this.image);
+        //     if()
 
-            // try{
-            //     const me = this;
-            // axios
-            // .post("usuaris", me.usuari )
 
-            // }catch(error){
-            //     console.error("Error al validar el formulari: " + error);
-            // }
-        },
+        //     if (me.usuari.tipus_usuari == 2) {
+        //         if (condition) {
+                    
+        //         }
+        //     }
+        //     else{
+                
+        //     }
+
+        // },
 
         agafarTipuslocals(){
             const me = this;

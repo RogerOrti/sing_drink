@@ -12,7 +12,7 @@ import CartaLocal from "./components/locals/cartaLocal.vue";
 import CartaMusic from "./components/musics/cartaMusic.vue";
 import PaginaLocal from "./components/paginaLocal/paginaLocal.vue";
 import UsuariosCRUD from "./components/usuariosCRUD.vue";
-import Paginate from 'vuejs-paginate-next';
+// import Paginate from 'vuejs-paginate-next';
 
 // createApp(mapboxFooter).mount('#mapa');
 // createApp(FooterEventos).mount('#Cubo');
