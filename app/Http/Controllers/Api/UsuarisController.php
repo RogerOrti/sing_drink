@@ -51,8 +51,11 @@ class UsuarisController extends Controller
         if($usuari->id_rol == 2){
 
             $multimedia = new Multimedia();
-            $multimedia->ruta = $request->input();
-            $multimedia->data = Carbon::now();
+
+
+
+            // $multimedia->ruta = $nom;
+            // $multimedia->data = Carbon::now();
 
             $multimedia->save();
 

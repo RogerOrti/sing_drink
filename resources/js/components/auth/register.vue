@@ -101,8 +101,18 @@ export default {
             tipusLocals: [],
             estilsMusica: [],
             usuari: {
-                tipus_usuari: '2',
+                tipus_usuari: 2,
                 multimedia: null
+            },
+            usuariErrors: {
+                nom: false,
+                cognom: false,
+                email: false,
+                contrasenya: false,
+                estilMusica: false,
+                nom_local: false,
+                direccio: false,
+                tipusLocal: false
             },
             errors:{},
 
@@ -115,13 +125,22 @@ export default {
     },
         afegirUsuari(){
 
-            // this.validarDataform();
+            this.validarDataform();
 
-            const me = this;
+            formData = new FormData();
+            formData.append("nom", this.usuari.nom);
+
+            if(!this.usuari.multimedia){
+                formData.append("file", this.usuari.multimedia);
+            }
+            
+
             axios
-            .post("usuaris", me.usuari )
+            .post("usuaris", formData )
             .then((response) => {
-                me.usuari = response.data;
+                
+                // formData = response.data;
+
                 console.log(response);
                 alert("Usuari creat correctament");
  
@@ -139,22 +158,48 @@ export default {
 
         },
 
-        // validarDataform(){
-        //     const me = this;
+        validarDataform(){
+            
+            if(!this.usuari.nom){
+                console.log("No s'ha escrit el nom");
+                this.usuariErrors.nom = true;
+            }
+            if(!this.usuari.cognom){
+                console.log("No s'ha escrit el cognom");
+                this.usuariErrors.cognom = true;
+            }
+            if(!this.usuari.email){
+                console.log("No s'ha escrit el email");
+                this.usuariErrors.email = true;
+            }
+            if(!this.usuari.contrasenya){
+                console.log("No s'ha escrit la contrasenya");
+                this.usuariErrors.contrasenya = true;
+            }
 
-        //     if()
-
-
-        //     if (me.usuari.tipus_usuari == 2) {
-        //         if (condition) {
-                    
-        //         }
-        //     }
-        //     else{
-                
-        //     }
-
-        // },
+            
+            switch (this.usuari.tipus_usuari) {
+                case 2: //Music
+                    if(!this.usuari.estilMusica){
+                        console.log("No s'ha indicat l'estil de musica");
+                        this.usuariErrors.estilMusica = true;
+                    }
+                    break;
+            
+                case 3: //
+                    if(!this.usuari.nom_local){
+                        console.log("No s'ha escrit el nom_local");
+                        this.usuariErrors.nom_local = true;
+                        }
+                    if(!this.usuari.tipusLocal){
+                        console.log("No s'ha indicat el tipus de local");
+                        this.usuariErrors.tipusLocal = true;
+                    }
+                    break;    
+                default:
+                    break;
+            }
+        },
 
         agafarTipuslocals(){
             const me = this;
