@@ -18,23 +18,20 @@
 
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" v-model="usuari.nom" name="nom" required>
+                        <input type="text" class="form-control" :class="{'is-invalid': usuariErrors.nom}" v-model="usuari.nom" name="nom" required>
                     </div>
+                    
                     <div class="mb-3">
                         <label for="nom" class="form-label">Cognom</label>
-                        <input type="text" class="form-control" v-model="usuari.cognom" name="cognom" required>
+                        <input type="text" class="form-control" :class="{'is-invalid': usuariErrors.cognom}" v-model="usuari.cognom" name="cognom" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" v-model="usuari.email" name="email" required>
+                        <input type="email" class="form-control" :class="{'is-invalid': usuariErrors.email}" v-model="usuari.email" name="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="contrasenya" class="form-label">Contrasenya</label>
-                        <input type="password" class="form-control" id="contrasenya" name="contrasenya" v-model="usuari.contrasenya" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="confirmContrasenya" class="form-label">Confirmar Contrasenya</label>
-                        <input type="password" class="form-control" id="confirmContrasenya" name="confirmContrasenya" v-model="usuari.confirmarContrasenya" required>
+                        <input type="password" class="form-control" :class="{'is-invalid': usuariErrors.contrasenya}" id="contrasenya" name="contrasenya" v-model="usuari.contrasenya" required>
                     </div>
 
                     <!-- Formulari de dades músic -->
@@ -61,11 +58,11 @@
                         <div class="mb-3">
                             <div class="mb-3">
                                 <label for="" class="form-label">Nom local</label>
-                                <input type="text" class="form-control" id="nom_local" name="nom_local" v-model="usuari.nom_local" required>
+                                <input type="text" class="form-control" :class="{'is-invalid': usuariErrors.nom_local}" id="nom_local" name="nom_local" v-model="usuari.nom_local" required>
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Adreça del local</label>
-                                <input type="text" class="form-control" id="direccio" name="direccio" v-model="usuari.direccio" required>
+                                <input type="text" class="form-control" :class="{'is-invalid': usuariErrors.nom_local}" id="direccio" name="direccio" v-model="usuari.direccio" required>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Tipus local</label>
@@ -114,7 +111,7 @@ export default {
                 direccio: false,
                 tipusLocal: false
             },
-            errors:{},
+            errors:[],
 
 
         };
@@ -123,34 +120,49 @@ export default {
         toggleUserType() {
         this.usuari.tipus_usuari = this.usuari.tipus_usuari === '2' ? '3' : '2';
     },
-        afegirUsuari(){
-
+        afegirUsuari() {
             this.validarDataform();
 
-            formData = new FormData();
-            formData.append("nom", this.usuari.nom);
+            if (this.errors.length > 0) {
+                alert("Hi ha errors en el formulari:\n" + this.errors.join("\n"));
+                return;
+            }
 
-            if(!this.usuari.multimedia){
+            const formData = new FormData();
+
+            // Afegim els camps amb el nom correcte
+            formData.append("tipus_usuari", this.usuari.tipus_usuari);
+            formData.append("nom", this.usuari.nom);
+            formData.append("cognom", this.usuari.cognom);
+            formData.append("email", this.usuari.email);
+            formData.append("contrasenya", this.usuari.contrasenya);
+            formData.append("estilMusica", this.usuari.estilMusica);
+            formData.append("nom_local", this.usuari.nom_local);
+            formData.append("direccio", this.usuari.direccio);
+            formData.append("tipusLocal", this.usuari.tipusLocal);
+
+            // Afegim l'arxiu si existeix
+            if (this.usuari.multimedia) {
                 formData.append("file", this.usuari.multimedia);
             }
-            
 
             axios
-            .post("usuaris", formData )
-            .then((response) => {
-                
-                // formData = response.data;
-
-                console.log(response);
-                alert("Usuari creat correctament");
- 
-            })
-            .catch((error) => {
-                error.response.data.errors.forEach((error) => {
-                    alert(error);
+                .post("usuaris", formData)
+                .then((response) => {
+                    console.log(response);
+                    alert("Usuari creat correctament");
+                })
+                .catch((error) => {
+                    if (error.response && error.response.data.errors) {
+                        error.response.data.errors.forEach((err) => {
+                            alert(err);
+                        });
+                    } else {
+                        alert("S'ha produït un error en el registre de l'usuari.");
+                    }
                 });
-            })
         },
+
         agafarMultimedia(event){
             const me = this;
 
@@ -161,38 +173,37 @@ export default {
         validarDataform(){
             
             if(!this.usuari.nom){
-                console.log("No s'ha escrit el nom");
+                this.errors.push("No s'ha escrit el nom")
                 this.usuariErrors.nom = true;
             }
             if(!this.usuari.cognom){
-                console.log("No s'ha escrit el cognom");
+                this.errors.push("No s'ha escrit el cognom");
                 this.usuariErrors.cognom = true;
             }
             if(!this.usuari.email){
-                console.log("No s'ha escrit el email");
+                this.errors.push("No s'ha escrit el email");
                 this.usuariErrors.email = true;
             }
             if(!this.usuari.contrasenya){
-                console.log("No s'ha escrit la contrasenya");
+                this.errors.push("No s'ha escrit la contrasenya");
                 this.usuariErrors.contrasenya = true;
             }
 
-            
             switch (this.usuari.tipus_usuari) {
                 case 2: //Music
                     if(!this.usuari.estilMusica){
-                        console.log("No s'ha indicat l'estil de musica");
+                        this.errors.push("No s'ha indicat l'estil de musica");
                         this.usuariErrors.estilMusica = true;
                     }
                     break;
             
-                case 3: //
+                case 3: //Propietari
                     if(!this.usuari.nom_local){
-                        console.log("No s'ha escrit el nom_local");
+                        this.errors.push("No s'ha escrit el nom_local");
                         this.usuariErrors.nom_local = true;
                         }
                     if(!this.usuari.tipusLocal){
-                        console.log("No s'ha indicat el tipus de local");
+                        this.errors.push("No s'ha indicat el tipus de local");
                         this.usuariErrors.tipusLocal = true;
                     }
                     break;    
