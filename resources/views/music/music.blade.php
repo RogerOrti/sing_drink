@@ -5,9 +5,9 @@
 @endsection
 
 @section('PantallaDeInicio')
-<div id="quisom">
-    <h1 class="display-1 fw-bold text-center larger-title">ANTHONY KIEDIS</h1>
-
+<div id="quisom" data-id="{{ $id }}">
+    <pagina-music></pagina-music>
+    {{-- <h1 class="display-1 fw-bold text-center larger-title">ANTHONY KIEDIS</h1> --}}
 </div>
 @endsection
 

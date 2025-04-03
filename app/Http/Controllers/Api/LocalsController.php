@@ -19,8 +19,6 @@ class LocalsController extends Controller
         return LocalResource::collection($locals);
 
     }
-
-
     /**
      * Store a newly created resource in storage.
      */

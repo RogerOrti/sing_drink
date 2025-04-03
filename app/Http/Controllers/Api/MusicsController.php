@@ -33,8 +33,15 @@ class MusicsController extends Controller
      */
     public function show(Music $music)
     {
-        //
+        // $musicData = Music::select('musics.*', 'usuaris.nom')
+        //     ->join('usuaris', 'musics.id_user', '=', 'usuaris.id_user') // Corregido aquí
+        //     ->where('musics.id_user', $music->id_user) // Asegurar que 'id_music' se refiera a 'musics'
+        //     ->first();
+
+        // return response()->json(['music' => $musicData]);
     }
+
+
 
     /**
      * Update the specified resource in storage.
