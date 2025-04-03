@@ -52,8 +52,9 @@ class UsuarisController extends Controller
 
             $multimedia = new Multimedia();
 
-
-
+            $file = $request->input("");
+            $nom = "";
+            
             // $multimedia->ruta = $nom;
             // $multimedia->data = Carbon::now();
 
