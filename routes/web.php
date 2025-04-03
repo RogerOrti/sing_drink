@@ -41,6 +41,10 @@ Route::get('/logout', [UsuariController::class,'logout'])->name('logout');
 
 Route::get('/musics', function () {
     return view('musics.musics');
+})->name('musics.musics');
+
+Route::get('/musics{id}', function ($id, $nom) {
+    return view('musics.musics', ['id' => $id, 'nom' => $nom]);
 });
 
 Route::get('/music', function () {
