@@ -99,7 +99,6 @@ export default {
             estilsMusica: [],
             usuari: {
                 tipus_usuari: 2,
-                multimedia: null
             },
             usuariErrors: {
                 nom: false,
@@ -128,7 +127,12 @@ export default {
                 return;
             }
 
+            console.log(this.usuari);
+            
             const formData = new FormData();
+
+            
+
 
             // Afegim els camps amb el nom correcte
             formData.append("tipus_usuari", this.usuari.tipus_usuari);
@@ -146,10 +150,14 @@ export default {
                 formData.append("file", this.usuari.multimedia);
             }
 
+
+            console.log("Dades de form" + formData);
+            
+
             axios
                 .post("usuaris", formData)
                 .then((response) => {
-                    console.log(response);
+                    console.log(response.data);
                     alert("Usuari creat correctament");
                 })
                 .catch((error) => {
