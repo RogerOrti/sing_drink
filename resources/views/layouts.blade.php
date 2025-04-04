@@ -41,7 +41,7 @@
                             <a class="nav-link" href="musics">MUSICOS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">CALENDARIO</a>
+                            <a class="nav-link" href="calendari">CALENDARIO</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="quisom">SOBRE NOSOTROS</a>

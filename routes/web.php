@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariController;
 use App\Http\Controllers\Api\LocalsController;
+use App\Http\Controllers\ConcertController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/login', [UsuariController::class,'showLogin'])->name('login');
 Route::post('/login', [UsuariController::class, 'login']);
 Route::get('/quisom', [UsuariController::class, 'SobreNosotros'])->name('sobre-nosotros');
 Route::get('/Home', [UsuariController::class, 'Home'])->name('Home');
+
+Route::get('/api/concerts', [ConcertController::class, 'getConcerts']);
 
 Route::get('/quisom', function () {
     return view('quiSom.quisom');
@@ -62,3 +65,7 @@ Route::get('/locals/{id}', function ($id) {
 Route::get('/mapa', function () {
     return view('mapes.mapboxFooter');
 });
+
+Route::get('/calendari', function () {
+    return view('calendari.calendari');
+})->name('calendari');
