@@ -33,7 +33,6 @@ class UsuarisController extends Controller
     public function store(Request $request)
     {
         
-
     try {
 
         DB::beginTransaction();
@@ -52,11 +51,13 @@ class UsuarisController extends Controller
 
             $multimedia = new Multimedia();
 
-            $file = $request->input("");
-            $nom = "";
-            
-            // $multimedia->ruta = $nom;
-            // $multimedia->data = Carbon::now();
+            $file = $request->file("file");
+
+            $ruta = $file->storeAs('public/media', $file->getClientOriginalName());
+
+            $multimedia->ruta = $ruta ;
+            $multimedia->data = Carbon::now();
+            $multimedia->id_tipo_multimedia = 1;
 
             $multimedia->save();
 
