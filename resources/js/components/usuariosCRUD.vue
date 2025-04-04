@@ -2,7 +2,7 @@
     <div><button @click="showForm()" class="anadirBoton"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
   <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
   <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
-</svg><strong> AÑADIR USUARIO</strong></button></div>
+</svg><strong> Afegir Usuari</strong></button></div>
          <div  class="tabla-usuarios">
             <table class="table">
                 <thead >
@@ -90,14 +90,14 @@
                                     required v-model="usuari.cognom">
                             </div>
                             <div data-mdb-input-init class="form-outline mb-4">
-                                <label for="formInputFecha" class="form-label">Correo</label>
+                                <label for="formInputFecha" class="form-label">Correo Electronic</label>
                                 <input type="email" name="mail" class="form-control" id="formInputFecha"
                                     required v-model="usuari.mail">
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Contraseña</label>
                                 <input type="password" name="contrasenya" class="form-control" id="exampleInputPassword1"
-                                    required placeholder="Introducir contraseña" v-model="usuari.contrasenya">
+                                    required placeholder="Introdueix la contrasenya" v-model="usuari.contrasenya">
                             </div>
                                   <select v-model="usuari.id_rol" class="form-select">
                             <option v-for="rol in roles" :key="rol.id_rol" :value="rol.id_rol">
@@ -110,7 +110,7 @@
         <div class="modal-footer">
             <button v-if="insert" type="button" class="btn btn-secondary" @click="insertUsuarios()">Crear</button>
             <button v-else type="button" class="btn btn-secondary" @click="updateUsuarios()">Editar</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tancar</button>
         </div>
         </div>
     </div>
@@ -122,10 +122,10 @@ import * as bootstrap from 'bootstrap';
 export default {
     data() {
         return{
-            usuarios: [],
+            usuaris: [],
             roles: [],
             myModal : {},
-            usuario: {},
+            usuari: {},
             messageError : "",
             isError : false,
             insert : false
@@ -143,7 +143,7 @@ export default {
                 this.isError = false
                 this.myModal = new bootstrap.Modal('#usuarioModal')
                 this.myModal.show();
-                this.usuario = {};
+                this.usuari = {};
             },
             getRoles(){
                 const me = this;
@@ -157,7 +157,7 @@ export default {
             },
             updateUsuarios(){
                 const me = this;
-                axios.put('usuario'+ me.usuario.id, me.usuario)
+                axios.put('usuaris'+ me.usuari.id, me.usuari)
                 .then(response => {
                     me.selectUsuario();
                     me.myModal.hide();
@@ -169,7 +169,7 @@ export default {
             },
             insertUsuarios(){
                 const me = this;
-                axios.post('usuario', me.usuario)
+                axios.post('usuaris', me.usuari)
                 .then(response => {
                     me.selectUsuario();
                     me.myModal.hide();
@@ -180,7 +180,7 @@ export default {
                 });
             },selectUsuario(){
                 const me = this;
-                axios.get('usuario')
+                axios.get('usuaris')
                 .then(response => {
                     me.usuarios = response.data;
                 })
@@ -188,21 +188,21 @@ export default {
                     console.log(error);
                 });
             },
-            editUsuario(usuario){
+            editUsuario(usuari){
                 this.insert = false;
-                this.usuario = usuario;
+                this.usuari = usuari;
                 this.myModal = new bootstrap.Modal('#usuarioModal')
                 this.myModal.show();
             },
-        eliminarUsuario(usuario) {
+        eliminarUsuario(usuari) {
             this.isError = false;
-            this.usuario = usuario;
+            this.usuari = usuari;
            this.myModal = new bootstrap.Modal('#deleteModal')
               this.myModal.show();
         },
         deleteUsuario(id){
             const me = this;
-            axios.delete("usuario/" + id)
+            axios.delete("usuaris/" + id)
             .then(response => {
                 me.selectUsuario()
                 me.myModal.hide()
@@ -227,7 +227,7 @@ export default {
     border-radius: 20px;
     padding: 10px;
     display: flex;
-    color: #ffffff;
+    color: #000000;
     width: 100rem;
     margin-left: 10rem;
 }
@@ -242,6 +242,6 @@ export default {
         border: none;
         background: none;
         cursor: pointer;
-        color: #2EBFA5;
+        color: #000000 ;
     }
 </style>
