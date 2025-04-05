@@ -1,22 +1,18 @@
 @extends('layouts')
 
 @section('fonsPantalla')
-<img src="{{ asset('image/erfan/anthony-kiedis-red-hot.jpg') }}" width="100%" class="fosc" height="100%" alt="GIF de imagen" style="position:absolute">
+   <img src="{{ 'music->multimedia->ruta' }}" class="cardMusics" alt="">
 @endsection
 
 @section('PantallaDeInicio')
-<div id="quisom" data-id="{{ $id }}">
-    <pagina-music></pagina-music>
-    {{-- <h1 class="display-1 fw-bold text-center larger-title">ANTHONY KIEDIS</h1> --}}
-</div>
 @endsection
 
 @section('Contenido_Adicional')
-<div class="fons d-flex justify-content-center">
-    <div class="fotoPrincipal m-5">
-        <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top" alt="">
+    <div class="fons d-flex justify-content-center">
+        <div class="fotoPrincipal m-5">
+            <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top" alt="">
+        </div>
     </div>
-</div>
 <div class="fons d-flex justify-content-center">
     <div class="fotosSecundaries d-flex flex-row justify-content-center" >
         <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top m-5" alt="">

@@ -1,100 +1,106 @@
 <template>
-    <div>
-      <div class="icono-chat">
-        <Button @click="mostrarModal" class="mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" style="color: #EEC765;" width="75" height="75" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
-            <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
-          </svg>
-        </Button>
-      </div>
-
-      <Dialog v-model:visible="mostrar" id="chat" modal header="CHAT" :style="{ width: '40vw', background: '#EEC765' }">
-        <div class="chat-container">
-          <div class="user-list">
-            <h3>Mensajes</h3>
-            <ul>
-              <li v-for="user in users" :key="user.id" @click="selectUser(user)" :class="{ active: selectedUser && selectedUser.id === user.id }">
-                <span class="avatar">{{ user.name.charAt(0) }}</span>
-                <div class="user-info">
-                  <strong>{{ user.name }}</strong>
-                  <p>{{ user.messages[user.messages.length - 1] }}</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-
-          <div class="chat-box" v-if="selectedUser">
-            <div class="chat-header">
-              <span class="avatar">{{ selectedUser.name.charAt(0) }}</span>
-              <h3>{{ selectedUser.name }}</h3>
-            </div>
-            <div class="messages">
-              <div v-for="(msg, index) in selectedUser.messages" :key="index" :class="['message', index % 2 === 0 ? 'sent' : 'received']">
-                <p>{{ msg }}</p>
-              </div>
-            </div>
-            <form @submit.prevent="enviarFormulario" class="chat-input">
-              <InputText v-model="newMessage" type="text" placeholder="Escribe aqui" />
-              <Button type="submit" icon="pi pi-send"></Button>
-            </form>
-          </div>
-        </div>
-      </Dialog>
+  <div>
+    <div class="icono-chat">
+      <Button @click="mostrarModal" class="mb-4">
+        <svg fill="#EEC765" height="70px" width="70px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-27.6 -27.6 515.20 515.20" xml:space="preserve" stroke="#EEC765" stroke-width="0.00460003" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#EEC765" stroke-width="15.640102000000002"> <g> <g> <path d="M455.608,4.394c-4.192-4.192-10.459-5.521-15.99-3.394L9.616,166.376c-5.624,2.163-9.409,7.482-9.607,13.505 c-0.199,6.023,3.225,11.58,8.694,14.11l175.93,81.379l81.379,175.93c2.46,5.318,7.782,8.703,13.612,8.703 c0.165,0,0.332-0.003,0.498-0.008c6.023-0.199,11.342-3.983,13.505-9.607L459.002,20.385C461.13,14.852,459.8,8.585,455.608,4.394 z M278.354,406.523l-68.807-148.751c-0.747-1.615-1.769-3.07-3.008-4.309L418.887,41.116L278.354,406.523z"></path> </g> </g> </g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M455.608,4.394c-4.192-4.192-10.459-5.521-15.99-3.394L9.616,166.376c-5.624,2.163-9.409,7.482-9.607,13.505 c-0.199,6.023,3.225,11.58,8.694,14.11l175.93,81.379l81.379,175.93c2.46,5.318,7.782,8.703,13.612,8.703 c0.165,0,0.332-0.003,0.498-0.008c6.023-0.199,11.342-3.983,13.505-9.607L459.002,20.385C461.13,14.852,459.8,8.585,455.608,4.394 z M278.354,406.523l-68.807-148.751c-0.747-1.615-1.769-3.07-3.008-4.309L418.887,41.116L278.354,406.523z"></path> </g> </g> </g></svg> 
+      </Button>
     </div>
-  </template>
 
-  <script>
-  import { ref } from "vue";
-  import Dialog from "primevue/dialog";
-  import Button from "primevue/button";
-  import InputText from "primevue/inputtext";
+    <Dialog v-model:visible="mostrar" id="chat" modal header="CHAT" :style="{ width: '40vw', background: '#EEC765' }" @hide="handleClose">
+      <div class="chat-container">
+        <div class="user-list">
+          <h3>Mensajes</h3>
+          <ul>
+            <li v-for="user in users" :key="user.id" @click="selectUser(user)" :class="{ active: selectedUser && selectedUser.id === user.id }">
+              <span class="avatar">{{ user.name.charAt(0) }}</span>
+              <div class="user-info">
+                <strong>{{ user.name }}</strong>
+                <p>{{ user.messages[user.messages.length - 1] }}</p>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-  export default {
-    components: {
-      Dialog,
-      Button,
-      InputText
-    },
-    setup() {
-      const mostrar = ref(false);
-      const newMessage = ref("");
-      const selectedUser = ref(null);
-      const users = ref([
-        { id: 1, name: "Jordi Celemin", messages: ["No se programar ayudame."] },
-        { id: 2, name: "Pablo Lin", messages: ["你去死吧，别跟我说话"] },
-        { id: 3, name: "Roger", messages: ["Tienes 4kg de droga?"] },
-        { id: 4, name: "Erfan", messages: ["Shadow the collonus el mejor juego de la historia !!!"] }
-      ]);
+        <div class="chat-box" v-if="selectedUser">
+          <div class="chat-header">
+            <span class="avatar">{{ selectedUser.name.charAt(0) }}</span>
+            <h3>{{ selectedUser.name }}</h3>
+          </div>
+          <div class="messages">
+            <div v-for="(msg, index) in selectedUser.messages" :key="index" :class="['message', index % 2 === 0 ? 'sent' : 'received']">
+              <p>{{ msg }}</p>
+            </div>
+          </div>
+          <form @submit.prevent="enviarFormulario" class="chat-input">
+            <InputText v-model="newMessage" type="text" placeholder="Escribe aqui" />
+            <Button type="submit" icon="pi pi-send"></Button>
+          </form>
+        </div>
+      </div>
+    </Dialog>
+  </div>
+</template>
 
-      const mostrarModal = () => {
-        mostrar.value = true;
-      };
+<script>
+import { ref } from "vue";
+import Dialog from "primevue/dialog";
+import Button from "primevue/button";
+import InputText from "primevue/inputtext";
 
-      const selectUser = (user) => {
-        selectedUser.value = user;
-      };
+export default {
+  components: {
+    Dialog,
+    Button,
+    InputText
+  },
+  setup() {
+    const mostrar = ref(false);
+    const newMessage = ref("");
+    const selectedUser = ref(null);
+    const users = ref([
+      { id: 1, name: "Jordi Celemin", messages: ["No se programar ayudame."] },
+      { id: 2, name: "Pablo Lin", messages: ["你去死吧，别跟我说话"] },
+      { id: 3, name: "Roger", messages: ["Hola soy Youtuber"] },
+      { id: 4, name: "Erfan", messages: ["Estoy en twitch por si quieres pasarte"] }
+    ]);
 
-      const enviarFormulario = () => {
-        if (newMessage.value.trim() && selectedUser.value) {
-          selectedUser.value.messages.push(newMessage.value);
-          newMessage.value = "";
-        }
-      };
+    const mostrarModal = () => {
+      mostrar.value = true;
+    };
 
-      return {
-        mostrar,
-        newMessage,
-        selectedUser,
-        users,
-        mostrarModal,
-        selectUser,
-        enviarFormulario
-      };
-    }
-  };
-  </script>
+    const selectUser = (user) => {
+      selectedUser.value = user;
+    };
 
-  <style >
+    const enviarFormulario = () => {
+      if (newMessage.value.trim() && selectedUser.value) {
+        selectedUser.value.messages.push(newMessage.value);
+        newMessage.value = "";
+      }
+    };
+
+    const handleClose = () => {
+      mostrar.value = false;
+    };
+
+    return {
+      mostrar,
+      newMessage,
+      selectedUser,
+      users,
+      mostrarModal,
+      selectUser,
+      enviarFormulario,
+      handleClose
+    };
+  }
+};
+</script>
+
+  <style>
+  .user-info p{
+    color:wheat;
+  }
   .icono-chat{
     position: fixed;
     bottom: 0;
@@ -109,7 +115,7 @@
 
   .chat-container {
     display: flex;
-    height: 60vh;
+    height: 100%;
     background: #EAEAEA;
   }
   .user-list {
@@ -133,7 +139,7 @@
     background: #131b33;
   }
   .avatar {
-    width: 50px;
+    width: 100px;
     height: 50px;
     border-radius: 50%;
     background: #777;
@@ -154,7 +160,10 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    background: #F5F5F5;
+    background-color: #222E50;
+  }
+  .chat-header span {
+    width: 10%;
   }
   .messages {
     flex: 1;
@@ -168,8 +177,7 @@
     max-width: 60%;
   }
   .sent {
-    background: #222E50;
-    color: white;
+    background: #d3d3d3;
     align-self: flex-end;
   }
   .received {
@@ -179,7 +187,7 @@
   .chat-input {
     display: flex;
     padding: 10px;
-    background: #F5F5F5;
+    background: #222e50;
   }
   .chat-input input {
     flex: 1;

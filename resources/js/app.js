@@ -3,6 +3,8 @@ import * as bootstrap from "bootstrap";
 import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
 import { createApp } from "vue";
 import PrimeVue from 'primevue/config';
+
+
 import Chat from './Chat.vue';
 import registerVue from "./components/auth/register.vue";
 import loginVue from "./components/auth/login.vue";
@@ -24,13 +26,13 @@ import UsuariosCRUD from "./components/usuariosCRUD.vue";
 
 const app = createApp({});
 
-// app.use(PrimeVue);
+app.use(PrimeVue);  // Uso de PrimeVue globalmente
 
 app.component("chat", Chat);
 app.component("register", registerVue);
 app.component("login", loginVue);
 app.component("prova", Prova);
-app.component("mapbox-footer", mapboxFooter);
+// app.component("mapbox-footer", mapboxFooter);
 app.component("footer-eventos", FooterEventos);
 app.component("carta-local", CartaLocal);
 app.component("carta-music", CartaMusic);

@@ -51,9 +51,18 @@ Route::get('/music', function () {
     return view('music.music');
 });
 
+Route::get('/music/{id}', function () {
+    return view('music.music');
+});
+
 Route::get('/locals', function () {
     return view('locals.locals');
 })->name('locals.locals');
+
+Route::get('/gestion_usuario', function () {
+    return view('gestion.gestionUsuarios');
+})->name('gestion.gestionUsuarios');
+
 
 Route::get('/locals/{id}', function ($id) {
     return view('local.local', ['id' => $id]);
