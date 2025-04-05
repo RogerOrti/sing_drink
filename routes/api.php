@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\LocalsController;
 use App\Http\Controllers\Api\MusicsController;
 use App\Http\Controllers\Api\TipusLocalController;
 use App\Http\Controllers\Api\UsuarisController;
+use App\Http\Controllers\RolUserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,4 @@ Route::apiResource('musics', MusicsController::class);
 Route::apiResource('usuaris', UsuarisController::class);
 Route::apiResource('tipusLocal', TipusLocalController::class);
 Route::apiResource('estilMusica', EstilMusicaController::class);
+Route::apiResource('rol',RolUserController::class);

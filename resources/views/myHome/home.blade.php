@@ -1,15 +1,16 @@
 @extends('layouts')
 
 @section('fonsPantalla')
-    <img src="{{ asset('image/200.gif') }}" width="100%" class="fosc" height="100%" alt="GIF de imagen"
-        style="position:absolute">
+<img src="{{ url('https://i.postimg.cc/yNNZkdT7/Screenshot-2025-04-05-at-19-07-22-photo-1528907061761-f2aa74665321-Imagen-JPEG-2070-1380-p-xeles.png') }}" 
+     class="fosc" alt="GIF de imagen"
+     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+
 @endsection
 
 @section('PantallaDeInicio')
     <div id="quisom">
-        <h1 class="display-1 fw-bold text-center larger-title">QUI SOM</h1>
-        <p class="display-5  text-center ">-</p>
-        <p class="display-6 text-center"><strong>Sing&Drink</strong></p>
+        <h1 class="display-1 fw-bold text-center larger-title">SING&DRINK</h1>
+        <p class="display-6 text-center"><strong>Sing&Drink: on cada nota sap millor.</strong></p>
     </div>
 @endsection
 @section('Contenido_Adicional')

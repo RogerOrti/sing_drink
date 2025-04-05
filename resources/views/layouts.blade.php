@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sticky Navbar with Full Screen Div</title>
+    <title>Sing&Drink</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/css/app.scss', 'resources/js/main.js', 'resources/js/app.js', 'resources/css/erfan.css', 'resources/css/pablo.css', 'resources/css/style.css'])
@@ -32,19 +31,19 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('Home') }}">INICIO</a>
+                            <a class="nav-link active" aria-current="page" href="{{ route('Home') }}">INICI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="locals">LOCALES</a>
+                            <a class="nav-link" href="locals">LOCALS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="musics">MUSICOS</a>
+                            <a class="nav-link" href="musics">MUSICS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">CALENDARIO</a>
+                            <a class="nav-link" href="#">CALENDARI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="quisom">SOBRE NOSOTROS</a>
+                            <a class="nav-link" href="quisom">QUI SOM</a>
                         </li>
 
                         <li class="nav-item d-lg-none">
@@ -77,7 +76,6 @@
     <div id="Cubo"></div>
     <div id="app">
         <chat></chat>
-
         <footer-eventos></footer-eventos>
     </div>
 
@@ -90,7 +88,7 @@
             </div>
             <div class="col mb-3">
                 <ul class="nav flex-column ">
-                    <li class="nav-item mb-2 "><a href="home" class="nav-link p-0 text-secondary">Inicio</a></li>
+                    <li class="nav-item mb-2 "><a href="{{ route('Home') }}" class="nav-link p-0 text-secondary">Inicio</a></li>
                     <li class="nav-item mb-2"><a href="cartelera" class="nav-link p-0 text-secondary">Locals</a></li>
                     <li class="nav-item mb-2"><a href="musics" class="nav-link p-0 text-secondary">Musics</a></li>
                     <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-secondary">Calendari</a></li>

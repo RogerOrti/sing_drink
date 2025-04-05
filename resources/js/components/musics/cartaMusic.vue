@@ -7,7 +7,7 @@
                     <!-- <img class="cardMusics" :src="music.multimedia.ruta"/> -->
                     <div>
                         <!-- <a href="music" class=" btn btnMusics btn-primary">Saber más</a> -->
-                        <a :href="'musics/' + music.id_user " class="btn btnMusics btn-primary">Saber més</a>
+                        <a :href="'music/' + music.id_user " class="btn btnMusics btn-primary">Saber més</a>
                         <img class="play card-img-top" :src="('image/erfan/logoPlay.png')" alt="">
                     </div>
                 </div>

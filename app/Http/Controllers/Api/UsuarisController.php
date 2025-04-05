@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Local;
-use App\Models\Multimedia;
-use App\Models\Music;
-use App\Models\propietari;
-use App\Models\Usuari;
 use Exception;
+use App\Models\Local;
+use App\Models\Music;
+use App\Models\Usuari;
+use App\Clases\Utilitat;
+use App\Models\Multimedia;
+use App\Models\propietari;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Resources\UsuariResource;
+use Illuminate\Database\QueryException;
 
 class UsuarisController extends Controller
 {
@@ -22,8 +24,7 @@ class UsuarisController extends Controller
      */
     public function index()
     {
-        $usuaris = Usuari::all();
-
+        $usuaris = Usuari::with('roluser')->get();
         return UsuariResource::collection($usuaris);
     }
 
@@ -42,9 +43,9 @@ class UsuarisController extends Controller
 
         $usuari->nom = $request->input("nom");
         $usuari->cognom = $request->input("cognom");
-        $usuari->mail = $request->input("email");
+        $usuari->mail = $request->input("mail");
         $usuari->contrasenya = Hash::make($request->input("contrasenya"));
-        $usuari->id_rol = $request->input("tipus_usuari");
+        $usuari->id_rol = $request->input("id_rol");
 
         $usuari->save();
         
@@ -109,7 +110,8 @@ class UsuarisController extends Controller
      */
     public function show(Usuari $usuari)
     {
-        //
+        $usuari = Usuari::with('usuari')->find($usuari->id);
+        return new UsuariResource($usuari);
     }
 
     /**
@@ -117,7 +119,18 @@ class UsuarisController extends Controller
      */
     public function update(Request $request, Usuari $usuari)
     {
-        //
+        try {
+            $usuari->nom = $request->input("nom");
+            $usuari->cognom = $request->input("cognom");
+            $usuari->mail = $request->input("mail");
+            $usuari->contrasenya = Hash::make($request->input("contrasenya"));
+            $usuari->id_rol = $request->input("id_rol");
+
+            $usuari->save();
+            return response()->json(['message' => 'Usuario actualizado correctamente'], 200);
+        } catch (QueryException $ex) {
+            return response()->json(['error' => Utilitat::errorMessage($ex)], 500);
+        }
     }
 
     /**
@@ -125,6 +138,11 @@ class UsuarisController extends Controller
      */
     public function destroy(Usuari $usuari)
     {
-        //
+        try {
+            $usuari->delete();
+            return response()->json(['message' => 'Usuario eliminado correctamente'], 200);
+        } catch (QueryException $ex) {
+            return response()->json(['error' => Utilitat::errorMessage($ex)], 500);
+        }
     }
 }

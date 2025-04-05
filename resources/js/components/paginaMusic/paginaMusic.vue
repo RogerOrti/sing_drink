@@ -1,9 +1,11 @@
 <template>
     <div v-for="music in musics" :key="music.id">
       <div id="quisom">
+        
         <h1 class="display-1 fw-bold text-center larger-title">{{ music.nom_music }}</h1>
       </div>
     </div>
+    
   </template>
 
   <script>
@@ -11,7 +13,7 @@
     data() {
       return {
         musics: [],
-        id: null // Declare a variable to store the ID
+        id: null 
       }
     },
 
@@ -20,7 +22,7 @@
       this.id = document.getElementById('app').getAttribute('data-id');
 
       // Make the axios request with the ID
-      axios.get(`/musics/${this.id}`)
+      axios.get(`/music/${this.id}`)
         .then(response => {
           console.log("Datos recibidos:", response.data); // Verifica la resposta en consola
           this.musics = response.data; // Assigns data to locals
