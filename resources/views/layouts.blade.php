@@ -96,7 +96,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="footerpart1-1">
+            <div class="footerpart1-1 ">
                 <p>Uniendo músicos, bares y eventos desde 1934</p>
                 <p>Descubre la magia de la música en vivo y apoya los talentos locales</p>
             </div>
