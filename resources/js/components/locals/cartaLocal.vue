@@ -1,11 +1,11 @@
 <template>
     <div class="cardsLocals">
-      <div class="card" v-for="local in locals" :key="local.id" style="width: 18rem;">
+      <div class="card m-4" v-for="local in locals" :key="local.id" style="width: 18rem;">
         <div class="card-body">
-            <img class="fotoCardLocals" :src="local.multimedia.ruta"/>
-            <h5 class="card-title">{{ local.nom_local }}</h5>
-            <h5 class="card-title">{{ local.direccio }}</h5>
-            <a :href="'locals/' + local.id_local " class="btn btn-primary">Saber més</a>
+            <img class="fotoCardLocals m-2" :src="local.multimedia.ruta"/>
+            <h5 class="card-title m-1">{{ local.nom_local }}</h5>
+            <h5 class="card-title m-1">{{ local.direccio }}</h5>
+            <a :href="'local/' + local.id_local " class="btn btn-primary mt-2">Saber més</a>
         </div>
       </div>
     </div>

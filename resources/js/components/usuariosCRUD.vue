@@ -5,7 +5,7 @@
         <strong> Afegir Usuari</strong>
       </button>
     </div>
-  
+
     <div class="tabla-usuarios">
       <table class="table">
         <thead>
@@ -44,7 +44,7 @@
         </tbody>
       </table>
     </div>
-  
+
     <!-- Modal para borrar-->
     <div class="modal" tabindex="-1" id="deleteModal">
       <div class="modal-dialog" role="document">
@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Modal para Insertar/Actualizar -->
     <div class="modal" tabindex="-1" id="usuarioModal">
       <div class="modal-dialog" role="document">
@@ -112,11 +112,11 @@
       </div>
     </div>
   </template>
-  
+
   <script>
   import * as bootstrap from 'bootstrap';
   import axios from 'axios';
-  
+
   export default {
       data() {
           return{
@@ -129,13 +129,13 @@
               insert: false
           }
       },
-  
+
       created() {
          this.selectUsuario();
          this.getRoles();
          this.getRoles();
       },
-  
+
       methods: {
           showForm() {
               this.insert = true;
@@ -144,7 +144,7 @@
               this.myModal.show();
               this.usuari = {};
           },
-  
+
           getRoles() {
               const me = this;
               axios.get('rol')
@@ -155,7 +155,7 @@
                       console.log(error);
                   });
           },
-  
+
           updateUsuarios() {
               const me = this;
               axios.put('usuaris/' + me.usuari.id_user, me.usuari)
@@ -168,7 +168,7 @@
                       me.messageError = error.response.data.message;
                   });
           },
-  
+
           insertUsuarios() {
               const me = this;
               const formData = new FormData();
@@ -176,8 +176,8 @@
               formData.append('cognom', me.usuari.cognom);
               formData.append('mail', me.usuari.mail);
               formData.append('contrasenya', me.usuari.contrasenya);
-              formData.append('id_rol', me.usuari.id_rol);  
-  
+              formData.append('id_rol', me.usuari.id_rol);
+
               axios.post('usuaris', formData, {
                   headers: {
                       'Content-Type': 'multipart/form-data'
@@ -192,7 +192,7 @@
                   me.messageError = error.response.data.message;
               });
           },
-  
+
           selectUsuario() {
               const me = this;
               axios.get('usuaris')
@@ -203,21 +203,21 @@
                       console.log(error);
                   });
           },
-  
+
           editUsuario(usuari) {
               this.insert = false;
               this.usuari = usuari;
               this.myModal = new bootstrap.Modal('#usuarioModal');
               this.myModal.show();
           },
-  
+
           eliminarUsuario(usuari) {
               this.isError = false;
               this.usuari = usuari;
               this.myModal = new bootstrap.Modal('#deleteModal');
               this.myModal.show();
           },
-  
+
           deleteUsuario(id) {
               const me = this;
               axios.delete("usuaris/" + id)
@@ -231,14 +231,14 @@
                   });
           }
       },
-  
+
       mounted() {}
   }
   </script>
-  
-<style>
+
+<style scoped>
 .editarBoton {
-    background-color: #4CAF50; 
+    background-color: #4CAF50;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -247,11 +247,11 @@
 }
 
 .editarBoton:hover {
-    background-color: #45a049; 
+    background-color: #45a049;
 }
 
 .btn-danger {
-    background-color: #f44336; 
+    background-color: #f44336;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -260,7 +260,7 @@
 }
 
 .btn-danger:hover {
-    background-color: #e53935; 
+    background-color: #e53935;
 }
 
 .anadirBoton {
