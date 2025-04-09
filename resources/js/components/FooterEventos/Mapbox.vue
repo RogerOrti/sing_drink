@@ -54,7 +54,7 @@
             // Procesar cada local
             for (const location of data) {
               try {
-                const coords = await geocodeAddress(location.direccio);
+                const coords = await geocodeAddress(location.direccio); // Obtener lat y lng
                 locations.push({
                   lat: coords[1],
                   lng: coords[0],
@@ -142,3 +142,7 @@
     background: rgba(255, 255, 255, 0.7);
 }
 </style>
+
+
+
+pk.eyJ1IjoibG9zdHlybDciLCJhIjoiY204M2N5eGhhMHF5MTJqcmE1Y3Y1bm5keiJ9.2B5FzYtEPqL6ZIYbPLjQxg
