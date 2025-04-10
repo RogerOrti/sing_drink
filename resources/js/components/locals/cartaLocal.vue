@@ -8,6 +8,7 @@
             <h5 class="card-title m-1">{{ local.direccio }}</h5>
             <a :href="'local/' + local.id_local" class="btn btn-primary mt-2">Saber més</a>
           </div>
+
         </div>
       </div>
 

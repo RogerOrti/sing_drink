@@ -66,7 +66,14 @@
                     <div class="d-none d-lg-flex">
                         <a href="<?php echo e(route('logout')); ?>" class="btn btn-secondary me-2">Logout</a>
                     </div>
+                    <?php if(Auth::user()->id_rol==2): ?>
+                    <div id="app">
+                        <afegir-multimedia></afegir-multimedia>
+                    </div>
+                    <?php endif; ?>
                 <?php endif; ?>
+
+
 
             </div>
         </nav>
