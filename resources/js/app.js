@@ -15,6 +15,7 @@ import CartaMusic from "./components/musics/cartaMusic.vue";
 import PaginaLocal from "./components/paginaLocal/paginaLocal.vue";
 import PaginaMusic from "./components/paginaMusic/paginaMusic.vue";
 import UsuariosCRUD from "./components/usuariosCRUD.vue";
+import mapaLocal from "./components/mapbox/mapboxLocal.vue";
 // import Paginate from 'vuejs-paginate-next';
 
 // createApp(mapboxFooter).mount('#mapa');
@@ -39,6 +40,7 @@ app.component("carta-music", CartaMusic);
 app.component("pagina-local", PaginaLocal);
 app.component("pagina-music", PaginaMusic);
 app.component("usuarios-crud", UsuariosCRUD);
+app.component("mapalocal", mapaLocal);
 
 app.mount('#app');
 

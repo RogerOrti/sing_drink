@@ -15,6 +15,10 @@
 @endsection
 
 @section('Contenido_Adicional')
+
+<div id="app" data-id="{{ $id }}">
+    <mapalocal></mapalocal>
+</div>
 <div>
     <h1>MAPA ROGER</h1>
 </div>
