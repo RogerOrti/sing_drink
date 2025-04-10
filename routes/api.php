@@ -1,15 +1,18 @@
 <?php
 
-use App\Http\Controllers\Api\EstilMusicaController;
-use App\Http\Controllers\Api\LocalsController;
-use App\Http\Controllers\Api\MusicsController;
-use App\Http\Controllers\Api\TipusLocalController;
-use App\Http\Controllers\Api\UsuarisController;
-use App\Http\Controllers\MusicController;
-use App\Http\Controllers\RolUserController;
 use App\Models\Music;
 use Illuminate\Http\Request;
+use App\Models\TipoMultimedia;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MusicController;
+use App\Http\Controllers\RolUserController;
+use App\Http\Controllers\Api\TipusMultimedia;
+use App\Http\Controllers\Api\LocalsController;
+use App\Http\Controllers\Api\MusicsController;
+use App\Http\Controllers\Api\UsuarisController;
+use App\Http\Controllers\Api\MultimediaController;
+use App\Http\Controllers\Api\TipusLocalController;
+use App\Http\Controllers\Api\EstilMusicaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +36,5 @@ Route::apiResource('usuaris', UsuarisController::class);
 Route::apiResource('tipusLocal', TipusLocalController::class);
 Route::apiResource('estilMusica', EstilMusicaController::class);
 Route::apiResource('rol',RolUserController::class);
+Route::apiResource('multimedia',MultimediaController::class);
+Route::apiResource('tipusMultimedia',TipusMultimedia::class);

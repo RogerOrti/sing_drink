@@ -72,6 +72,9 @@
                     </div>
                     <?php endif; ?>
                 <?php endif; ?>
+                <div id="app">
+                    <afegir-multimedia></afegir-multimedia>
+                </div>
 
 
 
