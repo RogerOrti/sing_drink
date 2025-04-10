@@ -72,6 +72,9 @@
                     </div>
                     @endif
                 @endif
+                <div id="app">
+                    <afegir-multimedia></afegir-multimedia>
+                </div>
 
 
 
