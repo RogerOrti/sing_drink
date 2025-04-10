@@ -33,7 +33,7 @@ app.component("chat", Chat);
 app.component("register", registerVue);
 app.component("login", loginVue);
 app.component("prova", Prova);
-// app.component("mapbox-footer", mapboxFooter);
+app.component("mapbox-footer", mapboxFooter);
 app.component("footer-eventos", FooterEventos);
 app.component("carta-local", CartaLocal);
 app.component("carta-music", CartaMusic);

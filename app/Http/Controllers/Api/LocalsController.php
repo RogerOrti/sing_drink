@@ -19,6 +19,12 @@ class LocalsController extends Controller
         return LocalResource::collection($locals);
 
     }
+
+public function indexPaginado()
+{
+    $locals = local::with('multimedia')->paginate(1);
+    return LocalResource::collection($locals);
+}
     /**
      * Store a newly created resource in storage.
      */

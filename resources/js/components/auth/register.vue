@@ -131,9 +131,6 @@ export default {
             
             const formData = new FormData();
 
-            
-
-
             // Afegim els camps amb el nom correcte
             formData.append("tipus_usuari", this.usuari.tipus_usuari);
             formData.append("nom", this.usuari.nom);

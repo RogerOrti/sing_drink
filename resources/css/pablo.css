@@ -1,4 +1,5 @@
 .carouselIndex {
+    flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,15 +26,20 @@
         linear-gradient(transparent, transparent, #0002, #0004);
 }
 
-.CartelImagenes {
+.CartelImagenes1, .CartelImagenes2  {
     display: flex;
     width: 100%;
     height: auto;
     min-height: 700px;
-    background-color: #222e50;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+.CartelImagenes2{
+    background-color: #071424;
+}
+.CartelImagenes1{
+background-color: #222E50;
 }
 .CartelImagenesCardCard {
     align-items: center;
@@ -81,14 +87,12 @@
     height: auto;
     min-height: 300px;
     flex-wrap: wrap;
-    border: solid black 1px;
     justify-content: center;
 }
 .RandomNombreCard {
     width: 23%;
     height: 150px;
     display: flex;
-    border: solid 1px red;
     margin: 10px;
     background-size: cover;
 }
