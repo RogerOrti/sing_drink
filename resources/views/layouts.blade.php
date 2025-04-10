@@ -66,7 +66,14 @@
                     <div class="d-none d-lg-flex">
                         <a href="{{ route('logout') }}" class="btn btn-secondary me-2">Logout</a>
                     </div>
+                    @if (Auth::user()->id_rol==2)
+                    <div id="app">
+                        <afegir-multimedia></afegir-multimedia>
+                    </div>
+                    @endif
                 @endif
+
+
 
             </div>
         </nav>

@@ -5,7 +5,7 @@
             <img class="fotoCardLocals m-2" :src="local.multimedia.ruta"/>
             <h5 class="card-title m-1">{{ local.nom_local }}</h5>
             <h5 class="card-title m-1">{{ local.direccio }}</h5>
-            <a :href="'local/' + local.id_local " class="btn btn-primary mt-2">Saber més</a>
+            <a :href="'local/' + local.id_local " class="btn btn-primary ">Saber més</a>
         </div>
       </div>
     </div>
