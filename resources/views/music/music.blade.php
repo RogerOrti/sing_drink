@@ -1,10 +1,16 @@
 @extends('layouts')
 
 @section('fonsPantalla')
-   <img src="{{ 'music->multimedia->ruta' }}" class="cardMusics" alt="">
+   <img src="{{ $music->multimedia->ruta }}" class="fotoPortadaCantant" alt="">
 @endsection
 
 @section('PantallaDeInicio')
+<div id="quisom">
+    <h1 class="display-1 fw-bold text-center larger-title">{{ $music->user->nom}}</h1>
+    <p class="lletraBlanca">Sing and Drink et convida a viure una experiència única als nostres locals
+        Gaudeix de música en viu, una gran selecció de begudes i moments inoblidables amb els teus amics.</p>
+</div>
+
 @endsection
 
 @section('Contenido_Adicional')

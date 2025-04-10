@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Music;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariController;
 use App\Http\Controllers\Api\LocalsController;
@@ -51,8 +52,16 @@ Route::get('/music', function () {
     return view('music.music');
 });
 
-Route::get('/music/{id}', function () {
-    return view('music.music');
+// Route::get('/music/{id}', function () {
+
+//     $musics = Music::with(['user', 'multimedia'])->get();
+
+//     return view('music.music');
+// });
+
+Route::get('/music/{id}', function ($id) {
+    $music = Music::with(['user', 'multimedia'])->findOrFail($id);
+    return view('music.music', compact('music'));
 });
 
 Route::get('/locals', function () {
@@ -64,7 +73,7 @@ Route::get('/gestion_usuario', function () {
 })->name('gestion.gestionUsuarios');
 
 
-Route::get('/locals/{id}', function ($id) {
+Route::get('/local/{id}', function ($id) {
     return view('local.local', ['id' => $id]);
 });
 

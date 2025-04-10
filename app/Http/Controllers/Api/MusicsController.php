@@ -19,6 +19,11 @@ class MusicsController extends Controller
 
         return MusicResource::collection($musics);
     }
+    public function indexPaginado()
+    {
+        $musics = Music::with(['user', 'multimedia'])->paginate(1);
+        return MusicResource::collection($musics);
+    }
 
     /**
      * Store a newly created resource in storage.

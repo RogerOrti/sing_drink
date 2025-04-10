@@ -76,9 +76,7 @@ body {
 
 .card {
     width: 400px;
-    /* Aumentar el tamaño */
-    height: 400px;
-    /* Aumentar el tamaño */
+    height: 500px;
     border-radius: 10px;
     padding: 10px;
     overflow: hidden;

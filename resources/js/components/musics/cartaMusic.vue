@@ -13,26 +13,49 @@
                 </div>
             </div>
         </div>
+        <div class="pagination text-center my-4">
+        <button class="btn btn-secondary mx-2" :disabled="currentPage === 1" @click="cambiarPagina(currentPage - 1)">
+          Anterior
+        </button>
+        <span>Página {{ currentPage }} de {{ lastPage }}</span>
+        <button class="btn btn-secondary mx-2" :disabled="currentPage === lastPage" @click="cambiarPagina(currentPage + 1)">
+          Siguiente
+        </button>
+      </div>
   </template>
 
   <script>
   export default {
+
     data() {
       return {
-        musics: []
+        musics: [],
+        currentPage: 1,
+        lastPage: 1
       }
     },
 
     mounted() {
-        const me = this;
-      axios.get("musics")
-        .then(response => {
-          console.log("Datos recibidos:", response.data);
-          me.musics = response.data;
-        })
-        .catch(error => {
-          console.error("Error al cargar los datos:", error);
-        });
+        this.GetMusic();
+    },
+
+    methods: {
+      GetMusic(page = 1) {
+        axios.get("musics/paginado", { params: { page } })
+          .then((response) => {
+            this.musics = response.data.data;
+            this.currentPage = response.data.meta.current_page;
+            this.lastPage = response.data.meta.last_page;
+          })
+          .catch((error) => {
+            console.error("Error al cargar los datos:", error);
+          });
+      },
+      cambiarPagina(nuevaPagina) {
+        if (nuevaPagina >= 1 && nuevaPagina <= this.lastPage) {
+          this.GetMusic(nuevaPagina);
+        }
+      }
     }
   }
   </script>

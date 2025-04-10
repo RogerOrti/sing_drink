@@ -25,9 +25,9 @@
 <div class="fons d-flex justify-content-center ">
     <div class="m-5">
         <h1 class="titolHoraris">OPINIONS</h1>
-        <p class="review"> Joselito - Muy buen ambientejkbkbsdg bjkwegbjwefgb jkbjwegbj gniobjj </p>
-        <p class="review"> Joselito - me gusta su fruta</p>
-        <p class="review"> Joselito - Vaya porqueria de sitio</p>
+        <p class="review"> Joselito - Muy buen ambiente</p>
+        <p class="review"> Joselito - Me gusta su fruta</p>
+        <p class="review"> Joselito - Vaya guapada de sitio</p>
 
     </div>
     <hr class="hrLocal">

@@ -66,7 +66,14 @@
                     <div class="d-none d-lg-flex">
                         <a href="<?php echo e(route('logout')); ?>" class="btn btn-secondary me-2">Logout</a>
                     </div>
+                    <?php if(Auth::user()->id_rol==2): ?>
+                    <div id="app">
+                        <afegir-multimedia></afegir-multimedia>
+                    </div>
+                    <?php endif; ?>
                 <?php endif; ?>
+
+
 
             </div>
         </nav>
@@ -96,7 +103,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="footerpart1-1">
+            <div class="footerpart1-1 ">
                 <p>Uniendo músicos, bares y eventos desde 1934</p>
                 <p>Descubre la magia de la música en vivo y apoya los talentos locales</p>
             </div>
