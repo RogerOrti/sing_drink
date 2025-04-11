@@ -14,84 +14,11 @@
     </div>
 @endsection
 @section('Contenido_Adicional')
-    <div class="carouselIndex">
-        <h1 class="mt-5">REVIU ELS MILLORS MOMENTS</h1>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="{{ asset('image/ajr.jpg') }}" alt="Imagen 1">
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('image/ajr.jpg') }}" alt="Imagen 2">
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('image/ajr.jpg') }}" alt="Imagen 3">
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('image/ajr.jpg') }}" alt="Imagen 4">
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('image/ajr.jpg') }}" alt="Imagen 3">
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('image/ajr.jpg') }}" alt="Imagen 4">
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('image/ajr.jpg') }}" alt="Imagen 3">
-                </div>
-                <div class="swiper-slide">
-                    <img src="{{ asset('image/ajr.jpg') }}" alt="Imagen 4">
-                </div>
-
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
+    <div id="app2">
+        <carousel></carousel>
     </div>
-    <div class="CartelImagenes1">
-        <h1 class="mt-5">DESCOBREIX ELS NOSTRES MÚSICS</h1>
-        <div class="CartelImagenesCardCard">
-            <article class="CartelImagenesCard" style="background-image: url('{{ asset('image/ajr.jpg') }}');"></article>
-            <article class="CartelImagenesCard" style="background-image: url('{{ asset('image/erfan/Anthony_Kiedis.png') }}');"></article>
-            <article class="CartelImagenesCard" style="background-image: url('{{ asset('image/images.jpeg') }}');"></article>
-            <article class="CartelImagenesCard" style="background-image: url('{{ asset('image/enrique.jpg') }}');"></article>
-        </div>
-        <button class="btn btn-secondary m-5">Músics</button>
-    </div>
-    <div class="CartelImagenes2">
-        <h1 class="mt-5">GAUDEIX DELS NOSTRES LOCALS</h1>
-        <div class="RandomNombre">
-            <article class="RandomNombreCard" style="background-image: url('{{ asset('image/12.jpg') }}');"></article>
-            <article class="RandomNombreCard" style="background-image: url('{{ asset('image/13.jpeg') }}');"></article>
-            <article class="RandomNombreCard" style="background-image: url('{{ asset('image/14.jpg') }}');"></article>
-            <article class="RandomNombreCard" style="background-image: url('{{ asset('image/15.jpg') }}');"></article>
-        </div>
-        <button class="btn btn-secondary m-5">Locals</button>
+    <div id="app3">
+        <cartel-imagen></cartel-imagen>
     </div>
 @endsection
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var swiper = new Swiper(".mySwiper", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            spaceBetween: 150,
-            initialSlide: 2,
-            coverflowEffect: {
-                rotate: 10,
-                stretch: 0,
-                depth: 300,
-                modifier: 1,
-                slideShadows: true,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-        });
-    });
-</script>

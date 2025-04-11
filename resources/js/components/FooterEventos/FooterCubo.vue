@@ -36,7 +36,7 @@
       axios.get("musics")
         .then(response => {
           console.log("Datos recibidos:", response.data);
-          me.cubos = response.data;
+          me.cubos = response.data.slice(0, 8);
         })
         .catch(error => {
           console.error("Error al cargar los datos:", error);

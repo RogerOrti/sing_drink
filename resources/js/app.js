@@ -1,10 +1,7 @@
 import "./bootstrap";
 import * as bootstrap from "bootstrap";
-import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
 import { createApp } from "vue";
 import PrimeVue from 'primevue/config';
-
-
 import Chat from './Chat.vue';
 import registerVue from "./components/auth/register.vue";
 import loginVue from "./components/auth/login.vue";
@@ -16,7 +13,10 @@ import PaginaLocal from "./components/paginaLocal/paginaLocal.vue";
 import PaginaMusic from "./components/paginaMusic/paginaMusic.vue";
 import UsuariosCRUD from "./components/usuariosCRUD.vue";
 import mapaLocal from "./components/mapbox/mapboxLocal.vue";
+import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
 import SubirMultimedia from "./components/afegirMultimedia/afegirMultimedia.vue";
+import swiperVue  from "./components/swiperVue.vue";
+import ImagenesCartel from "./components/CartelImages.vue"
 // import Paginate from 'vuejs-paginate-next';
 
 // createApp(mapboxFooter).mount('#mapa');
@@ -27,7 +27,8 @@ import SubirMultimedia from "./components/afegirMultimedia/afegirMultimedia.vue"
 // createApp(loginVue).mount('#login');
 
 const app = createApp({});
-
+const app2 = createApp({});
+const app3 = createApp({});
 app.use(PrimeVue);  // Uso de PrimeVue globalmente
 
 app.component("chat", Chat);
@@ -43,8 +44,12 @@ app.component("pagina-music", PaginaMusic);
 app.component("usuarios-crud", UsuariosCRUD);
 app.component("mapalocal", mapaLocal);
 app.component("afegir-multimedia", SubirMultimedia);
+app2.component("carousel", swiperVue);
+app3.component("cartel-imagen",ImagenesCartel);
 
 
 app.mount('#app');
+app2.mount('#app2');
+app3.mount('#app3');
 
 

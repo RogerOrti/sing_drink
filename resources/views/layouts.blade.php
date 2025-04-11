@@ -67,14 +67,12 @@
                         <a href="{{ route('logout') }}" class="btn btn-secondary me-2">Logout</a>
                     </div>
                     @if (Auth::user()->id_rol==2)
-                    <div id="app">
-                        <afegir-multimedia></afegir-multimedia>
-                    </div>
                     @endif
                 @endif
-                <div id="app">
+                {{-- <div id="app">
+
                     <afegir-multimedia></afegir-multimedia>
-                </div>
+                </div> --}}
 
 
 
@@ -88,7 +86,6 @@
         <chat></chat>
         <footer-eventos></footer-eventos>
     </div>
-
     <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 ">
             <div class="col mb-3 ">
