@@ -40,9 +40,10 @@
     </Dialog>
   </div>
 </template>
-
 <script>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
+import { useAuthStore } from "@/stores/auth"; // Pinia store
+import axios from "@/config/axios"; // Axios configurado
 import Dialog from "primevue/dialog";
 import Button from "primevue/button";
 import InputText from "primevue/inputtext";
@@ -54,40 +55,134 @@ export default {
     InputText
   },
   setup() {
+    const authStore = useAuthStore();
     const mostrar = ref(false);
     const newMessage = ref("");
     const selectedUser = ref(null);
-    const users = ref([
-      { id: 1, name: "Jordi Celemin", messages: ["No se programar ayudame."] },
-      { id: 2, name: "Pablo Lin", messages: ["你去死吧，别跟我说话"] },
-      { id: 3, name: "Roger", messages: ["Hola soy Youtuber"] },
-      { id: 4, name: "Erfan", messages: ["Estoy en twitch por si quieres pasarte"] }
-    ]);
+    const users = ref([]);
+    const messages = ref([]);
+    const isLoading = ref(false);
+    const error = ref(null);
 
-    const mostrarModal = () => {
-      mostrar.value = true;
+    // Obtener conversaciones al montar el componente
+    const fetchConversations = async () => {
+      try {
+        isLoading.value = true;
+        const response = await axios.get("/api/chat");
+        const currentUserId = authStore.user.id_user;
+
+        users.value = response.data.map(conv => {
+          const isOwner = conv.id_propietari === currentUserId;
+          const otherUser = isOwner ? conv.musico.usuario : conv.propietario.usuario;
+
+          return {
+            id: isOwner ? conv.id_music : conv.id_propietari,
+            name: otherUser.nombre,
+            avatar: otherUser.foto_perfil,
+            messages: [conv.missatge],
+            isOwner: !isOwner // invertimos para saber si el destinatario es el propietario
+          };
+        });
+      } catch (err) {
+        error.value = "Error al cargar conversaciones";
+        console.error(err);
+      } finally {
+        isLoading.value = false;
+      }
     };
 
-    const selectUser = (user) => {
+    const selectUser = async (user) => {
       selectedUser.value = user;
+      await fetchMessages(user.id, user.isOwner);
     };
 
-    const enviarFormulario = () => {
-      if (newMessage.value.trim() && selectedUser.value) {
+    const fetchMessages = async (otherUserId, isOwner) => {
+      try {
+        isLoading.value = true;
+        const currentUserId = authStore.user.id_user;
+
+        const url = isOwner
+          ? `/api/chat/${otherUserId}/${currentUserId}`
+          : `/api/chat/${currentUserId}/${otherUserId}`;
+
+        const response = await axios.get(url);
+        selectedUser.value.messages = response.data.map(msg => msg.missatge);
+        messages.value = response.data.map(msg => ({
+          id: msg.id_chat,
+          text: msg.missatge,
+          sent: msg.enviat,
+          isMine: msg.id_propietari === currentUserId || msg.id_music === currentUserId,
+          timestamp: msg.created_at
+        }));
+      } catch (err) {
+        error.value = "Error al cargar mensajes";
+        console.error(err);
+      } finally {
+        isLoading.value = false;
+      }
+    };
+
+    const enviarFormulario = async () => {
+      if (!newMessage.value.trim() || !selectedUser.value) return;
+
+      try {
+        const response = await axios.post('/api/chat/enviar', {
+          id_destinatario: selectedUser.value.id,
+          mensaje: newMessage.value,
+          es_propietario: !selectedUser.value.isOwner // el destinatario es propietario si yo no lo soy
+        });
+
+        messages.value.push({
+          id: response.data.chat.id_chat,
+          text: newMessage.value,
+          sent: true,
+          isMine: true,
+          timestamp: new Date().toISOString()
+        });
+
         selectedUser.value.messages.push(newMessage.value);
         newMessage.value = "";
+
+        await fetchConversations();
+      } catch (err) {
+        error.value = "Error al enviar mensaje";
+        console.error(err);
       }
     };
 
     const handleClose = () => {
       mostrar.value = false;
+      selectedUser.value = null;
+      messages.value = [];
     };
+
+    const mostrarModal = () => {
+      mostrar.value = true;
+      fetchConversations();
+    };
+
+    // Recargar mensajes cada 5 segundos si hay usuario seleccionado
+    let pollInterval;
+    onMounted(() => {
+      pollInterval = setInterval(() => {
+        if (selectedUser.value) {
+          fetchMessages(selectedUser.value.id, selectedUser.value.isOwner);
+        }
+      }, 5000);
+    });
+
+    onUnmounted(() => {
+      clearInterval(pollInterval);
+    });
 
     return {
       mostrar,
       newMessage,
       selectedUser,
       users,
+      messages,
+      isLoading,
+      error,
       mostrarModal,
       selectUser,
       enviarFormulario,
@@ -97,7 +192,7 @@ export default {
 };
 </script>
 
-  <style>
+  <style scoped>
   .user-info p{
     color:wheat;
   }
