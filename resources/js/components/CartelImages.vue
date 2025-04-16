@@ -1,5 +1,6 @@
 <template>
-    <div >
+    <div>
+        <EstadisticasMusics></EstadisticasMusics>
         <div class="CartelImagenes1">
             <h1 class="mt-5">DESCOBREIX ELS NOSTRES MÚSICS</h1>
             <div class="CartelImagenesCardCard">
@@ -24,9 +25,11 @@
 
 <script>
 import Estadisticaslocal from './estadisticas/estadisticaslocal.vue';
+import EstadisticasMusics from './estadisticas/estadisticasMusics.vue';
 export default {
     components: {
-        Estadisticaslocal
+        Estadisticaslocal,
+        EstadisticasMusics
   },
     data() {
         return {
