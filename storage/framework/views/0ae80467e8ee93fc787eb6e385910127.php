@@ -67,14 +67,9 @@
                         <a href="<?php echo e(route('logout')); ?>" class="btn btn-secondary me-2">Logout</a>
                     </div>
                     <?php if(Auth::user()->id_rol==2): ?>
-                    <div id="app">
-                        <afegir-multimedia></afegir-multimedia>
-                    </div>
                     <?php endif; ?>
                 <?php endif; ?>
-                <div id="app">
-                    <afegir-multimedia></afegir-multimedia>
-                </div>
+                
 
 
 
@@ -88,7 +83,6 @@
         <chat></chat>
         <footer-eventos></footer-eventos>
     </div>
-
     <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 ">
             <div class="col mb-3 ">
@@ -118,7 +112,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
