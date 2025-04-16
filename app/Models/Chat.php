@@ -5,24 +5,38 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Chat extends Model
 {
     use HasFactory;
 
     protected $table = 'chat';
-
-    protected $primaryKey = ['id_propietari', 'id_music'];
-
     public $timestamps = false;
 
-    public function propietari()
+    protected $fillable = [
+        'id_propietari',
+        'id_music',
+        'missatge',
+        'enviat'
+    ];
+
+    public function propietario()
     {
-        return $this->belongsTo(Usuari::class, 'id_propietari');
+        return $this->belongsTo(Propietari::class, 'id_propietari', 'id_user');
     }
 
-    public function music()
+    public function musico()
     {
-        return $this->belongsTo(Usuari::class, 'id_music');
+        return $this->belongsTo(Music::class, 'id_music', 'id_user');
     }
 
+    public function remitente()
+    {
+        return $this->belongsTo(Usuari::class, 'id_propietari', 'id_user');
+    }
+
+    public function destinatario()
+    {
+        return $this->belongsTo(Usuari::class, 'id_music', 'id_user');
+    }
 }

@@ -6,6 +6,7 @@ use App\Models\TipoMultimedia;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\RolUserController;
+use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\Api\TipusMultimedia;
 use App\Http\Controllers\Api\LocalsController;
 use App\Http\Controllers\Api\MusicsController;
@@ -38,3 +39,18 @@ Route::apiResource('estilMusica', EstilMusicaController::class);
 Route::apiResource('rol',RolUserController::class);
 Route::apiResource('multimedia',MultimediaController::class);
 Route::apiResource('tipusMultimedia',TipusMultimedia::class);
+Route::apiResource('chat',ChatController::class);
+
+// Route::get('/chat', [ChatController::class, 'index']);
+// Route::get('/chat/{id_propietario}/{id_musico}', [ChatController::class, 'show']);
+// Route::post('/chat/enviar', [ChatController::class, 'enviar']);
+// Route::put('/chat/leidos/{id_propietario}/{id_musico}', [ChatController::class, 'marcarComoLeidos']);
+// Route::delete('/chat/eliminar/{id}', [ChatController::class, 'destroy']);
+// Elimina el apiResource si no vas a usar todos los métodos estándar
+Route::middleware('auth:sanctum')->group(function() {
+    Route::get('/chat', [ChatController::class, 'index']); // Listar conversaciones
+    Route::get('/chat/{id_propietario}/{id_musico}', [ChatController::class, 'show']); // Mostrar mensajes entre dos usuarios
+    Route::post('/chat', [ChatController::class, 'enviar']); // Enviar mensaje (más RESTful que '/chat/enviar')
+    Route::put('/chat/leidos/{id_propietario}/{id_musico}', [ChatController::class, 'marcarComoLeidos']); // Marcar como leídos
+    Route::delete('/chat/{id}', [ChatController::class, 'destroy']); // Eliminar mensaje
+});
