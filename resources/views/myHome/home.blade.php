@@ -17,8 +17,10 @@
     <div id="app2">
         <carousel></carousel>
     </div>
+  
     <div id="app3">
         <cartel-imagen></cartel-imagen>
     </div>
+
 @endsection
 

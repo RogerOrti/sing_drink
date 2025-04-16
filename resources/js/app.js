@@ -17,6 +17,7 @@ import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
 import SubirMultimedia from "./components/afegirMultimedia/afegirMultimedia.vue";
 import swiperVue  from "./components/swiperVue.vue";
 import ImagenesCartel from "./components/CartelImages.vue"
+import estadisticaslocal from "./components/estadisticas/estadisticaslocal.vue";
 // import Paginate from 'vuejs-paginate-next';
 
 // createApp(mapboxFooter).mount('#mapa');
@@ -43,6 +44,7 @@ app.component("pagina-local", PaginaLocal);
 app.component("pagina-music", PaginaMusic);
 app.component("usuarios-crud", UsuariosCRUD);
 app.component("mapalocal", mapaLocal);
+app.component("estadisticaslocal", estadisticaslocal);
 app.component("afegir-multimedia", SubirMultimedia);
 app2.component("carousel", swiperVue);
 app3.component("cartel-imagen",ImagenesCartel);

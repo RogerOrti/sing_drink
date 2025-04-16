@@ -9,7 +9,7 @@
             </div>
             <button class="btn btn-secondary m-5">Músics</button>
         </div>
-
+            <Estadisticaslocal></Estadisticaslocal>
         <div class="CartelImagenes2">
             <h1 class="mt-5">GAUDEIX DELS NOSTRES LOCALS</h1>
             <div class="RandomNombre">
@@ -23,7 +23,11 @@
 </template>
 
 <script>
+import Estadisticaslocal from './estadisticas/estadisticaslocal.vue';
 export default {
+    components: {
+        Estadisticaslocal
+  },
     data() {
         return {
             musicImages: [],
