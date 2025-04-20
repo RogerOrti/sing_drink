@@ -18,6 +18,8 @@ import SubirMultimedia from "./components/afegirMultimedia/afegirMultimedia.vue"
 import swiperVue  from "./components/swiperVue.vue";
 import ImagenesCartel from "./components/CartelImages.vue"
 import estadisticaslocal from "./components/estadisticas/estadisticaslocal.vue";
+import localCRUD from "./components/localCRUD.vue";
+import musicsCRUD from "./components/musicsCRUD.vue";
 // import Paginate from 'vuejs-paginate-next';
 
 // createApp(mapboxFooter).mount('#mapa');
@@ -48,7 +50,8 @@ app.component("estadisticaslocal", estadisticaslocal);
 app.component("afegir-multimedia", SubirMultimedia);
 app2.component("carousel", swiperVue);
 app3.component("cartel-imagen",ImagenesCartel);
-
+app.component("local-crud", localCRUD);
+app.component("musics-crud", musicsCRUD);
 
 app.mount('#app');
 app2.mount('#app2');
