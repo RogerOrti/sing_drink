@@ -25,19 +25,14 @@ class Music extends Model
         return $this->hasMany(Contractar::class, 'id_music');
     }
 
-    public function multimedia()
+    public function multimedia_music()
     {
-        return $this->belongsTo(Multimedia::class, 'id_multimedia');
+        return $this->belongsTo( MultimediaMusic::class, 'id_multimedia');
     }
 
     public function user()
     {
         return $this->belongsTo(Usuari::class, 'id_user');
     }
-
-
-
-
-
 
 }
