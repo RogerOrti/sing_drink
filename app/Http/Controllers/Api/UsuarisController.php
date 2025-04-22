@@ -33,7 +33,7 @@ class UsuarisController extends Controller
      */
     public function store(Request $request)
     {
-        
+
     try {
 
         DB::beginTransaction();
@@ -47,7 +47,7 @@ class UsuarisController extends Controller
         $usuari->id_rol = $request->input("tipus_usuari");
 
         $usuari->save();
-        
+
         if($usuari->id_rol == 2){
 
             $multimedia = new Multimedia();
@@ -73,7 +73,7 @@ class UsuarisController extends Controller
         }
 
         elseif ($usuari->id_rol == 3) {
-            
+
             $multimedia = new Multimedia();
             $multimedia->ruta = $request->input();
             $multimedia->data = Carbon::now();
@@ -95,14 +95,14 @@ class UsuarisController extends Controller
 
         }
 
-        
+
         DB::commit();
 
     } catch (Exception $e) {
         DB::rollBack();
 
     }
-        
+
 
     }
 
