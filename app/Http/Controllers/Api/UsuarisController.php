@@ -56,17 +56,16 @@ class UsuarisController extends Controller
 
             $ruta = $file->storeAs('public/media', $file->getClientOriginalName());
 
-            $multimedia->ruta = $ruta ;
+            $multimedia->ruta = $ruta;
             $multimedia->data = Carbon::now();
             $multimedia->id_tipo_multimedia = 1;
-
+            $multimedia->id_music = $usuari->id_user;
             $multimedia->save();
 
             $music = new Music();
 
             $music->id_user = $usuari->id_user;
             $music->id_estil = $request->input("estilMusica");
-            $music->id_multimedia = $multimedia->id_multimedia;
 
             $music->save();
 
@@ -100,6 +99,7 @@ class UsuarisController extends Controller
 
     } catch (Exception $e) {
         DB::rollBack();
+        return response()->json(['error' => $e->getMessage()], 500);
 
     }
 
