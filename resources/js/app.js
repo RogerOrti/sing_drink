@@ -2,7 +2,7 @@ import "./bootstrap";
 import * as bootstrap from "bootstrap";
 import { createApp } from "vue";
 import PrimeVue from 'primevue/config';
-import Chat from './Chat.vue';
+// import Chat from './Chat.vue';
 import registerVue from "./components/auth/register.vue";
 import loginVue from "./components/auth/login.vue";
 import Prova from "./components/Prova.vue";
@@ -34,7 +34,7 @@ const app2 = createApp({});
 const app3 = createApp({});
 app.use(PrimeVue);  // Uso de PrimeVue globalmente
 
-app.component("chat", Chat);
+// app.component("chat", Chat);
 app.component("register", registerVue);
 app.component("login", loginVue);
 app.component("prova", Prova);

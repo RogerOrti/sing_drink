@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <div class="icono-chat">
       <Button @click="mostrarModal" class="mb-4">
@@ -288,4 +288,4 @@ export default {
     flex: 1;
     margin-right: 10px;
   }
-  </style>
+  </style> -->
