@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\MultimediaLocalController;
+use App\Http\Controllers\Api\MultimediaMusicController;
 use App\Models\Music;
 use Illuminate\Http\Request;
 use App\Models\TipoMultimedia;
@@ -38,6 +40,8 @@ Route::apiResource('tipusLocal', TipusLocalController::class);
 Route::apiResource('estilMusica', EstilMusicaController::class);
 Route::apiResource('rol',RolUserController::class);
 Route::apiResource('multimedia',MultimediaController::class);
+Route::apiResource('multimediaMusic',MultimediaMusicController::class);
+Route::apiResource('multimediaLocal',MultimediaLocalController::class);
 Route::apiResource('tipusMultimedia',TipusMultimedia::class);
 Route::apiResource('chat',ChatController::class);
 
