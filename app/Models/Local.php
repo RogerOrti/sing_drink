@@ -32,16 +32,9 @@ class Local extends Model
         return $this->hasMany(Actuar::class, 'id_local');
     }
 
-    /**
-     * Get the multimedia associated with the Local
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function multimedia(): BelongsTo
+    public function Multimedia_local()
     {
-        return $this->belongsTo(Multimedia::class, 'multimedia_id_multimedia');
+        return $this->hasOne(MultimediaLocal::class, 'id_local', 'id_multimedia');
     }
-
-
 
 }
