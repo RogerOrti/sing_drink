@@ -5,7 +5,7 @@
             <h1 class="mt-5">DESCOBREIX ELS NOSTRES MÚSICS</h1>
             <div class="CartelImagenesCardCard">
                 <article v-for="(music, index) in musicImages" :key="'music-' + index" class="CartelImagenesCard">
-                    <img :src="music.multimedia.ruta" alt="Imagen">
+                    <img :src="music.multimedia_music[0].ruta" alt="Imagen">
                 </article>
             </div>
             <button class="btn btn-secondary m-5">Músics</button>
@@ -15,7 +15,7 @@
             <h1 class="mt-5">GAUDEIX DELS NOSTRES LOCALS</h1>
             <div class="RandomNombre">
                 <article v-for="(local, index) in localImages" :key="'local-' + index" class="RandomNombreCard">
-                    <img :src="local.multimedia.ruta" alt="Imagen">
+                    <img :src="local.multimedia_local.ruta" alt="Imagen">
                 </article>
             </div>
             <button class="btn btn-secondary m-5">Locals</button>

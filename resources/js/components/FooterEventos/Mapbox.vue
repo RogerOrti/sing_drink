@@ -59,7 +59,7 @@
                   lat: coords[1],
                   lng: coords[0],
                   title: location.nom_local,
-                  img: location.multimedia.ruta,
+                  img: location.multimedia_local.ruta,
                 });
 
                 new mapboxgl.Marker()
@@ -70,7 +70,7 @@
                     }).setHTML(`
                       <div style="color: black; font-size: 12px;">
                         <h4 style="margin: 0; font-size: 14px;">${location.nom_local}</h4>
-                        <img src="${location.multimedia.ruta}" alt="${location.nom_local}" style="width: 100%; height: auto; margin-top: 10px; border-radius: 8px;" />
+                        <img src="${location.multimedia_local.ruta}" alt="${location.nom_local}" style="width: 100%; height: auto; margin-top: 10px; border-radius: 8px;" />
                       </div>
                     `)
                   ) // Popup con el texto y la imagen

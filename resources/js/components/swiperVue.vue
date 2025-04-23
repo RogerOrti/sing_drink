@@ -4,7 +4,7 @@
       <div class="swiper mySwiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(music, index) in musics" :key="index">
-            <img :src="music.multimedia.ruta" alt="Imagen">
+            <img :src="music.multimedia_music[0].ruta" alt="Imagen">
           </div>
         </div>
         <div class="swiper-pagination"></div>
