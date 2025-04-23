@@ -14,7 +14,7 @@ class LocalsController extends Controller
      */
     public function index()
     {
-        $locals = local::with('multimedia')->get();
+        $locals = local::with('multimedia_local')->get();
 
         return LocalResource::collection($locals);
 
@@ -22,7 +22,7 @@ class LocalsController extends Controller
 
 public function indexPaginado()
 {
-    $locals = local::with('multimedia')->paginate(1);
+    $locals = local::with('multimedia_local')->paginate(1);
     return LocalResource::collection($locals);
 }
     /**
@@ -35,15 +35,15 @@ public function indexPaginado()
             'direccio' => 'required|string|max:200',
             'id_tipo_local' => 'required|exists:tipo_local,id_tipo_local',
         ]);
-    
+
         $local = new Local();
         $local->nom_local = $request->input('nom_local');
         $local->direccio = $request->input('direccio');
         $local->id_tipo_local = $request->input('id_tipo_local');
         $local->save();
-    
-   
-    
+
+
+
         return new LocalResource($local);
     }
 
@@ -53,7 +53,7 @@ public function indexPaginado()
     public function show(Local $local)
     {
 
-        return new LocalResource($local->load('multimedia'));
+        return new LocalResource($local->load('multimedia_local'));
 
     }
 
@@ -67,21 +67,21 @@ public function indexPaginado()
             'direccio' => 'sometimes|required|string|max:200',
             'id_tipo_local' => 'sometimes|required|exists:tipo_local,id_tipo_local',
         ]);
-    
+
         if ($request->has('nom_local')) {
             $local->nom_local = $request->input('nom_local');
         }
-    
+
         if ($request->has('direccio')) {
             $local->direccio = $request->input('direccio');
         }
-    
+
         if ($request->has('id_tipo_local')) {
             $local->id_tipo_local = $request->input('id_tipo_local');
         }
-    
+
         $local->save();
-    
+
         return new LocalResource($local);
     }
 

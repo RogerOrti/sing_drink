@@ -18,13 +18,13 @@ class MusicsController extends Controller
     public function index()
     {
         // Cargar la relación con 'user' y 'multimedia'
-        $musics = Music::with(['user', 'multimedia'])->get();
+        $musics = Music::with(['user', 'multimedia_music'])->get();
 
         return MusicResource::collection($musics);
     }
     public function indexPaginado()
     {
-        $musics = Music::with(['user', 'multimedia'])->paginate(1);
+        $musics = Music::with(['user', 'multimedia_music'])->paginate(1);
         return MusicResource::collection($musics);
     }
 
@@ -65,10 +65,10 @@ class MusicsController extends Controller
      */
     public function show(Music $music)
         {
-            $musicData = Music::with(['user', 'multimedia', 'estilMusica'])
+            $musicData = Music::with(['user', 'multimedia_music', 'estilMusica'])
                 ->where('id_user', $music->id_user)
                 ->where('id_estil', $music->id_estil)
-                ->where('id_multimedia', $music->id_multimedia)
+                // ->where('id_multimedia', $music->id_multimedia)
                 ->first();
 
             return response()->json(['music' => $musicData]);

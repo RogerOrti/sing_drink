@@ -34,7 +34,7 @@ class Local extends Model
 
     public function Multimedia_local()
     {
-        return $this->hasOne(MultimediaLocal::class, 'id_local', 'id_multimedia');
+        return $this->hasOne(MultimediaLocal::class, 'id_local');
     }
 
 }
