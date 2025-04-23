@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,10 +64,21 @@
                         <a href="{{ route('register') }}" class="btn btn-primary me-2">Registrar-se</a>
                     </div>
                 @else
-                    <div class="d-none d-lg-flex">
-                        <a href="{{ route('logout') }}" class="btn btn-secondary me-2">Logout</a>
+                    <div class="nav-item dropdown">
+                        <div class="dropdown">
+                            <a class="hoverable dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ Auth::user()->nom }}
+                            </a>
+                            <div class="dropdown-menu" id="logout">
+                                <a href="{{ route('logout') }}" class="dropdown-item">
+                                    <i aria-hidden="true"></i> Logout
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    @if (Auth::user()->id_rol==2)
+
+                    @if (Auth::user()->id_rol == 2)
                     @endif
                 @endif
                 {{-- <div id="app">
@@ -95,7 +107,8 @@
             </div>
             <div class="col mb-3">
                 <ul class="nav flex-column ">
-                    <li class="nav-item mb-2 "><a href="{{ route('Home') }}" class="nav-link p-0 text-secondary">Inicio</a></li>
+                    <li class="nav-item mb-2 "><a href="{{ route('Home') }}"
+                            class="nav-link p-0 text-secondary">Inicio</a></li>
                     <li class="nav-item mb-2"><a href="cartelera" class="nav-link p-0 text-secondary">Locals</a></li>
                     <li class="nav-item mb-2"><a href="musics" class="nav-link p-0 text-secondary">Musics</a></li>
                     <li class="nav-item mb-2"><a href="" class="nav-link p-0 text-secondary">Calendari</a></li>
