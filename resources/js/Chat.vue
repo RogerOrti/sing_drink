@@ -1,4 +1,5 @@
         <template>
+            <div>
                 <div class="icono-chat">
                     <Button @click="mostrarModal" class="mb-4">
                         <svg fill="#EEC765" height="70px" width="70px" version="1.1" id="Layer_1"
@@ -29,41 +30,42 @@
                     </Button>
                 </div>
                 <Dialog v-model:visible="mostrar" id="chat" modal header="SING&DRINK"
-            :style="{ width: '40vw', background: '#EEC765', borderRadius: '10px', padding: '5px' }">
-        <div class="chat-container">
-            <div class="user-list">
-                <h3>Mensajes</h3>
-                <ul>
-                    <li v-for="user in usuaris" :key="user.id" @click="selectUser(user)"
-                        :class="{ active: selectedUser && selectedUser.id === user.id }">
-                        <span class="avatar">{{ user.nom.charAt(0) }}</span>
-                        <div class="user-info">
-                            <strong>{{ user.nom }}</strong>
-                            <p>{{ user.missatge }}</p>
+                    :style="{ width: '40vw', background: '#EEC765', borderRadius: '10px', padding: '5px' }">
+                    <div class="chat-container">
+                        <div class="user-list">
+                            <h3>Mensajes</h3>
+                            <ul>
+                                <li v-for="user in usuaris" :key="user.id" @click="selectUser(user)"
+                                    :class="{ active: selectedUser && selectedUser.id === user.id }">
+                                    <span class="avatar">{{ user.nom.charAt(0) }}</span>
+                                    <div class="user-info">
+                                        <strong>{{ user.nom }}</strong>
+                                        <p>{{ user.missatge }}</p>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    </li>
-                </ul>
-            </div>
 
-            <div class="chat-box" v-if="selectedUser">
-                <div class="chat-header">
-                    <span class="avatar">{{ selectedUser.nom.charAt(0) }}</span>
-                    <h3>{{ selectedUser.nom }}</h3>
-                </div>
-                <div class="messages">
-                    <div v-for="(msg, index) in selectedUser.messages" :key="index"
-                         :class="['message', index % 2 === 0 ? 'sent' : 'received']">
-                        <p>{{ msg }}</p>
+                        <div class="chat-box" v-if="selectedUser">
+                            <div class="chat-header">
+                                <span class="avatar">{{ selectedUser.nom.charAt(0) }}</span>
+                                <h3>{{ selectedUser.nom }}</h3>
+                            </div>
+                            <div class="messages">
+                                <div v-for="(msg, index) in selectedUser.messages" :key="index"
+                                    :class="['message', index % 2 === 0 ? 'sent' : 'received']">
+                                    <p>{{ msg }}</p>
+                                </div>
+                            </div>
+                            <form @submit.prevent="enviarFormulario" class="chat-input">
+                                <InputText v-model="newMessage" type="text" placeholder="Escribe aqui" />
+                                <Button type="submit" icon="pi pi-send"></Button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <form @submit.prevent="enviarFormulario" class="chat-input">
-                    <InputText v-model="newMessage" type="text" placeholder="Escribe aqui" />
-                    <Button type="submit" icon="pi pi-send"></Button>
-                </form>
+                </Dialog>
             </div>
-        </div>
-    </Dialog>
-</template>
+        </template>
 
 <script>
 import { ref, onMounted } from "vue";
@@ -83,52 +85,99 @@ export default {
         const newMessage = ref("");
         const selectedUser = ref(null);
         const usuaris = ref([]);
+        const messages = ref([]);
+        const currentUser = ref(null);
+
+        // Obtener el usuario actual
+        const fetchCurrentUser = async () => {
+            try {
+                const response = await axios.get('usuaris'); // Asegúrate de tener esta ruta
+                currentUser.value = response.data;
+                fetchUsuariosOpuestos();
+            } catch (error) {
+                console.error("Error al obtener usuario actual:", error);
+            }
+        };
+
+        // Obtener usuarios opuestos según el rol
+        const fetchUsuariosOpuestos = async () => {
+            try {
+                let url = '';
+                if (currentUser.value.id_rol === 1) { // Propietario
+                    url = 'musics'; // Obtener músicos
+                } else if (currentUser.value.id_rol === 2) { // Músico
+                    url = 'propietari'; // Obtener propietarios
+                }
+                
+                if (url) {
+                    const response = await axios.get(url);
+                    usuaris.value = response.data.map(user => ({
+                        ...user,
+                        messages: [] // Inicializar array de mensajes
+                    }));
+                }
+            } catch (error) {
+                console.error("Error al obtener usuarios opuestos:", error);
+            }
+        };
+
+        // Obtener mensajes con un usuario específico
+        const fetchMessages = async (userId) => {
+            if (!userId) return;
+            
+            try {
+                const response = await axios.get(`chat/${userId}`);
+                messages.value = response.data;
+                
+                // Actualizar mensajes en el usuario seleccionado
+                if (selectedUser.value) {
+                    selectedUser.value.messages = messages.value.map(msg => msg.missatge);
+                }
+                
+                // Marcar como leídos si es necesario
+                if (messages.value.length > 0 && currentUser.value.id_user === messages.value[0].id_music) {
+                    await axios.put(`chat/leidos/${messages.value[0].id_propietari}/${messages.value[0].id_music}`);
+                }
+            } catch (error) {
+                console.error("Error al obtener mensajes:", error);
+            }
+        };
+
+        // Seleccionar un usuario para chatear
+        const selectUser = (user) => {
+            selectedUser.value = user;
+            fetchMessages(user.id_user);
+        };
+
+        // Enviar un nuevo mensaje
+        const enviarFormulario = async () => {
+            if (!newMessage.value.trim() || !selectedUser.value) return;
+
+            try {
+                const messageData = {
+                    id_music: currentUser.value.id_rol === 1 ? selectedUser.value.id_user : currentUser.value.id_user,
+                    id_propietari: currentUser.value.id_rol === 1 ? currentUser.value.id_user : selectedUser.value.id_user,
+                    missatge: newMessage.value
+                };
+
+                await axios.post("chat", messageData);
+                
+                await fetchMessages(selectedUser.value.id_user);
+                newMessage.value = "";
+            } catch (error) {
+                console.error("Error al enviar mensaje:", error);
+            }
+        };
 
         const mostrarModal = () => {
             mostrar.value = true;
-        };
-
-        const selectUser = (usuari) => {
-            selectedUser.value = usuari;
-            fetchMessages(usuari.id);
-        };
-
-        const fetchMessages = (userId) => {
-            axios.get(`chat/${userId}`)
-                .then((response) => {
-                    selectedUser.value.messages = response.data;
-                })
-                .catch((error) => {
-                    console.error("Error al obtener los mensajes:", error);
-                });
-        };
-
-        const enviarFormulario = () => {
-            if (newMessage.value.trim() && selectedUser.value) {
-                const messageData = {
-                    userId: selectedUser.value.id,
-                    message: newMessage.value
-                };
-
-                axios.post("chat", messageData)
-                    .then(() => {
-                        selectedUser.value.messages.push(newMessage.value);
-                        newMessage.value = "";
-                    })
-                    .catch((error) => {
-                        console.error("Error al enviar el mensaje:", error);
-                    });
+            if (!currentUser.value) {
+                fetchCurrentUser();
             }
         };
 
         onMounted(() => {
-            axios.get("chat/usuarios/opuestos")
-                .then((response) => {
-                    usuaris.value = response.data;
-                })
-                .catch((error) => {
-                    console.error("Error al obtener los usuarios:", error);
-                });
+            fetchCurrentUser();
         });
 
         return {
