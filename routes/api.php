@@ -45,16 +45,13 @@ Route::apiResource('multimediaLocal',MultimediaLocalController::class);
 Route::apiResource('tipusMultimedia',TipusMultimedia::class);
 Route::apiResource('chat',ChatController::class);
 
-// Route::get('/chat', [ChatController::class, 'index']);
-// Route::get('/chat/{id_propietario}/{id_musico}', [ChatController::class, 'show']);
-// Route::post('/chat/enviar', [ChatController::class, 'enviar']);
-// Route::put('/chat/leidos/{id_propietario}/{id_musico}', [ChatController::class, 'marcarComoLeidos']);
-// Route::delete('/chat/eliminar/{id}', [ChatController::class, 'destroy']);
-// Elimina el apiResource si no vas a usar todos los métodos estándar
+
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/chat', [ChatController::class, 'index']); // Listar conversaciones
     Route::get('/chat/{id_propietario}/{id_musico}', [ChatController::class, 'show']); // Mostrar mensajes entre dos usuarios
     Route::post('/chat', [ChatController::class, 'enviar']); // Enviar mensaje (más RESTful que '/chat/enviar')
-    Route::put('/chat/leidos/{id_propietario}/{id_musico}', [ChatController::class, 'marcarComoLeidos']); // Marcar como leídos
-    Route::delete('/chat/{id}', [ChatController::class, 'destroy']); // Eliminar mensaje
+    Route::put('/chat/leidos/{id_propietario}/{id_musico}', [ChatController::class, 'marcarComoLeidos']); 
+    Route::delete('/chat/{id}', [ChatController::class, 'destroy']); 
+    Route::get('/chat/usuarios/opuestos', [ChatController::class, 'getUsuariosOpuestos']);
+
 });

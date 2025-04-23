@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Usuari;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 
 class Chat extends Model
@@ -22,12 +23,12 @@ class Chat extends Model
 
     public function propietario()
     {
-        return $this->belongsTo(Propietari::class, 'id_propietari', 'id_user');
+        return $this->belongsTo(Usuari::class, 'id_propietari', 'id_user');
     }
 
     public function musico()
     {
-        return $this->belongsTo(Music::class, 'id_music', 'id_user');
+        return $this->belongsTo(Usuari::class, 'id_music', 'id_user');
     }
 
     public function remitente()
