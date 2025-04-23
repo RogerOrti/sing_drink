@@ -22,7 +22,7 @@ class MultimediaMusic extends Model
 
     public function Music()
     {
-        return $this->hasMany(Music::class, 'id_user', 'id_multimedia');
+        return $this->belongsTo(Music::class, 'id_user');
     }
 
 

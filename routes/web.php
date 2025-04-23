@@ -60,7 +60,7 @@ Route::get('/music', function () {
 // });
 
 Route::get('/music/{id}', function ($id) {
-    $music = Music::with(['user', 'multimedia'])->findOrFail($id);
+    $music = Music::with(['user', 'multimedia_music'])->findOrFail($id);
     return view('music.music', compact('music'));
 });
 

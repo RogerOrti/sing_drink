@@ -1,11 +1,10 @@
 <template>
     <div v-for="music in musics" :key="music.id">
       <div id="quisom">
-        
         <h1 class="display-1 fw-bold text-center larger-title">{{ music.nom_music }}</h1>
       </div>
     </div>
-    
+
   </template>
 
   <script>
@@ -13,7 +12,7 @@
     data() {
       return {
         musics: [],
-        id: null 
+        id: null
       }
     },
 
