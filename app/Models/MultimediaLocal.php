@@ -22,7 +22,7 @@ class MultimediaLocal extends Model
 
     public function Local()
     {
-        return $this->hasOne(Local::class, 'id_local', 'id_multimedia');
+        return $this->hasOne(Local::class, 'id_local');
     }
 
 }

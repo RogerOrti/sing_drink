@@ -1,7 +1,7 @@
 @extends('layouts')
 
 @section('fonsPantalla')
-   <img src="{{ $music->multimedia->ruta }}" class="fotoPortadaCantant" alt="">
+   <img src="{{ $music->multimedia_music->first()->ruta }}" class="fotoPortadaCantant" alt="">
 @endsection
 
 @section('PantallaDeInicio')

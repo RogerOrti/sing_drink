@@ -2,7 +2,7 @@
         <div class="coleccioMusics">
             <div class="cardsLocals" v-for="music in musics" :key="music.id_user">
                 <div class="cardMusics">
-                    <img :src="music.multimedia.ruta" class="cardMusics" alt="">
+                    <img :src="music.multimedia_music[0].ruta" class="cardMusics" alt="">3ex
                     <!-- <img src="{{ asset('image/erfan/Anthony_Kiedis.png') }}" class="cardMusics" alt=""> -->
                     <!-- <img class="cardMusics" :src="music.multimedia.ruta"/> -->
                     <div>

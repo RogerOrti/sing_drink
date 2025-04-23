@@ -5,7 +5,7 @@
           <Cubo
             v-for="(item, index2) in grupo"
             :key="index2"
-            :image="item.multimedia.ruta"
+            :image="item.multimedia_music[0]?.ruta"
             :text="item.user.nom"
           />
         </div>

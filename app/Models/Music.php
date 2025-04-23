@@ -27,7 +27,7 @@ class Music extends Model
 
     public function multimedia_music()
     {
-        return $this->belongsTo( MultimediaMusic::class, 'id_multimedia');
+        return $this->hasMany( MultimediaMusic::class, 'music_id_user');
     }
 
     public function user()
