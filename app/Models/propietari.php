@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Local;
+use App\Models\Usuari;
+use App\Models\Multimedia;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class propietari extends Model
 {
@@ -11,18 +14,23 @@ class propietari extends Model
 
     protected $table = 'propietari';
 
-    protected $primaryKey = 'id_user';
+    protected $primaryKey = ['id_user', 'id_local'];
 
     public $timestamps = false;
 
-    public function local()
+    protected $fillable = [
+        'id_user',
+        'id_local'
+    ];
+
+    public function usuari()
     {
-        return $this->belongsTo(Local::class, 'id_local');
+        return $this->belongsTo(Usuari::class, 'id_user', 'id_user');
     }
 
-    public function user()
+    public function local()
     {
-        return $this->belongsTo(Usuari::class, 'id_user');
+        return $this->belongsTo(Local::class, 'id_local', 'id_local');
     }
 
     public function contractar()
@@ -30,7 +38,7 @@ class propietari extends Model
         return $this->hasMany(Contractar::class, 'id_propietari');
     }
 
-
+  
 
 
 
