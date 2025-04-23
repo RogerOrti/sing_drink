@@ -45,7 +45,7 @@ app.component("carta-music", CartaMusic);
 app.component("pagina-local", PaginaLocal);
 app.component("pagina-music", PaginaMusic);
 app.component("usuarios-crud", UsuariosCRUD);
-app.component("mapalocal", mapaLocal);
+app3.component("mapalocal", mapaLocal);
 app.component("estadisticaslocal", estadisticaslocal);
 app.component("afegir-multimedia", SubirMultimedia);
 app2.component("carousel", swiperVue);
