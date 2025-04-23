@@ -1,5 +1,4 @@
         <template>
-            <div>
                 <div class="icono-chat">
                     <Button @click="mostrarModal" class="mb-4">
                         <svg fill="#EEC765" height="70px" width="70px" version="1.1" id="Layer_1"
@@ -30,42 +29,41 @@
                     </Button>
                 </div>
                 <Dialog v-model:visible="mostrar" id="chat" modal header="SING&DRINK"
-                    :style="{ width: '40vw', background: '#EEC765', borderRadius: '10px', padding: '5px' }">
-                    <div class="chat-container">
-                        <div class="user-list">
-                            <h3>Mensajes</h3>
-                            <ul>
-                                <li v-for="user in usuaris" :key="user.id" @click="selectUser(user)"
-                                    :class="{ active: selectedUser && selectedUser.id === user.id }">
-                                    <span class="avatar">{{ user.nom.charAt(0) }}</span>
-                                    <div class="user-info">
-                                        <strong>{{ user.nom }}</strong>
-                                        <p>{{ user.missatge }}</p>
-                                    </div>
-                                </li>
-                            </ul>
+            :style="{ width: '40vw', background: '#EEC765', borderRadius: '10px', padding: '5px' }">
+        <div class="chat-container">
+            <div class="user-list">
+                <h3>Mensajes</h3>
+                <ul>
+                    <li v-for="user in usuaris" :key="user.id" @click="selectUser(user)"
+                        :class="{ active: selectedUser && selectedUser.id === user.id }">
+                        <span class="avatar">{{ user.nom.charAt(0) }}</span>
+                        <div class="user-info">
+                            <strong>{{ user.nom }}</strong>
+                            <p>{{ user.missatge }}</p>
                         </div>
-
-                        <div class="chat-box" v-if="selectedUser">
-                            <div class="chat-header">
-                                <span class="avatar">{{ selectedUser.nom.charAt(0) }}</span>
-                                <h3>{{ selectedUser.nom }}</h3>
-                            </div>
-                            <div class="messages">
-                                <div v-for="(msg, index) in selectedUser.messages" :key="index"
-                                    :class="['message', index % 2 === 0 ? 'sent' : 'received']">
-                                    <p>{{ msg }}</p>
-                                </div>
-                            </div>
-                            <form @submit.prevent="enviarFormulario" class="chat-input">
-                                <InputText v-model="newMessage" type="text" placeholder="Escribe aqui" />
-                                <Button type="submit" icon="pi pi-send"></Button>
-                            </form>
-                        </div>
-                    </div>
-                </Dialog>
+                    </li>
+                </ul>
             </div>
-        </template>
+
+            <div class="chat-box" v-if="selectedUser">
+                <div class="chat-header">
+                    <span class="avatar">{{ selectedUser.nom.charAt(0) }}</span>
+                    <h3>{{ selectedUser.nom }}</h3>
+                </div>
+                <div class="messages">
+                    <div v-for="(msg, index) in selectedUser.messages" :key="index"
+                         :class="['message', index % 2 === 0 ? 'sent' : 'received']">
+                        <p>{{ msg }}</p>
+                    </div>
+                </div>
+                <form @submit.prevent="enviarFormulario" class="chat-input">
+                    <InputText v-model="newMessage" type="text" placeholder="Escribe aqui" />
+                    <Button type="submit" icon="pi pi-send"></Button>
+                </form>
+            </div>
+        </div>
+    </Dialog>
+</template>
 
 <script>
 import { ref, onMounted } from "vue";
@@ -96,9 +94,9 @@ export default {
         };
 
         const fetchMessages = (userId) => {
-            axios.get(`/chat/${userId}`)
+            axios.get(`chat/${userId}`)
                 .then((response) => {
-                    selectedUser.value.messages = response.data.messages;
+                    selectedUser.value.messages = response.data;
                 })
                 .catch((error) => {
                     console.error("Error al obtener los mensajes:", error);
@@ -112,7 +110,7 @@ export default {
                     message: newMessage.value
                 };
 
-                axios.post("/chat", messageData)
+                axios.post("chat", messageData)
                     .then(() => {
                         selectedUser.value.messages.push(newMessage.value);
                         newMessage.value = "";
@@ -124,12 +122,12 @@ export default {
         };
 
         onMounted(() => {
-            axios.get("/usuaris")
+            axios.get("chat/usuarios/opuestos")
                 .then((response) => {
                     usuaris.value = response.data;
                 })
                 .catch((error) => {
-                    console.error("Error al obtener los usuaris:", error);
+                    console.error("Error al obtener los usuarios:", error);
                 });
         });
 

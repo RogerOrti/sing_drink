@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Chat;
 
+use App\Models\Usuari;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ChatResource;
@@ -19,19 +20,19 @@ class ChatController extends Controller
         $usuario = Auth::user();
         
         $mensaje = Chat::where('id_propietari', $usuario->id_user)
-                            ->orWhere('id_music', $usuario->id_user)
-                            ->with(['propietario.usuario', 'musico.usuario'])
-                            ->latest()
-                            ->get()
-                            ->groupBy(function($item) use ($usuario) {
-                                return $item->id_propietari == $usuario->id_user 
-                                    ? $item->id_music 
-                                    : $item->id_propietari;
-                            });
-        
+                        ->orWhere('id_music', $usuario->id_user)
+                        ->with(['propietario', 'musico'])  // Usamos las relaciones definidas correctamente
+                        ->latest()
+                        ->get()
+                        ->groupBy(function($item) use ($usuario) {
+                            return $item->id_propietari == $usuario->id_user 
+                                ? $item->id_music 
+                                : $item->id_propietari;
+                        });
+    
         return response()->json($mensaje);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      */
@@ -40,13 +41,21 @@ class ChatController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function getUsuariosOpuestos()
     {
-        //
+        $currentUser = auth()->user();
+    
+        if (!$currentUser) {
+            return response()->json(['error' => 'Usuario no autenticado'], 401);
+        }
+    
+        $rolOpuesto = $currentUser->tipus === 'music' ? 'propietari' : 'music';
+    
+        $usuarios = Usuari::where('tipus', $rolOpuesto)->get();
+    
+        return response()->json($usuarios);
     }
+    
 
     /**
      * Display the specified resource.

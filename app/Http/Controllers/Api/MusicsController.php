@@ -27,7 +27,7 @@ class MusicsController extends Controller
         $musics = Music::with(['user', 'multimedia'])->paginate(1);
         return MusicResource::collection($musics);
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
