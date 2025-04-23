@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\MultimediaLocal;
+use App\Models\MultimediaMusic;
 use Exception;
 use App\Models\Local;
 use App\Models\Music;
@@ -50,7 +52,15 @@ class UsuarisController extends Controller
 
         if($usuari->id_rol == 2){
 
-            $multimedia = new Multimedia();
+            $music = new Music();
+
+            $music->id_user = $usuari->id_user;
+            $music->id_estil = $request->input("estilMusica");
+
+            $music->save();
+
+
+            $multimedia = new MultimediaMusic();
 
             $file = $request->file("file");
 
@@ -59,31 +69,18 @@ class UsuarisController extends Controller
             $multimedia->ruta = $ruta;
             $multimedia->data = Carbon::now();
             $multimedia->id_tipo_multimedia = 1;
-            $multimedia->id_music = $usuari->id_user;
+            $multimedia->music_id_user = $usuari->id_user;
+
             $multimedia->save();
-
-            $music = new Music();
-
-            $music->id_user = $usuari->id_user;
-            $music->id_estil = $request->input("estilMusica");
-
-            $music->save();
 
         }
 
         elseif ($usuari->id_rol == 3) {
 
-            $multimedia = new Multimedia();
-            $multimedia->ruta = $request->input();
-            $multimedia->data = Carbon::now();
-
-            $multimedia->save();
-
             $local = new Local();
             $local->nom_local = $request->input("nom_local");
             $local->direccio = $request->input("direccio");
             $local->id_tipo_local = $request->input("tipusLocal");
-            $local->multimedia_id_multimedia = $multimedia->id_multimedia;
             $local->save();
 
             $propietari = new propietari();
@@ -92,12 +89,25 @@ class UsuarisController extends Controller
 
             $propietari->save();
 
+            $multimedia = new MultimediaLocal();
+
+            $file = $request->file("file");
+
+            $ruta = $file->storeAs('public/media', $file->getClientOriginalName());
+            $multimedia->ruta = $ruta;
+
+            $multimedia->data = Carbon::now();
+            $multimedia->id_tipo_multimedia = 1;
+            $multimedia->id_local = $local->id_local;
+
+            $multimedia->save();
+
         }
 
 
         DB::commit();
 
-    } catch (Exception $e) {
+    } catch (QueryException $e) {
         DB::rollBack();
         return response()->json(['error' => $e->getMessage()], 500);
 

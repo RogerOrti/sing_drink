@@ -18,16 +18,16 @@
 
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" :class="{'is-invalid': usuariErrors.nom}" v-model="usuari.nom" name="nom" required>
+                        <input type="text" class="form-control" :class="{'is-invalid': usuariErrors.nom}" v-model="usuari.nom" id="nom" name="nom" required>
                     </div>
                     
                     <div class="mb-3">
-                        <label for="nom" class="form-label">Cognom</label>
-                        <input type="text" class="form-control" :class="{'is-invalid': usuariErrors.cognom}" v-model="usuari.cognom" name="cognom" required>
+                        <label for="cognom" class="form-label">Cognom</label>
+                        <input type="text" class="form-control" :class="{'is-invalid': usuariErrors.cognom}" v-model="usuari.cognom" id="cognom" name="cognom" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" :class="{'is-invalid': usuariErrors.email}" v-model="usuari.email" name="email" required>
+                        <input type="email" class="form-control" :class="{'is-invalid': usuariErrors.email}" v-model="usuari.email" id="email" name="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="contrasenya" class="form-label">Contrasenya</label>
@@ -157,14 +157,9 @@ export default {
                     console.log(response.data);
                     alert("Usuari creat correctament");
                 })
-                .catch((error) => {
-                    if (error.response && error.response.data.errors) {
-                        error.response.data.errors.forEach((err) => {
-                            alert(err);
-                        });
-                    } else {
-                        alert("S'ha produït un error en el registre de l'usuari.");
-                    }
+                .catch(() => {
+                    alert("S'ha produït un error en el registre de l'usuari.");
+                    return
                 });
         },
 
