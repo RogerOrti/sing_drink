@@ -4,6 +4,7 @@ use App\Models\Music;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuariController;
 use App\Http\Controllers\Api\LocalsController;
+use App\Models\Local;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +75,8 @@ Route::get('/gestion_usuario', function () {
 
 
 Route::get('/local/{id}', function ($id) {
-    return view('local.local', ['id' => $id]);
+    $local = Local::with(['multimedia_local'])->findOrFail($id);
+    return view('local.local', ['id' => $id], compact('local'));
 });
 
 Route::get('/mapa', function () {

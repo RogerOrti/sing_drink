@@ -1,7 +1,7 @@
 @extends('layouts')
 
 @section('fonsPantalla')
-   <img src="{{ $music->multimedia_music->first()->ruta }}" class="fotoPortadaCantant" alt="">
+   <img src="{{ asset($music->multimedia_music->first()->ruta) }}" class="fotoPortadaCantant" alt="">
 @endsection
 
 @section('PantallaDeInicio')
@@ -16,14 +16,14 @@
 @section('Contenido_Adicional')
     <div class="fons d-flex justify-content-center">
         <div class="fotoPrincipal m-5">
-            <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top" alt="">
+            <img src="{{ asset('image/erfan/id4.webp') }}" class="card-img-top" alt="">
         </div>
     </div>
 <div class="fons d-flex justify-content-center">
     <div class="fotosSecundaries d-flex flex-row justify-content-center" >
-        <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top m-5" alt="">
-        <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top m-5" alt="">
-        <img src="{{ asset('image/erfan/PortadaKiedis.jpg') }}" class="card-img-top m-5" alt="">
+        <img src="{{ asset('image/erfan/id1.jpg') }}" class="card-img-top m-5" alt="">
+        <img src="{{ asset('image/erfan/id2.jpg') }}" class="card-img-top m-5" alt="">
+        <img src="{{ asset('image/erfan/id3.webp') }}" class="card-img-top m-5" alt="">
     </div>
 </div>
 <div class="fons d-flex justify-content-center">
@@ -38,25 +38,25 @@
 <div class="fons">
     <section class="jukebox">
         <div class="jukebox-wrapper">
-            <div class="card"><img src="{{ asset('image/erfan/disc1.webp')}}" alt="Album 1"></div>
-            <div class="card"><img src="{{ asset('image/erfan/disc2.webp')}}" alt="Album 2"></div>
-            <div class="card"><img src="{{ asset('image/erfan/disc3.webp')}}" alt="Album 3"></div>
-            <div class="card"><img src="{{ asset('image/erfan/disc4.webp')}}" alt="Album 4"></div>
-            <div class="card"><img src="{{ asset('image/erfan/disc5.webp')}}" alt="Album 5"></div>
+            <div class="card"><img src="{{ asset('image/erfan/iddisc1.jpg')}}" alt="Album 1"></div>
+            <div class="card"><img src="{{ asset('image/erfan/iddisc2.jpg')}}" alt="Album 2"></div>
+            <div class="card"><img src="{{ asset('image/erfan/iddisc3.jpg')}}" alt="Album 3"></div>
+            <div class="card"><img src="{{ asset('image/erfan/iddisc4.jpg')}}" alt="Album 4"></div>
+            <div class="card"><img src="{{ asset('image/erfan/iddisc5.jpg')}}" alt="Album 5"></div>
             <div class="card"><img src="{{ asset('image/erfan/disc6.webp')}}" alt="Album 6"></div>
     </section>
 </div>
 <div class="fons videos d-flex justify-content-center">
     <div class="videoPrincipal">
-        <iframe width="800" height="550" src="https://www.youtube.com/embed/OS8taasZl8k?si=lNHBmsB3UznsXSqy"
+        <iframe width="800" height="550" src="https://www.youtube.com/embed/ktvTqknDobU?si=ii2aZJG8gaFWY4qQ"
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="videoSecundari">
-        <iframe width="300" height="168" src="https://www.youtube.com/embed/OS8taasZl8k?si=lNHBmsB3UznsXSqy"
+        <iframe width="300" height="168" src="https://www.youtube.com/embed/7wtfhZwyrcc?si=RaTJp1MQUWqYUIzx"
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe width="300" height="168" src="https://www.youtube.com/embed/OS8taasZl8k?si=lNHBmsB3UznsXSqy"
+        <iframe width="300" height="168" src="https://www.youtube.com/embed/fKopy74weus?si=4S-VfUWRhqI2FGON"
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe width="300" height="168" src="https://www.youtube.com/embed/OS8taasZl8k?si=lNHBmsB3UznsXSqy"
+        <iframe width="300" height="168" src="https://www.youtube.com/embed/mWRsgZuwf_8?si=W_S4nmZDtVo6uNo6"
         frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 

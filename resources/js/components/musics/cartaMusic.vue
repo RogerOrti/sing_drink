@@ -8,7 +8,7 @@
                     <div>
                         <!-- <a href="music" class=" btn btnMusics btn-primary">Saber más</a> -->
                         <a :href="'music/' + music.id_user " class="btn btnMusics btn-primary">Saber més</a>
-                        <img class="play card-img-top" :src="('image/erfan/logoPlay.png')" alt="">
+                        <img class="play card-img-top" :src="('image/erfan/logoPlay2.webp')" alt="">
                     </div>
                 </div>
             </div>
