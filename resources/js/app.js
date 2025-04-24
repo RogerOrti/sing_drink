@@ -32,6 +32,7 @@ import musicsCRUD from "./components/musicsCRUD.vue";
 const app = createApp({});
 const app2 = createApp({});
 const app3 = createApp({});
+const app4 = createApp({});
 app.use(PrimeVue);  // Uso de PrimeVue globalmente
 
 app.component("chat", Chat);
@@ -47,7 +48,7 @@ app.component("pagina-music", PaginaMusic);
 app.component("usuarios-crud", UsuariosCRUD);
 app3.component("mapalocal", mapaLocal);
 app.component("estadisticaslocal", estadisticaslocal);
-app.component("afegir-multimedia", SubirMultimedia);
+app4.component("afegir-multimedia", SubirMultimedia);
 app2.component("carousel", swiperVue);
 app3.component("cartel-imagen",ImagenesCartel);
 app.component("local-crud", localCRUD);
@@ -56,5 +57,6 @@ app.component("musics-crud", musicsCRUD);
 app.mount('#app');
 app2.mount('#app2');
 app3.mount('#app3');
+app4.mount('#app4');
 
 

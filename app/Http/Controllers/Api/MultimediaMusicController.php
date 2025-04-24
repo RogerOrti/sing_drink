@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use App\Models\MultimediaMusic;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\MultimediaMusicResource;
-use App\Models\MultimediaMusic;
-use Illuminate\Http\Request;
 
 class MultimediaMusicController extends Controller
 {
@@ -24,8 +25,22 @@ class MultimediaMusicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file("file");
+        $TipoMultimedia = $request->input("id_tipo_multimedia");
+        $IDuser = $request->input("id_user");
+
+        // Guardar el archivo en la carpeta public/media
+        $file->storeAs('', $file->getClientOriginalName(), 'public');
+        $multimedia = new MultimediaMusic();
+        $multimedia->ruta = 'media/' . $file->getClientOriginalName(); // Ruta relativa
+        $multimedia->data = now();
+        $multimedia->id_tipo_multimedia = $TipoMultimedia;
+        $multimedia->music_id_user = $IDuser;
+        $multimedia->save();
+        return response()->json(['message' => 'Multimedia subida correctamente']);
     }
+
+
 
     /**
      * Display the specified resource.

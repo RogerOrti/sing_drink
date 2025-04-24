@@ -52,12 +52,12 @@
 
       this.obtenirRuta();
       this.crearMapa();
-      
+
     }
   };
   </script>
 
-  <style>
+  <style scoped>
   .map-container{
     max-width: 80rem;
     height: auto;

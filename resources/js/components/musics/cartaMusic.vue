@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        <div class="pagination text-center my-4">
+        <div class="pagination d-flex justify-content-center align-items-center my-4">
         <button class="btn btn-secondary mx-2" :disabled="currentPage === 1" @click="cambiarPagina(currentPage - 1)">
           Anterior
         </button>

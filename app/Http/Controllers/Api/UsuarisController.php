@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\MultimediaLocal;
 use App\Models\MultimediaMusic;
-use Exception;
 use App\Models\Local;
 use App\Models\Music;
 use App\Models\Usuari;
 use App\Clases\Utilitat;
-use App\Models\Multimedia;
 use App\Models\propietari;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -63,10 +61,10 @@ class UsuarisController extends Controller
             $multimedia = new MultimediaMusic();
 
             $file = $request->file("file");
-
-            $ruta = $file->storeAs('public/media', $file->getClientOriginalName());
-
-            $multimedia->ruta = $ruta;
+           // $ruta = $file->storeAs('public/media', $file->getClientOriginalName());
+            $file->storeAs('', $file->getClientOriginalName(), 'public');
+            // $multimedia->ruta = $ruta;
+            $multimedia->ruta = 'media/' . $file->getClientOriginalName(); // Ruta relativa
             $multimedia->data = Carbon::now();
             $multimedia->id_tipo_multimedia = 1;
             $multimedia->music_id_user = $usuari->id_user;
@@ -93,9 +91,10 @@ class UsuarisController extends Controller
 
             $file = $request->file("file");
 
-            $ruta = $file->storeAs('public/media', $file->getClientOriginalName());
-            $multimedia->ruta = $ruta;
-
+            // $ruta = $file->storeAs('public/media', $file->getClientOriginalName());
+            $file->storeAs('', $file->getClientOriginalName(), 'public');
+            // $multimedia->ruta = $ruta;
+            $multimedia->ruta = 'media/' . $file->getClientOriginalName(); // Ruta relativa
             $multimedia->data = Carbon::now();
             $multimedia->id_tipo_multimedia = 1;
             $multimedia->id_local = $local->id_local;
