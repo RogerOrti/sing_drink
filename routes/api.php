@@ -4,7 +4,7 @@ use App\Models\Music;
 use Illuminate\Http\Request;
 use App\Models\TipoMultimedia;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ChatController;
+use App\Http\Controllers\Api\ChatController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\RolUserController;
 use App\Http\Controllers\Api\TipusMultimedia;
