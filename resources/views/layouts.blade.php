@@ -97,7 +97,7 @@
     </div>
     @yield('Contenido_Adicional')
     <div id="Cubo"></div>
-    <div id="app">
+    <div id="Personalizado">
         <chat></chat>
         <footer-eventos></footer-eventos>
     </div>
