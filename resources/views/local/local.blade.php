@@ -16,7 +16,7 @@
 
 @section('Contenido_Adicional')
 
-<div id="app3" data-id="{{ $id }}">
+<div id="app5" data-id="{{ $id }}">
     <mapalocal></mapalocal>
 </div>
 <div>

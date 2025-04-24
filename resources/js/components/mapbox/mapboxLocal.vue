@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex container">
-    <div id="map" class="map-container"></div>
+    <div id="map-R" class="map-container"></div>
   </div>
 </template>
 
@@ -40,7 +40,7 @@
       crearMapa(){
         new mapboxgl.Map({
         accessToken: 'pk.eyJ1Ijoicm9nZXJvcnRpIiwiYSI6ImNtN3V0Z2h0ZDAzZzEyanF4cGxrNDBidWEifQ.Awl5Z-ARVRlGj-7lGEErag',
-        container: 'map',
+        container: 'map-R',
         style: 'mapbox://styles/mapbox/streets-v12',
         center: [2.154007, 41.390205], // Barcelona
         zoom: 13
@@ -59,9 +59,9 @@
 
   <style scoped>
   .map-container{
-    max-width: 80rem;
-    height: auto;
-    margin: 5rem;
-    border-radius: 1rem;
+    width: 100%;
+    height: 30rem;
+    margin: 20px;
+    border-radius: 20px;
   }
   </style>
