@@ -34,14 +34,15 @@ const app2 = createApp({});
 const app3 = createApp({});
 const app4 = createApp({});
 const app5 = createApp({});
+const Personalizado = createApp({});
 app.use(PrimeVue);  // Uso de PrimeVue globalmente
 
-app.component("chat", Chat);
+Personalizado.component("chat", Chat);
 app.component("register", registerVue);
 app.component("login", loginVue);
 app.component("prova", Prova);
 app.component("mapbox-footer", mapboxFooter);
-app.component("footer-eventos", FooterEventos);
+Personalizado.component("footer-eventos", FooterEventos);
 app.component("carta-local", CartaLocal);
 app.component("carta-music", CartaMusic);
 app.component("pagina-local", PaginaLocal);
@@ -60,5 +61,6 @@ app2.mount('#app2');
 app3.mount('#app3');
 app4.mount('#app4');
 app5.mount('#app5');
+Personalizado.mount('#Personalizado')
 
 

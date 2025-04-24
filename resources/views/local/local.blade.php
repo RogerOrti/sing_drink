@@ -19,9 +19,6 @@
 <div id="app5" data-id="{{ $id }}">
     <mapalocal></mapalocal>
 </div>
-<div>
-    <h1>MAPA ROGER</h1>
-</div>
 <div class="fons d-flex justify-content-center ">
     <div class="m-5">
         <h1 class="titolHoraris">OPINIONS</h1>
