@@ -110,7 +110,7 @@
   </script>
 
 
-<style>
+<style scoped>
 .map-wrapper {
     width: 100%;
     height: 100%;
