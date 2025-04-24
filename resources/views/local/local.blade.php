@@ -1,7 +1,8 @@
 @extends('layouts')
 
 @section('fonsPantalla')
-<img src="{{ asset('image/erfan/fotoLocal.jpg') }}" width="100%" class="fosc" height="100%" alt="GIF de imagen" style="position:absolute">
+{{-- <img src="{{ asset('image/erfan/fotoLocal.jpg') }}" width="100%" class="fosc" height="100%" alt="GIF de imagen" style="position:absolute"> --}}
+<img src="{{ asset($local->multimedia_local->ruta) }}" class="fotoPortadaCantant" alt="">
 @endsection
 
 @section('PantallaDeInicio')
