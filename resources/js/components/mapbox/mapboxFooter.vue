@@ -20,7 +20,7 @@
 
   </script>
 
-  <style>
+  <style scoped>
   .map-container {
     display: flex;
     width: 100%;

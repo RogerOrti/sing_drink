@@ -64,6 +64,12 @@
                         <a href="{{ route('register') }}" class="btn btn-primary me-2">Registrar-se</a>
                     </div>
                 @else
+                @if (Auth::user()->id_rol == 2)
+                <div id="app4">
+                    <afegir-multimedia :user-id='@json(Auth::user()->id_user)'> </afegir-multimedia>
+                </div>
+                @endif
+
                     <div class="nav-item dropdown">
                         <div class="dropdown">
                             <a class="hoverable dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -77,9 +83,6 @@
                             </div>
                         </div>
                     </div>
-
-                    @if (Auth::user()->id_rol == 2)
-                    @endif
                 @endif
                 {{-- <div id="app">
 

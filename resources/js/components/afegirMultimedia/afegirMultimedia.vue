@@ -1,23 +1,41 @@
 <template>
-    <button @click="mostrarMenu()">Afegir Multiemdia</button>
-    <div class="modal" v-if="mostrarMenuMultimedia">
-        <div class="formulario">
-            <div class="mb-3">
-                <label for="" class="form-label">Multimedia</label>
-                <input class="form-control" type="file" name="multimedia" id="multimedia" @change="agafarMultimedia">
-                <label for=""> Escull el tipus de multimedia</label>
-                <select name="multimedia" id="multimedia" class="form-label" v-model="this.usuari.tipuMultimedia">
-                    <option v-for="MultimediaUnico in TipusMultimedia" :key="MultimediaUnico.id_tipo_multimedia" :value="MultimediaUnico.id_tipo_multimedia" >
-                        {{ MultimediaUnico.tipo_multimedia }}
-                    </option>
-                </select>
-            </div>
-        </div>
+    <div class="text-center my-4">
+      <button class="btn btn-primary" @click="mostrarMenu()">Afegir Multimedia</button>
     </div>
-</template>
+
+    <div class="modal-custom" v-if="mostrarMenuMultimedia">
+      <div class="formulario-custom p-4 rounded shadow">
+        <div class="text-end">
+          <button class="btn-close" @click="mostrarMenuMultimedia = false"></button>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Multimedia</label>
+          <input class="form-control" type="file" @change="agafarMultimedia">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Escull el tipus de multimedia</label>
+          <select class="form-select" v-model="usuari.tipuMultimedia">
+            <option v-for="MultimediaUnico in TipusMultimedia" :key="MultimediaUnico.id_tipo_multimedia" :value="MultimediaUnico.id_tipo_multimedia">
+              {{ MultimediaUnico.tipo_multimedia }}
+            </option>
+          </select>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-success mt-3" @click="subirMulmedia">Pujar Multimedia</button>
+        </div>
+      </div>
+    </div>
+  </template>
+
 
 <script>
 export default {
+    props: {
+        userId: {
+            type: Number,
+            required: true
+        }
+    },
     data() {
         return {
             usuari: {},
@@ -43,9 +61,14 @@ export default {
         subirMulmedia() {
             const formData = new FormData();
             formData.append("id_tipo_multimedia",this.usuari.tipuMultimedia)
-            formData.append("ruta", this.usuari.multimedia);
+            formData.append("file", this.usuari.multimedia);
+            formData.append("id_user",this.userId)
+
+            for (const pair of formData.entries()) {
+            console.log(`${pair[0]}:`, pair[1]);
+}
             axios
-                .post("multimedia", formData)
+                .post("multimediaMusic", formData)
                 .then((response) => {
                     console.log(response.data);
                     alert("Multimedia Subida");
@@ -56,7 +79,10 @@ export default {
                             alert(err);
                         });
                     } else {
-                        alert("S'ha produït un error en el registre de l'usuari.");
+                        alert("error al subir el multimedia.");
+                        console.log(this.usuari.tipuMultimedia)
+                        console.log(this.usuari.multimedia)
+                        console.log(this.userId)
                     }
                 });
         },
@@ -80,24 +106,23 @@ export default {
 select, option{
     color: black;
 }
-.modal {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.568);
-    justify-content: center;
-    align-items: center;
+.modal-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.formulario {
-    width: 500px;
-    height: 500px;
-    border: solid 1px red;
-    background-color: white;
-    align-items: center;
-    color: black;
+.formulario-custom {
+  background-color: white;
+  width: 400px;
 }
+
+
 </style>
