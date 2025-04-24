@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\PropietariResource;
 use App\Models\MultimediaLocal;
 use App\Models\Propietari;
 use App\Models\Local;
@@ -18,25 +19,30 @@ class PropietariController extends Controller
      */
     public function index()
     {
-        try {
-            $propietaris = Propietari::with([
-                'usuari', 
-                'local.tipoLocal',
-                'local.multimedia'
-            ])->get();
+        // try {
+        //     $propietaris = Propietari::with([
+        //         'usuari', 
+        //         'local.tipoLocal',
+        //         'local.multimedia'
+        //     ])->get();
 
-            return response()->json([
-                'success' => true,
-                'data' => $propietaris
-            ], 200);
+        //     return response()->json([
+        //         'success' => true,
+        //         'data' => $propietaris
+        //     ], 200);
 
-        } catch (\Exception $e) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Error al recuperar los propietarios',
-                'error' => $e->getMessage()
-            ], 500);
-        }
+        // } catch (\Exception $e) {
+        //     return response()->json([
+        //         'success' => false,
+        //         'message' => 'Error al recuperar los propietarios',
+        //         'error' => $e->getMessage()
+        //     ], 500);
+        // }
+
+        $propietaris = propietari::all();
+
+        return PropietariResource::collection($propietaris);
+
     }
 
     /**
