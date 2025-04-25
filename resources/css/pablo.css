@@ -1,0 +1,4 @@
+.custom-navbar.scrolled {
+    background-color: rgba(69, 72, 103, 0.6) !important;
+    transition: background-color 0.3s ease;
+}
