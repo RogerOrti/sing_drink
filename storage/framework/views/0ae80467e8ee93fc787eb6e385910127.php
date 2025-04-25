@@ -64,6 +64,12 @@
                         <a href="<?php echo e(route('register')); ?>" class="btn btn-primary me-2">Registrar-se</a>
                     </div>
                 <?php else: ?>
+                    <?php if(Auth::user()->id_rol == 2): ?>
+                        <div id="app4">
+                            <afegir-multimedia :user-id='<?php echo json_encode(Auth::user()->id_user, 15, 512) ?>'> </afegir-multimedia>
+                        </div>
+                    <?php endif; ?>
+
                     <div class="nav-item dropdown">
                         <div class="dropdown">
                             <a class="hoverable dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -78,9 +84,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <?php if(Auth::user()->id_rol == 2): ?>
-                    <?php endif; ?>
                 <?php endif; ?>
                 
 
@@ -93,7 +96,7 @@
     <?php echo $__env->yieldContent('Contenido_Adicional'); ?>
     <div id="Cubo"></div>
     <div id="app">
-        <chat></chat>
+        <chat :usuario-id="<?php echo e(auth()->id()); ?>"></chat>
         <footer-eventos></footer-eventos>
     </div>
     <div class="container">

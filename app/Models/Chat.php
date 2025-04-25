@@ -21,23 +21,23 @@ class Chat extends Model
         'enviat'
     ];
 
-    public function propietario()
+    public function propietari()
     {
         return $this->belongsTo(Usuari::class, 'id_propietari', 'id_user');
     }
 
-    public function musico()
+    public function music()
     {
         return $this->belongsTo(Usuari::class, 'id_music', 'id_user');
     }
 
-    public function remitente()
-    {
-        return $this->belongsTo(Usuari::class, 'id_propietari', 'id_user');
-    }
+    // public function remitente()
+    // {
+    //     return $this->belongsTo(Usuari::class, 'id_propietari', 'id_user');
+    // }
 
-    public function destinatario()
-    {
-        return $this->belongsTo(Usuari::class, 'id_music', 'id_user');
-    }
+    // public function destinatario()
+    // {
+    //     return $this->belongsTo(Usuari::class, 'id_music', 'id_user');
+    // }
 }

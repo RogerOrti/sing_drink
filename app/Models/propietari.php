@@ -8,20 +8,27 @@ use App\Models\Multimedia;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class propietari extends Model
+class Propietari extends Model
 {
     use HasFactory;
 
     protected $table = 'propietari';
-
-    protected $primaryKey = ['id_user', 'id_local'];
-
+    public $incrementing = false;
     public $timestamps = false;
 
     protected $fillable = [
         'id_user',
         'id_local'
     ];
+
+    protected function setKeysForSaveQuery($query)
+    {
+        $query
+            ->where('id_user', '=', $this->getAttribute('id_user'))
+            ->where('id_local', '=', $this->getAttribute('id_local'));
+
+        return $query;
+    }
 
     public function usuari()
     {
@@ -37,10 +44,4 @@ class propietari extends Model
     {
         return $this->hasMany(Contractar::class, 'id_propietari');
     }
-
-  
-
-
-
-
 }

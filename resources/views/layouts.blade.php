@@ -64,11 +64,11 @@
                         <a href="{{ route('register') }}" class="btn btn-primary me-2">Registrar-se</a>
                     </div>
                 @else
-                @if (Auth::user()->id_rol == 2)
-                <div id="app4">
-                    <afegir-multimedia :user-id='@json(Auth::user()->id_user)'> </afegir-multimedia>
-                </div>
-                @endif
+                    @if (Auth::user()->id_rol == 2)
+                        <div id="app4">
+                            <afegir-multimedia :user-id='@json(Auth::user()->id_user)'> </afegir-multimedia>
+                        </div>
+                    @endif
 
                     <div class="nav-item dropdown">
                         <div class="dropdown">
@@ -97,8 +97,11 @@
     </div>
     @yield('Contenido_Adicional')
     <div id="Cubo"></div>
+       
+
     <div id="Personalizado">
-        <chat></chat>
+        <chat :usuario-id="{{ auth()->id() }}"></chat>
+
         <footer-eventos></footer-eventos>
     </div>
     <div class="container">
