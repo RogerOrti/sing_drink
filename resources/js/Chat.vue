@@ -84,90 +84,99 @@ export default {
         const mostrar = ref(false);
         const newMessage = ref("");
         const selectedUser = ref(null);
-        const usuaris = ref([]);
-        const messages = ref([]);
+        const usuaris = ref(null);
         const currentUser = ref(null);
+        const messages = ref([]);
+        const usuarioCargado = ref(false);
 
-        // Obtener el usuario actual
         const fetchCurrentUser = async () => {
             try {
-                const response = await axios.get('usuaris'); // Asegúrate de tener esta ruta
-                currentUser.value = response.data;
-                fetchUsuariosOpuestos();
+                const res = await axios.get("usuaris");
+                currentUser.value = res.data;
+                usuarioCargado.value = true;
+                fetchConversations();
             } catch (error) {
-                console.error("Error al obtener usuario actual:", error);
+                console.error("Error al obtener el usuario:", error);
             }
         };
 
-        // Obtener usuarios opuestos según el rol
-        const fetchUsuariosOpuestos = async () => {
+
+        const fetchConversations = async () => {
             try {
-                let url = '';
-                if (currentUser.value.id_rol === 1) { // Propietario
-                    url = 'musics'; // Obtener músicos
-                } else if (currentUser.value.id_rol === 2) { // Músico
-                    url = 'propietari'; // Obtener propietarios
-                }
-                
-                if (url) {
-                    const response = await axios.get(url);
-                    usuaris.value = response.data.map(user => ({
-                        ...user,
-                        messages: [] // Inicializar array de mensajes
-                    }));
-                }
+                const res = await axios.get("chat");
+                const usuariosUnicos = [];
+
+                res.data.forEach(chat => {
+                    const otro = chat.id_propietari === currentUser.value.id_user ? chat.music : chat.propietari;
+                    if (!usuariosUnicos.some(u => u.id_user === otro.id_user)) {
+                        usuariosUnicos.push({
+                            ...otro,
+                            missatge: chat.missatge,
+                            id_user: otro.id_user
+                        });
+                    }
+                });
+
+                usuaris.value = usuariosUnicos;
             } catch (error) {
-                console.error("Error al obtener usuarios opuestos:", error);
+                console.error("Error al cargar conversaciones:", error);
             }
         };
 
-        // Obtener mensajes con un usuario específico
-        const fetchMessages = async (userId) => {
-            if (!userId) return;
-            
+        const fetchMessages = async (idUser) => {
             try {
-                const response = await axios.get(`chat/${userId}`);
-                messages.value = response.data;
-                
-                // Actualizar mensajes en el usuario seleccionado
-                if (selectedUser.value) {
-                    selectedUser.value.messages = messages.value.map(msg => msg.missatge);
-                }
-                
-                // Marcar como leídos si es necesario
-                if (messages.value.length > 0 && currentUser.value.id_user === messages.value[0].id_music) {
-                    await axios.put(`chat/leidos/${messages.value[0].id_propietari}/${messages.value[0].id_music}`);
-                }
+                const res = await axios.get(`/chat/${currentUser.value.id_user}/${idUser}`);
+
+                selectedUser.value.messages = res.data.map(m => m.missatge);
             } catch (error) {
-                console.error("Error al obtener mensajes:", error);
+                console.error("Error al cargar mensajes:", error);
             }
         };
 
-        // Seleccionar un usuario para chatear
         const selectUser = (user) => {
+            if (!usuarioCargado.value) return;
             selectedUser.value = user;
             fetchMessages(user.id_user);
         };
 
-        // Enviar un nuevo mensaje
         const enviarFormulario = async () => {
-            if (!newMessage.value.trim() || !selectedUser.value) return;
+            if (!newMessage.value.trim()) {
+                console.error("Mensaje vacío");
+                return;
+            }
+
+            if (!currentUser.value || !selectedUser.value) {
+                console.error("No se ha seleccionado un usuario o no se ha cargado el usuario actual");
+                return;
+            }
+
+            const id_propietari = currentUser.value.id_user;
+            const id_music = selectedUser.value.id_user;
+
+            if (!id_propietari || !id_music) {
+                console.error("ID de usuario o música no disponible");
+                return;
+            }
+
+            const payload = {
+                id_propietari,
+                id_music,
+                missatge: newMessage.value
+            };
 
             try {
-                const messageData = {
-                    id_music: currentUser.value.id_rol === 1 ? selectedUser.value.id_user : currentUser.value.id_user,
-                    id_propietari: currentUser.value.id_rol === 1 ? currentUser.value.id_user : selectedUser.value.id_user,
-                    missatge: newMessage.value
-                };
-
-                await axios.post("chat", messageData);
-                
-                await fetchMessages(selectedUser.value.id_user);
+                const res = await axios.post("chat", payload);
+                if (!selectedUser.value) {
+                    console.error("selectedUser no está definido");
+                    return;
+                }
+                selectedUser.value.messages.push(res.data.missatge);
                 newMessage.value = "";
             } catch (error) {
                 console.error("Error al enviar mensaje:", error);
             }
         };
+
 
         const mostrarModal = () => {
             mostrar.value = true;
@@ -192,8 +201,6 @@ export default {
     }
 };
 </script>
-
-
 <style scoped>
 .icono-chat {
     position: fixed;

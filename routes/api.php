@@ -49,13 +49,5 @@ Route::apiResource('multimediaLocal',MultimediaLocalController::class);
 Route::apiResource('tipusMultimedia',TipusMultimedia::class);
 Route::apiResource('chat',ChatController::class);
 
+    Route::get('/chat/{id_propietari}/{id_music}', [ChatController::class, 'show']);
 
-Route::middleware('auth:sanctum')->group(function() {
-    // Rutas de chat
-    Route::get('/chat', [ChatController::class, 'index']); // Listar conversaciones
-    Route::get('/chat/{id_interlocutor}', [ChatController::class, 'show']); // Ver mensajes con un usuario
-    Route::post('/chat', [ChatController::class, 'store']); // Enviar mensaje
-    Route::delete('/chat/{id_chat}', [ChatController::class, 'destroy']); // Eliminar mensaje
-    Route::put('/chat/leidos/{id_propietario}/{id_music}', [ChatController::class, 'marcarComoLeidos']);
-    Route::get('/chat/usuarios/disponibles', [ChatController::class, 'getUsuariosDisponibles']);
-});
