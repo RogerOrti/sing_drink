@@ -33,18 +33,34 @@
           });
       },
 
-      rutaCoordenades(){},
+      rutaCoordenades(){
+        
 
-      crearMarcador(){},
+
+
+
+
+      },
+
+
 
       crearMapa(){
-        new mapboxgl.Map({
+       const map = new mapboxgl.Map({
         accessToken: 'pk.eyJ1Ijoicm9nZXJvcnRpIiwiYSI6ImNtN3V0Z2h0ZDAzZzEyanF4cGxrNDBidWEifQ.Awl5Z-ARVRlGj-7lGEErag',
         container: 'map-R',
         style: 'mapbox://styles/mapbox/streets-v12',
         center: [2.154007, 41.390205], // Barcelona
         zoom: 13
-      });
+      })
+      new mapboxgl.Marker({
+          color: "#222E50",
+          draggable: true
+          }).setLngLat([2.154007, 41.390205])
+        .addTo(map);;
+      },
+
+      crearMarcador(){
+        
       }
     },
 
