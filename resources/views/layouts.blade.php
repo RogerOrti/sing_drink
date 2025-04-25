@@ -97,8 +97,11 @@
     </div>
     @yield('Contenido_Adicional')
     <div id="Cubo"></div>
-    <div id="app">
+       
+
+    <div id="Personalizado">
         <chat :usuario-id="{{ auth()->id() }}"></chat>
+
         <footer-eventos></footer-eventos>
     </div>
     <div class="container">
@@ -133,5 +136,27 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const navbar = document.querySelector('.custom-navbar');
+
+        function updateNavbarBackground() {
+            const scrollY = window.scrollY;
+            const isSmallScreen = window.innerWidth < 992;
+
+            if (scrollY > 100 || isSmallScreen) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+
+        // Ejecutar al cargar y cuando cambia el tamaño o se hace scroll
+        updateNavbarBackground();
+        window.addEventListener('scroll', updateNavbarBackground);
+        window.addEventListener('resize', updateNavbarBackground);
+    });
+</script>
+
 
 </html>

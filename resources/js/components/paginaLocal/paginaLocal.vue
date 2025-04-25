@@ -1,7 +1,7 @@
 <template>
-    <div v-for="local in locals" :key="local.id">
+    <div>
       <div id="quisom">
-        <h1 class="display-1 fw-bold text-center larger-title">{{ local.nom_local }}</h1>
+        <h1 class="display-1 fw-bold text-center larger-title">{{ locals.nom_local }}</h1>
       </div>
     </div>
   </template>

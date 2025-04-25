@@ -22,7 +22,7 @@ class LocalsController extends Controller
 
 public function indexPaginado()
 {
-    $locals = local::with('multimedia_local')->paginate(1);
+    $locals = local::with('multimedia_local')->paginate(4);
     return LocalResource::collection($locals);
 }
     /**
