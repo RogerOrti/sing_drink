@@ -101,7 +101,6 @@
 
     <div id="Personalizado">
         <chat :usuario-id="{{ auth()->id() }}"></chat>
-
         <footer-eventos></footer-eventos>
     </div>
     <div class="container">
