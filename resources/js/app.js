@@ -35,7 +35,7 @@ const app3 = createApp({});
 const app4 = createApp({});
 const app5 = createApp({});
 const Personalizado = createApp({});
-app.use(PrimeVue);  // Uso de PrimeVue globalmente
+Personalizado.use(PrimeVue);  // Uso de PrimeVue globalmente
 
 Personalizado.component("chat", Chat);
 app.component("register", registerVue);

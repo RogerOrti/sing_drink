@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Api;
 
 use App\Models\Chat;
 use App\Models\Usuari;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ChatResource;
 use Illuminate\Support\Facades\Auth;
@@ -40,28 +40,36 @@ class ChatController extends Controller
         }
 
 
-                public function store(Request $request)
-            {
-                $validated = $request->validate([
-                    'id_propietari' => 'required|integer|exists:usuaris,id_user',
-                    'id_music' => 'required|integer|exists:usuaris,id_user',
-                    'missatge' => 'required|string|max:255',
-                ]);
-
-                Log::info('Datos recibidos para almacenar mensaje:', $validated);
-
+        public function store(Request $request)
+        {
+            // Log para verificar los datos recibidos
+            Log::info('Datos recibidos para almacenar mensaje:', $request->all());
+        
+            try {
+                // Crear el mensaje en el modelo Chat
                 $chat = Chat::create([
-                    'id_propietari' => $validated['id_propietari'],
-                    'id_music' => $validated['id_music'],
-                    'missatge' => $validated['missatge'],
-                    'enviat' => true
+                    'id_propietari' => $request->id_propietari,
+                    'id_music' => $request->id_music,
+                    'missatge' => $request->missatge,
+                    'enviat' => true,
                 ]);
-
+        
                 Log::info('Mensaje creado correctamente:', $chat->toArray());
-
+        
+                // Devolver el mensaje con los datos relacionados
                 return response()->json(new ChatResource($chat->load(['propietari', 'music'])), 201);
+            } catch (\Exception $e) {
+                // Manejo de errores con un registro en los logs
+                Log::error('Error al crear mensaje:', ['error' => $e->getMessage()]);
+        
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Error al almacenar el mensaje',
+                    'error' => $e->getMessage(),
+                ], 500);
             }
-
+        }
+        
     /**
      * Eliminar un mensaje
      */
