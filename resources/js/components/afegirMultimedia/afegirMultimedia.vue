@@ -63,7 +63,6 @@ export default {
             formData.append("id_tipo_multimedia",this.usuari.tipuMultimedia)
             formData.append("file", this.usuari.multimedia);
             formData.append("id_user",this.userId)
-
             for (const pair of formData.entries()) {
             console.log(`${pair[0]}:`, pair[1]);
 }

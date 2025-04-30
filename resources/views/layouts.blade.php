@@ -14,7 +14,6 @@
 
     <div class="full-screen-bg-primary">
         @yield('fonsPantalla')
-
         <nav class="navbar navbar-expand-lg fixed-top full-width custom-navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ route('Home') }}">
@@ -69,6 +68,11 @@
                             <afegir-multimedia :user-id='@json(Auth::user()->id_user)'> </afegir-multimedia>
                         </div>
                     @endif
+                    @if (Auth::user()->id_rol == 3)
+                    <div id="app4">
+                        <contractar :user-id='@json(Auth::user()->id_user)'> </contractar>
+                    </div>
+                @endif
 
                     <div class="nav-item dropdown">
                         <div class="dropdown">
@@ -97,7 +101,7 @@
     </div>
     @yield('Contenido_Adicional')
     <div id="Cubo"></div>
-       
+
 
     <div id="Personalizado">
         <chat :usuario-id="{{ auth()->id() }}"></chat>

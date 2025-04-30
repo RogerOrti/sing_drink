@@ -28,7 +28,6 @@ class MultimediaMusicController extends Controller
         $file = $request->file("file");
         $TipoMultimedia = $request->input("id_tipo_multimedia");
         $IDuser = $request->input("id_user");
-
         // Guardar el archivo en la carpeta public/media
         $file->storeAs('', $file->getClientOriginalName(), 'public');
         $multimedia = new MultimediaMusic();

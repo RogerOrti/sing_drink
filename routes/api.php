@@ -39,15 +39,16 @@ Route::apiResource('musics', MusicsController::class);
 Route::apiResource('usuaris', UsuarisController::class);
 Route::apiResource('tipusLocal', TipusLocalController::class);
 Route::apiResource('estilMusica', EstilMusicaController::class);
-Route::apiResource('rol',RolUserController::class);
-Route::apiResource('multimedia',MultimediaController::class);
-Route::apiResource('propietari',PropietariController::class);
+Route::apiResource('rol', RolUserController::class);
+Route::apiResource('multimedia', MultimediaController::class);
+Route::apiResource('propietari', PropietariController::class);
 Route::get('propietari/local/{id_local}', [PropietariController::class, 'byLocal']);
 Route::get('propietari/user/{id_user}', [PropietariController::class, 'byUser']);
-Route::apiResource('multimediaMusic',MultimediaMusicController::class);
-Route::apiResource('multimediaLocal',MultimediaLocalController::class);
-Route::apiResource('tipusMultimedia',TipusMultimedia::class);
-Route::apiResource('chat',ChatController::class);
+Route::apiResource('multimediaMusic', MultimediaMusicController::class);
+Route::apiResource('multimediaLocal', MultimediaLocalController::class);
+Route::apiResource('tipusMultimedia', TipusMultimedia::class);
+Route::apiResource('chat', ChatController::class);
 
-    Route::get('/chat/{id_propietari}/{id_music}', [ChatController::class, 'show']);
+Route::get('/chat/{id_propietari}/{id_music}', [ChatController::class, 'show']);
 
+Route::get('/musicos-no-contratados', [MusicsController::class, 'getMusicosNoContratados']);

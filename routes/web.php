@@ -53,6 +53,8 @@ Route::get('/music', function () {
     return view('music.music');
 });
 
+
+
 // Route::get('/music/{id}', function () {
 
 //     $musics = Music::with(['user', 'multimedia'])->get();

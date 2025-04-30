@@ -4,13 +4,17 @@ namespace App\Models;
 
 use App\Models\Chat;
 use App\Models\Actuar;
+use App\Models\RolUser;
+use App\Models\Calendari;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Usuari extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $table = 'user';
 

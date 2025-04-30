@@ -15,6 +15,7 @@ import UsuariosCRUD from "./components/usuariosCRUD.vue";
 import mapaLocal from "./components/mapbox/mapboxLocal.vue";
 import FooterEventos from "./components/FooterEventos/FooterCubo.vue";
 import SubirMultimedia from "./components/afegirMultimedia/afegirMultimedia.vue";
+import Contractar from "./components/ContractarActor/ContractarActor.vue";
 import swiperVue  from "./components/swiperVue.vue";
 import ImagenesCartel from "./components/CartelImages.vue"
 import estadisticaslocal from "./components/estadisticas/estadisticaslocal.vue";
@@ -51,6 +52,7 @@ app.component("usuarios-crud", UsuariosCRUD);
 app5.component("mapalocal", mapaLocal);
 app.component("estadisticaslocal", estadisticaslocal);
 app4.component("afegir-multimedia", SubirMultimedia);
+app4.component("contractar", Contractar);
 app2.component("carousel", swiperVue);
 app3.component("cartel-imagen",ImagenesCartel);
 app.component("local-crud", localCRUD);
