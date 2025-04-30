@@ -60,6 +60,16 @@ class MusicsController extends Controller
         }
     }
 
+    public function getMusicosNoContratados() {
+        $musicos = Music::with(['user', 'multimedia_music']) // Cargar las relaciones user y multimedia_music
+            ->whereNotIn('id_user', function($query) {
+                $query->select('id_music')->from('contractar');
+            })
+            ->get();
+
+        return response()->json($musicos);
+    }
+
     /**
      * Display the specified resource.
      */

@@ -14,7 +14,6 @@
 
     <div class="full-screen-bg-primary">
         <?php echo $__env->yieldContent('fonsPantalla'); ?>
-
         <nav class="navbar navbar-expand-lg fixed-top full-width custom-navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php echo e(route('Home')); ?>">
@@ -64,10 +63,15 @@
                         <a href="<?php echo e(route('register')); ?>" class="btn btn-primary me-2">Registrar-se</a>
                     </div>
                 <?php else: ?>
-                <?php if(Auth::user()->id_rol == 2): ?>
-                <div id="app4">
-                    <afegir-multimedia :user-id='<?php echo json_encode(Auth::user()->id_user, 15, 512) ?>'> </afegir-multimedia>
-                </div>
+                    <?php if(Auth::user()->id_rol == 2): ?>
+                        <div id="app4">
+                            <afegir-multimedia :user-id='<?php echo json_encode(Auth::user()->id_user, 15, 512) ?>'> </afegir-multimedia>
+                        </div>
+                    <?php endif; ?>
+                    <?php if(Auth::user()->id_rol == 3): ?>
+                    <div id="app4">
+                        <contractar :user-id='<?php echo json_encode(Auth::user()->id_user, 15, 512) ?>'> </contractar>
+                    </div>
                 <?php endif; ?>
 
                     <div class="nav-item dropdown">
@@ -95,8 +99,10 @@
     </div>
     <?php echo $__env->yieldContent('Contenido_Adicional'); ?>
     <div id="Cubo"></div>
+
+
     <div id="Personalizado">
-        <chat></chat>
+        <chat :usuario-id="<?php echo e(auth()->id()); ?>"></chat>
         <footer-eventos></footer-eventos>
     </div>
     <div class="container">
