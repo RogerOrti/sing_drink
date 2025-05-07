@@ -21,7 +21,6 @@
     <div id="app">
         <carta-local></carta-local>
     </div>
-
     
 <?php $__env->stopSection(); ?>
 

@@ -33,7 +33,8 @@ Route::get('/Home', [UsuariController::class, 'Home'])->name('Home');
 
 Route::get('/quisom', function () {
     return view('quiSom.quisom');
-});
+})->name('quisom');
+
 Route::get('/logout', [UsuariController::class,'logout'])->name('logout');
 
 

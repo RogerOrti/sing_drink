@@ -1,61 +1,65 @@
 <template>
     <div>
-      <div class="cardsLocals">
-        <div class="card m-4" v-for="local in locals" :key="local.id" style="width: 18rem;">
-          <div class="card-body mt-3">
-            <img class="fotoCardLocals m-2" :src="local.multimedia_local.ruta" />
-            <h5 class="card-title m-1">{{ local.nom_local }}</h5>
-            <h5 class="card-title m-2">{{ local.direccio }}</h5>
-            <a :href="'local/' + local.id_local" class="btn btn-primary mt-2">Saber més</a>
-          </div>
+        <div class="cardsLocals">
+            <div class="card m-4" v-for="local in locals" :key="local.id" style="width: 18rem;">
+                <div class="card-body mt-3">
+                    <img class="fotoCardLocals m-2" :src="local.multimedia_local.ruta" />
+                    <h5 class="card-title m-1">{{ local.nom_local }}</h5>
+                    <h5 class="card-title m-2">{{ local.direccio }}</h5>
+                    <a :href="'local/' + local.id_local" class="btn btn-primary mt-2">Saber més</a>
+                    <button @click="$emit('abrir-chat', local.id_local)" class="btn btn-success mt-2">Enviar
+                        Mensaje</button>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <!-- Paginación -->
-      <div class="pagination d-flex justify-content-center align-items-center my-4">
+        <!-- Paginación -->
+        <div class="pagination d-flex justify-content-center align-items-center my-4">
 
-        <button class="btn btn-secondary mx-2" :disabled="currentPage === 1" @click="cambiarPagina(currentPage - 1)">
-          Anterior
-        </button>
-        <span>Página {{ currentPage }} de {{ lastPage }}</span>
-        <button class="btn btn-secondary mx-2" :disabled="currentPage === lastPage" @click="cambiarPagina(currentPage + 1)">
-          Siguiente
-        </button>
-      </div>
+            <button class="btn btn-secondary mx-2" :disabled="currentPage === 1"
+                @click="cambiarPagina(currentPage - 1)">
+                Anterior
+            </button>
+            <span>Página {{ currentPage }} de {{ lastPage }}</span>
+            <button class="btn btn-secondary mx-2" :disabled="currentPage === lastPage"
+                @click="cambiarPagina(currentPage + 1)">
+                Siguiente
+            </button>
+        </div>
     </div>
-  </template>
+</template>
 
-  <script>
-  import axios from "axios";
+<script>
+import axios from "axios";
 
-  export default {
+export default {
     data() {
-      return {
-        locals: [],
-        currentPage: 1,
-        lastPage: 1
-      };
+        return {
+            locals: [],
+            currentPage: 1,
+            lastPage: 1
+        };
     },
     mounted() {
-      this.getLocals();
+        this.getLocals();
     },
     methods: {
-      getLocals(page = 1) {
-        axios.get("locals/paginado", { params: { page } })
-          .then((response) => {
-            this.locals = response.data.data;
-            this.currentPage = response.data.meta.current_page;
-            this.lastPage = response.data.meta.last_page;
-          })
-          .catch((error) => {
-            console.error("Error al cargar los datos:", error);
-          });
-      },
-      cambiarPagina(nuevaPagina) {
-        if (nuevaPagina >= 1 && nuevaPagina <= this.lastPage) {
-          this.getLocals(nuevaPagina);
+        getLocals(page = 1) {
+            axios.get("locals/paginado", { params: { page } })
+                .then((response) => {
+                    this.locals = response.data.data;
+                    this.currentPage = response.data.meta.current_page;
+                    this.lastPage = response.data.meta.last_page;
+                })
+                .catch((error) => {
+                    console.error("Error al cargar los datos:", error);
+                });
+        },
+        cambiarPagina(nuevaPagina) {
+            if (nuevaPagina >= 1 && nuevaPagina <= this.lastPage) {
+                this.getLocals(nuevaPagina);
+            }
         }
-      }
     }
-  };
-  </script>
+};
+</script>

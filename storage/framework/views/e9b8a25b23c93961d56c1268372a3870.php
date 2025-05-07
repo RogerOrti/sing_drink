@@ -15,7 +15,7 @@
         <div>
             <h1 class="titolLocals">ELS NOSTRES MÚSICS</h1>
         </div>
-        <div id="app">
+        <div id="app" class="personalizado">
             <carta-music></carta-music>
         </div>
 
