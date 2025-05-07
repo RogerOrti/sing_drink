@@ -14,7 +14,6 @@
 
     <div class="full-screen-bg-primary">
         <?php echo $__env->yieldContent('fonsPantalla'); ?>
-
         <nav class="navbar navbar-expand-lg fixed-top full-width custom-navbar">
             <div class="container-fluid">
                 <a class="navbar-brand" href="<?php echo e(route('Home')); ?>">
@@ -69,6 +68,11 @@
                             <afegir-multimedia :user-id='<?php echo json_encode(Auth::user()->id_user, 15, 512) ?>'> </afegir-multimedia>
                         </div>
                     <?php endif; ?>
+                    <?php if(Auth::user()->id_rol == 3): ?>
+                    <div id="app4">
+                        <contractar :user-id='<?php echo json_encode(Auth::user()->id_user, 15, 512) ?>'> </contractar>
+                    </div>
+                <?php endif; ?>
 
                     <div class="nav-item dropdown">
                         <div class="dropdown">
