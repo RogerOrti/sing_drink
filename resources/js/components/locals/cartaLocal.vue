@@ -7,8 +7,9 @@
                     <h5 class="card-title m-1">{{ local.nom_local }}</h5>
                     <h5 class="card-title m-2">{{ local.direccio }}</h5>
                     <a :href="'local/' + local.id_local" class="btn btn-primary mt-2">Saber més</a>
-                    <button @click="$emit('abrir-chat', local.id_local)" class="btn btn-success mt-2">Enviar
-                        Mensaje</button>
+                    <button @click="abrirChatCon(local.id_user)" class="btn btn-success mt-2">
+                        Enviar Mensaje
+                    </button>
                 </div>
             </div>
         </div>
@@ -59,7 +60,14 @@ export default {
             if (nuevaPagina >= 1 && nuevaPagina <= this.lastPage) {
                 this.getLocals(nuevaPagina);
             }
+        },
+        abrirChatCon(userId) {
+            window.dispatchEvent(new CustomEvent('abrir-chat-con', {
+                detail: userId
+            }));
         }
+
     }
+    
 };
 </script>
