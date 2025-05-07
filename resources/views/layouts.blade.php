@@ -35,16 +35,16 @@
                             <a class="nav-link active" aria-current="page" href="{{ route('Home') }}">INICI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="locals">LOCALS</a>
+                            <a class="nav-link" href="{{ route('locals.locals') }}">LOCALS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="musics">MUSICS</a>
+                            <a class="nav-link" href="{{ route('musics.musics') }}">MUSICS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">CALENDARI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="quisom">QUI SOM</a>
+                            <a class="nav-link" href="{{ route('quisom') }}">QUI SOM</a>
                         </li>
 
                         <li class="nav-item d-lg-none">
@@ -97,7 +97,7 @@
     </div>
     @yield('Contenido_Adicional')
     <div id="Cubo"></div>
-       
+
 
     <div id="Personalizado">
         <chat :usuario-id="{{ auth()->id() }}"></chat>
@@ -136,7 +136,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function() {
         const navbar = document.querySelector('.custom-navbar');
 
         function updateNavbarBackground() {
