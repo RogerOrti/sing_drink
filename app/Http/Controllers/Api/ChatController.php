@@ -24,9 +24,9 @@ class ChatController extends Controller
 
         public function show($id_propietari, $id_music)
         {
-            $conversacion = Chat::where(function($query) use ($id_propietari, $id_music) {
-                                $query->where('id_propietari', $id_propietari)
-                                    ->where('id_music', $id_music);
+                    $conversacion = Chat::where(function($query) use ($id_propietari, $id_music) {
+                        $query->where('id_propietari', $id_propietari)
+                        ->where('id_music', $id_music);
                             })
                             ->orWhere(function($query) use ($id_propietari, $id_music) {
                                 $query->where('id_propietari', $id_music)
@@ -44,24 +44,21 @@ class ChatController extends Controller
         {
             // Log para verificar los datos recibidos
             Log::info('Datos recibidos para almacenar mensaje:', $request->all());
-        
+
             try {
-                // Crear el mensaje en el modelo Chat
                 $chat = Chat::create([
                     'id_propietari' => $request->id_propietari,
                     'id_music' => $request->id_music,
                     'missatge' => $request->missatge,
                     'enviat' => true,
                 ]);
-        
+
                 Log::info('Mensaje creado correctamente:', $chat->toArray());
-        
-                // Devolver el mensaje con los datos relacionados
+
                 return response()->json(new ChatResource($chat->load(['propietari', 'music'])), 201);
             } catch (\Exception $e) {
-                // Manejo de errores con un registro en los logs
                 Log::error('Error al crear mensaje:', ['error' => $e->getMessage()]);
-        
+
                 return response()->json([
                     'success' => false,
                     'message' => 'Error al almacenar el mensaje',
@@ -69,7 +66,7 @@ class ChatController extends Controller
                 ], 500);
             }
         }
-        
+
     /**
      * Eliminar un mensaje
      */

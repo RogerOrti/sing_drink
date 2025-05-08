@@ -103,7 +103,11 @@ export default {
     methods: {
         toggleChat() {
             this.isChatOpen = !this.isChatOpen;
+            if (this.isChatOpen) {
+                this.fetchChats();
+            }
         },
+
         async fetchChats() {
             try {
                 const response = await axios.get("chat");
