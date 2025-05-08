@@ -66,47 +66,45 @@
                     @if (Auth::user()->id_rol == 2)
                         <div id="app4">
                             <afegir-multimedia :user-id='@json(Auth::user()->id_user)'> </afegir-multimedia>
-                        </div>
                     @endif
                     @if (Auth::user()->id_rol == 3)
-                    <div id="app4">
                         <contractar :user-id='@json(Auth::user()->id_user)'> </contractar>
-                    </div>
-                @endif
+            </div>
+            @endif
 
-                    <div class="nav-item dropdown">
-                        <div class="dropdown">
-                            <a class="hoverable dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ Auth::user()->nom }}
-                            </a>
-                            <div class="dropdown-menu" id="logout">
-                                <a href="{{ route('logout') }}" class="dropdown-item">
-                                    <i aria-hidden="true"></i> Logout
-                                </a>
-                            </div>
-                        </div>
+            <div class="nav-item dropdown">
+                <div class="dropdown">
+                    <a class="hoverable dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::user()->nom }}
+                    </a>
+                    <div class="dropdown-menu" id="logout">
+                        <a href="{{ route('logout') }}" class="dropdown-item">
+                            <i aria-hidden="true"></i> Logout
+                        </a>
                     </div>
-                @endif
-                {{-- <div id="app">
+                </div>
+            </div>
+            @endif
+            {{-- <div id="app">
 
                     <afegir-multimedia></afegir-multimedia>
                 </div> --}}
 
 
 
-            </div>
-        </nav>
-        @yield('PantallaDeInicio')
+    </div>
+    </nav>
+    @yield('PantallaDeInicio')
     </div>
     @yield('Contenido_Adicional')
     <div id="Cubo"></div>
-
 
     <div id="Personalizado">
         <chat :usuario-id="{{ auth()->id() }}"></chat>
         <footer-eventos></footer-eventos>
     </div>
+
     <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 ">
             <div class="col mb-3 ">

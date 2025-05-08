@@ -66,45 +66,43 @@
                     <?php if(Auth::user()->id_rol == 2): ?>
                         <div id="app4">
                             <afegir-multimedia :user-id='<?php echo json_encode(Auth::user()->id_user, 15, 512) ?>'> </afegir-multimedia>
-                        </div>
                     <?php endif; ?>
                     <?php if(Auth::user()->id_rol == 3): ?>
-                    <div id="app4">
                         <contractar :user-id='<?php echo json_encode(Auth::user()->id_user, 15, 512) ?>'> </contractar>
-                    </div>
-                <?php endif; ?>
-
-                    <div class="nav-item dropdown">
-                        <div class="dropdown">
-                            <a class="hoverable dropdown-toggle" type="button" id="dropdownMenuButton1"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <?php echo e(Auth::user()->nom); ?>
-
-                            </a>
-                            <div class="dropdown-menu" id="logout">
-                                <a href="<?php echo e(route('logout')); ?>" class="dropdown-item">
-                                    <i aria-hidden="true"></i> Logout
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-                
-
-
-
             </div>
-        </nav>
-        <?php echo $__env->yieldContent('PantallaDeInicio'); ?>
+            <?php endif; ?>
+
+            <div class="nav-item dropdown">
+                <div class="dropdown">
+                    <a class="hoverable dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php echo e(Auth::user()->nom); ?>
+
+                    </a>
+                    <div class="dropdown-menu" id="logout">
+                        <a href="<?php echo e(route('logout')); ?>" class="dropdown-item">
+                            <i aria-hidden="true"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+            
+
+
+
+    </div>
+    </nav>
+    <?php echo $__env->yieldContent('PantallaDeInicio'); ?>
     </div>
     <?php echo $__env->yieldContent('Contenido_Adicional'); ?>
     <div id="Cubo"></div>
-
 
     <div id="Personalizado">
         <chat :usuario-id="<?php echo e(auth()->id()); ?>"></chat>
         <footer-eventos></footer-eventos>
     </div>
+
     <div class="container">
         <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 ">
             <div class="col mb-3 ">

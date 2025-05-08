@@ -19,8 +19,9 @@
         </div>
     </div>
     <div id="app">
-        <carta-local></carta-local>
+        <carta-local :usuario-id="<?php echo e(auth()->id()); ?>"></carta-local>
     </div>
+
     
 <?php $__env->stopSection(); ?>
 

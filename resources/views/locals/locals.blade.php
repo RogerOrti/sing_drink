@@ -21,7 +21,8 @@
         </div>
     </div>
     <div id="app">
-        <carta-local></carta-local>
+        <carta-local :usuario-id="{{ auth()->id() }}"></carta-local>
     </div>
+
     {{-- <script src="{{ mix('js/app.js') }}"></script> <!-- Asegúrate de tener este script para cargar Vue --> --}}
 @endsection
