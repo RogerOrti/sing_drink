@@ -34,10 +34,10 @@
                             <a class="nav-link active" aria-current="page" href="{{ route('Home') }}">INICI</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('locals.locals') }}">LOCALS</a>
+                            <a class="nav-link" href="{{ url('/locals') }}">LOCALS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('musics.musics') }}">MUSICS</a>
+                            <a class="nav-link" href="{{ url('/musics') }}">MUSICS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">CALENDARI</a>

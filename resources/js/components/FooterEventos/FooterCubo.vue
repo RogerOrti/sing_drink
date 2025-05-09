@@ -2,8 +2,13 @@
     <div class="footerEventos">
         <div class="footerEventosPart1">
             <div v-for="(grupo, index) in grupos" :key="index" class="grupo">
-                <Cubo v-for="(item, index2) in grupo" :key="index2" :image="item.multimedia_music[0]?.ruta"
-                    :text="item.user.nom" />
+                <Cubo
+                    v-for="(item, index2) in grupo"
+                    :key="index2"
+                    :image="item.multimedia_music[0]?.ruta"
+                    :text="item.user.nom"
+                    :idUsuario="item.user.id_user"
+                />
             </div>
         </div>
         <div class="footerEventosPart2">
@@ -13,8 +18,8 @@
 </template>
 
 <script>
-import Cubo from './Cubo.vue';
-import Mapbox from './Mapbox.vue';
+import Cubo from "./Cubo.vue";
+import Mapbox from "./Mapbox.vue";
 
 export default {
     components: {
@@ -38,18 +43,19 @@ export default {
         //         console.error("Error al cargar los datos:", error);
         //     });
 
-        axios.get("musics")
-            .then(response => {
+        axios
+            .get("musics")
+            .then((response) => {
                 console.log("Datos recibidos:", response.data);
                 // Ajustamos las rutas de las imágenes para que apunten a la URL correcta
-                const datosAjustados = response.data.map(item => {
+                const datosAjustados = response.data.map((item) => {
                     // Concatenamos el path correcto para la imagen
                     item.multimedia_music[0].ruta = `/sing_drink/public/${item.multimedia_music[0].ruta}`;
                     return item;
                 });
                 me.cubos = datosAjustados.slice(0, 8);
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error("Error al cargar los datos:", error);
             });
     },
